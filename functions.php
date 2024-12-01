@@ -138,7 +138,8 @@ add_action( 'widgets_init', 'lull_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lull_scripts() {
-	wp_enqueue_style( 'lull-style', get_stylesheet_uri(), array(), _S_VERSION );
+	//wp_enqueue_style( 'lull-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'lull-style', get_stylesheet_uri() . '/sass/style.css', array(), _S_VERSION );
 	wp_style_add_data( 'lull-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'lull-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -148,6 +149,29 @@ function lull_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'lull_scripts' );
+
+/*
+ * Enqueue Google Fonts
+ */
+function lull_enable_google_fonts() {
+	// Define the font URL
+	wp_enqueue_style(
+        'google-fonts',
+        'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap',
+        [],
+        null
+    );
+
+    // Preload Google Fonts
+    add_filter('style_loader_tag', function ($html, $handle) {
+        if ('google-fonts' === $handle) {
+            // Preload
+            $html = str_replace("rel='stylesheet'", "rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\"", $html);
+        }
+        return $html;
+    }, 10, 2);
+}
+add_action('wp_enqueue_scripts', 'lull_enable_google_fonts');
 
 /**
  * Implement the Custom Header feature.
