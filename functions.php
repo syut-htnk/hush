@@ -139,6 +139,7 @@ add_action( 'widgets_init', 'lull_widgets_init' );
  */
 function lull_scripts() {
 	//wp_enqueue_style( 'lull-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'lull-style', get_stylesheet_uri() . '/sass/destyle.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'lull-style', get_stylesheet_uri() . '/sass/style.css', array(), _S_VERSION );
 	wp_style_add_data( 'lull-style', 'rtl', 'replace' );
 
