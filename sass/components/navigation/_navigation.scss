@@ -1,5 +1,8 @@
 .main-navigation {
-	display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
 	width: 100%;
 
 	ul {
@@ -8,14 +11,33 @@
 		padding-left: 0;
 	}
 
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
+	button {
+		background: none;
+		border: 0;
+		color: inherit;
+		font: inherit;
+		margin: 0 16px;
+		padding: 0;
+	}
+
+	#header-menu-sp-wrapper { display: block; }
+	#header-menu-pc-wrapper { display: none; } 
+	.menu-toggle { display: block; }
     @include responsive(tb) { 
         #header-menu-sp-wrapper { display: block; }
-        #header-menu-pc-wrapper { display: none; } 
+        #header-menu-pc-wrapper { display: none; }
+		.menu-toggle { display: block; } 
     }
     @include responsive(pc) { 
         #header-menu-sp-wrapper { display: none; } 
         #header-menu-pc-wrapper { display: block; } 
+		.menu-toggle { display: none; } 
     }
 
     #header-menu-pc-wrapper {
@@ -30,6 +52,122 @@
             margin: 0 16px ;
         }
     }
+
+	// .menu-toggle {
+	// 	z-index: 99999;
+	// }
+
+	#header-menu-sp-wrapper {
+		position: fixed; 
+		top: $size__header-height-sp;
+		@include responsive(tb) { top: $size__header-height-tb; }
+		@include responsive(pc) { top: $size__header-height-pc; }
+		
+		right: -100%;
+		height: 100vh;
+		width: min(100vw, $size__mobile-menu-width-max);
+		background-color: $color__background-body;
+		transition: right 0.75s cubic-bezier(0.8, 0, 0.175, 1);
+		z-index: 9999;
+	
+		ul {
+			display: flex;
+			flex-direction: column;
+			padding: 50px 20px; // メニューアイテムの位置調整
+			gap: 20px;
+		}
+	}
+
+	.menu-toggle {
+		width: 30px;
+		height: 25px;
+		position: relative;
+		cursor: pointer;
+		// display: block;
+	
+		span {
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			background: #000;
+			left: 0;
+			transition: all 0.3s ease-in-out;
+	
+			&:nth-child(1) {
+				top: 0;
+			}
+			&:nth-child(2) {
+				top: 11px;
+				width: 80%;
+			}
+			&:nth-child(3) {
+				top: 22px;
+			}
+		}
+	
+		// トグル時のアニメーション
+		// .toggled & span:nth-child(1) {
+		// 	transform: rotate(45deg);
+		// 	top: 11px;
+		// }
+		// .toggled & span:nth-child(2) {
+		// 	opacity: 0;
+		// }
+		// .toggled & span:nth-child(3) {
+		// 	transform: rotate(-45deg);
+		// 	top: 11px;
+		// }
+	}
+
+	&::before {
+		content: '';
+		position: fixed;
+		top: $size__header-height-sp;
+		height: calc(100vh - $size__header-height-sp);
+		@include responsive(tb) { 
+			top: $size__header-height-tb; 
+			height: calc(100vh - $size__header-height-tb);
+		}
+		@include responsive(pc) { 
+			top: $size__header-height-pc; 
+			height: calc(100vh - $size__header-height-pc);
+		}
+
+		left: 0;
+		width: 100vw;
+		background: rgba(0, 0, 0, 0.9);
+		z-index: 9998;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.75s cubic-bezier(0.8, 0, 0.175, 1);
+	}
+
+	&.toggled {
+		#header-menu-sp-wrapper {
+			right: 0;
+		}
+
+		.menu-toggle {
+			& span:nth-child(1) {
+				transform: rotate(45deg);
+				top: 11px;
+			}
+			& span:nth-child(2) {
+				opacity: 0;
+			}
+			& span:nth-child(3) {
+				transform: rotate(-45deg);
+				top: 11px;
+			}
+		}
+	
+		// Add Overlay
+		&::before {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+
 
 	// 	ul {
 	// 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -93,10 +231,10 @@
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+// .menu-toggle,
+// .main-navigation.toggled ul {
+// 	display: block;
+// }
 
 // @media screen and (min-width: 37.5em) {
 
@@ -109,15 +247,15 @@
 // 	}
 // }
 
-@include responsive(tb) {
-	.menu-toggle { display: block; }
-	//.main-navigation ul { display: none; }
-}
+// @include responsive(tb) {
+// 	.menu-toggle { display: block; }
+// 	//.main-navigation ul { display: none; }
+// }
 
-@include responsive(pc) {
-	.menu-toggle { display: none; }
-	//.main-navigation ul { display: flex; }
-}
+// @include responsive(pc) {
+// 	.menu-toggle { display: none; }
+// 	//.main-navigation ul { display: flex; }
+// }
 
 // .comment-navigation,
 // .posts-navigation,

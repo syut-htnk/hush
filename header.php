@@ -46,7 +46,13 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lull' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<span></span>
+				<span></span>
+				<span></span>
+				<!-- <?php esc_html_e( 'Primary Menu', 'lull' ); ?> -->
+			</button>
+			<!-- <div class="menu-sp-overlay"></div> -->
 			<?php
 			wp_nav_menu(
 				array(
@@ -55,6 +61,7 @@
 					'container_id'   => 'header-menu-sp-wrapper',
 					'container_class' => 'header-menu-wrapper',
 					'fallback_cb'    => '',
+					'items_wrap'     => '<div class="header-menu-sp-wrapper-inner">%3$s</div>',
 				)
 			);
 			?>

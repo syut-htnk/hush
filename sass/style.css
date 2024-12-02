@@ -459,7 +459,7 @@ big {
 /* Elements
 --------------------------------------------- */
 body {
-  background: #fff;
+  background: #FAFAFA;
 }
 
 hr {
@@ -544,7 +544,6 @@ input[type=submit] {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
   border-radius: 3px;
-  background: #e6e6e6;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1;
   padding: 0.6em 1em 0.4em;
@@ -613,6 +612,12 @@ textarea {
   width: 100%;
 }
 
+/* Attributes
+--------------------------------------------- */
+.no-scroll {
+  overflow: hidden;
+}
+
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
@@ -622,13 +627,38 @@ textarea {
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
 }
 .main-navigation ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
+}
+.main-navigation li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-navigation button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0 16px;
+  padding: 0;
+}
+.main-navigation #header-menu-sp-wrapper {
+  display: block;
+}
+.main-navigation #header-menu-pc-wrapper {
+  display: none;
+}
+.main-navigation .menu-toggle {
+  display: block;
 }
 @media (min-width: 512px) {
   .main-navigation #header-menu-sp-wrapper {
@@ -637,6 +667,9 @@ textarea {
   .main-navigation #header-menu-pc-wrapper {
     display: none;
   }
+  .main-navigation .menu-toggle {
+    display: block;
+  }
 }
 @media (min-width: 1024px) {
   .main-navigation #header-menu-sp-wrapper {
@@ -644,6 +677,9 @@ textarea {
   }
   .main-navigation #header-menu-pc-wrapper {
     display: block;
+  }
+  .main-navigation .menu-toggle {
+    display: none;
   }
 }
 .main-navigation #header-menu-pc-wrapper ul {
@@ -656,23 +692,101 @@ textarea {
   padding: 0;
   margin: 0 16px;
 }
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
+.main-navigation #header-menu-sp-wrapper {
+  position: fixed;
+  top: 64px;
+  right: -100%;
+  height: 100vh;
+  width: min(100vw, 320px);
+  background-color: #FAFAFA;
+  transition: right 0.75s cubic-bezier(0.8, 0, 0.175, 1);
+  z-index: 9999;
 }
-
 @media (min-width: 512px) {
-  .menu-toggle {
-    display: block;
+  .main-navigation #header-menu-sp-wrapper {
+    top: 80px;
   }
 }
 @media (min-width: 1024px) {
-  .menu-toggle {
-    display: none;
+  .main-navigation #header-menu-sp-wrapper {
+    top: 96px;
   }
 }
+.main-navigation #header-menu-sp-wrapper ul {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+  gap: 20px;
+}
+.main-navigation .menu-toggle {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+}
+.main-navigation .menu-toggle span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #000;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.main-navigation .menu-toggle span:nth-child(1) {
+  top: 0;
+}
+.main-navigation .menu-toggle span:nth-child(2) {
+  top: 11px;
+  width: 80%;
+}
+.main-navigation .menu-toggle span:nth-child(3) {
+  top: 22px;
+}
+.main-navigation::before {
+  content: "";
+  position: fixed;
+  top: 64px;
+  height: calc(100vh - 64px);
+  left: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.75s cubic-bezier(0.8, 0, 0.175, 1);
+}
+@media (min-width: 512px) {
+  .main-navigation::before {
+    top: 80px;
+    height: calc(100vh - 80px);
+  }
+}
+@media (min-width: 1024px) {
+  .main-navigation::before {
+    top: 96px;
+    height: calc(100vh - 96px);
+  }
+}
+.main-navigation.toggled #header-menu-sp-wrapper {
+  right: 0;
+}
+.main-navigation.toggled .menu-toggle span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 11px;
+}
+.main-navigation.toggled .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.main-navigation.toggled .menu-toggle span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 11px;
+}
+.main-navigation.toggled::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Small menu. */
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -828,7 +942,7 @@ textarea {
   margin: 0;
   align-items: center;
   justify-content: center;
-  width: 256px;
+  width: 196px;
 }
 .site-header .site-branding h1 {
   margin: 0;
@@ -875,7 +989,7 @@ textarea {
   word-wrap: normal !important;
 }
 .screen-reader-text:focus {
-  background-color: #f1f1f1;
+  background-color: #FAFAFA;
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
