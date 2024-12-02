@@ -50,8 +50,22 @@
 			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'theme_location' => 'header-menu-mobile',
+					'container'      => 'nav',
+					'container_id'   => 'header-menu-sp-wrapper',
+					'container_class' => 'header-menu-wrapper',
+					'fallback_cb'    => '',
+				)
+			);
+			?>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'header-menu',
+					'container'      => 'nav',
+					'container_id'   => 'header-menu-pc-wrapper',
+					'container_class' => 'header-menu-wrapper',
+					'fallback_cb'    => '',
 				)
 			);
 			?>

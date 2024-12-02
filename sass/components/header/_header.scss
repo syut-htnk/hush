@@ -1,0 +1,22 @@
+.site-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: $size__header-height-sp;
+    @include responsive(tb) { height: $size__header-height-tb; }
+    @include responsive(pc) { height: $size__header-height-pc; }
+    
+    .site-branding {
+        display: flex;
+        height: inherit;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        width: 256px;
+
+        h1 {margin: 0; padding: 0;}
+        p {margin: 0; padding: 0;}
+    }
+}

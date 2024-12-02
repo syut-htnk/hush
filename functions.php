@@ -49,7 +49,9 @@ function lull_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'lull' ),
+			//'menu-1' => esc_html__( 'Primary', 'lull' ),
+			'header-menu-mobile' => esc_html__( 'header-menu-mobile', 'lull' ),
+			'header-menu' => esc_html__( 'header-menu', 'lull' ),
 		)
 	);
 
@@ -139,9 +141,9 @@ add_action( 'widgets_init', 'lull_widgets_init' );
  */
 function lull_scripts() {
 	//wp_enqueue_style( 'lull-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'lull-style', get_template_directory_uri() . '/sass/destyle.min.css', array(), _S_VERSION );
-	wp_enqueue_style( 'lull-style', get_template_directory_uri() . '/sass/style.css', array(), _S_VERSION );
-	wp_style_add_data( 'lull-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'lull-style-destyle', get_template_directory_uri() . '/sass/destyle.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'lull-style-scss', get_template_directory_uri() . '/sass/style.css', array(), _S_VERSION );
+	//wp_style_add_data( 'lull-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'lull-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

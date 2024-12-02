@@ -390,6 +390,7 @@ optgroup,
 textarea {
   color: #404040;
   font-family: "Zen Kaku Gothic New", serif;
+  font-weight: 900;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -625,77 +626,53 @@ textarea {
   width: 100%;
 }
 .main-navigation ul {
-  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
-.main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 100%;
-  left: -999em;
-  z-index: 99999;
+@media (min-width: 512px) {
+  .main-navigation #header-menu-sp-wrapper {
+    display: block;
+  }
+  .main-navigation #header-menu-pc-wrapper {
+    display: none;
+  }
 }
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
+@media (min-width: 1024px) {
+  .main-navigation #header-menu-sp-wrapper {
+    display: none;
+  }
+  .main-navigation #header-menu-pc-wrapper {
+    display: block;
+  }
 }
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-  display: block;
-  left: auto;
+.main-navigation #header-menu-pc-wrapper ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  gap: 16px;
+  padding: 0;
+  margin: 0 16px;
 }
-.main-navigation ul ul a {
-  width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
-}
-.main-navigation li {
-  position: relative;
-}
-.main-navigation a {
-  display: block;
-  text-decoration: none;
-}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media (min-width: 512px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
   .menu-toggle {
     display: none;
   }
-  .main-navigation ul {
-    display: flex;
-  }
 }
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-  margin: 0 0 1.5em;
-}
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-  display: flex;
-}
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  flex: 1 0 50%;
-}
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  text-align: end;
-  flex: 1 0 50%;
-}
-
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -824,6 +801,42 @@ textarea {
 
 .gallery-caption {
   display: block;
+}
+
+/* Header
+--------------------------------------------- */
+.site-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+@media (min-width: 512px) {
+  .site-header {
+    height: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .site-header {
+    height: 96px;
+  }
+}
+.site-header .site-branding {
+  display: flex;
+  height: inherit;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  width: 256px;
+}
+.site-header .site-branding h1 {
+  margin: 0;
+  padding: 0;
+}
+.site-header .site-branding p {
+  margin: 0;
+  padding: 0;
 }
 
 /*--------------------------------------------------------------
