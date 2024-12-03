@@ -634,16 +634,48 @@ textarea {
 
 #contents-wrapper {
   margin: 0 auto;
-  width: min(100vw, 416px);
   padding: 0 32px;
+  max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   grid-template-areas: "header" "main" "sidebar" "footer";
+  justify-items: center;
+}
+@media (min-width: 768px) {
+  #contents-wrapper {
+    max-width: 736px;
+  }
+}
+@media (min-width: 960px) {
+  #contents-wrapper {
+    max-width: 1208px;
+  }
+}
+@media (min-width: 960px) {
+  #contents-wrapper {
+    grid-template-columns: auto;
+    grid-template-areas: "header header" "main sidebar" "footer footer";
+    -moz-column-gap: 32px;
+         column-gap: 32px;
+  }
 }
 #contents-wrapper #primary {
   display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  #contents-wrapper #primary {
+    grid-template-columns: repeat(2, minmax(0, 320px));
+  }
+}
+@media (min-width: 960px) {
+  #contents-wrapper #primary {
+    grid-template-columns: repeat(2, minmax(0, 380px));
+  }
 }
 #contents-wrapper #secondary {
+  width: 320px;
   display: flex;
   flex-direction: column;
 }
@@ -687,7 +719,7 @@ textarea {
 .main-navigation .menu-toggle {
   display: block;
 }
-@media (min-width: 512px) {
+@media (min-width: 768px) {
   .main-navigation #header-menu-sp-wrapper {
     display: block;
   }
@@ -698,7 +730,7 @@ textarea {
     display: block;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .main-navigation #header-menu-sp-wrapper {
     display: none;
   }
@@ -729,12 +761,12 @@ textarea {
   transition: right 0.75s cubic-bezier(0.8, 0, 0.175, 1);
   z-index: 9999;
 }
-@media (min-width: 512px) {
+@media (min-width: 768px) {
   .main-navigation #header-menu-sp-wrapper {
     top: 80px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .main-navigation #header-menu-sp-wrapper {
     top: 96px;
   }
@@ -782,13 +814,13 @@ textarea {
   pointer-events: none;
   transition: opacity 0.75s cubic-bezier(0.8, 0, 0.175, 1);
 }
-@media (min-width: 512px) {
+@media (min-width: 768px) {
   .main-navigation::before {
     top: 80px;
     height: calc(100vh - 80px);
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .main-navigation::before {
     top: 96px;
     height: calc(100vh - 96px);
@@ -953,12 +985,12 @@ textarea {
   align-items: center;
   height: 64px;
 }
-@media (min-width: 512px) {
+@media (min-width: 768px) {
   .site-header {
     height: 80px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .site-header {
     height: 96px;
   }
