@@ -1,11 +1,11 @@
-.site {
-	display: grid;
-	grid-template-columns: auto ($size__site-sidebar);
-	grid-template-areas:
-		"header header"
-		"main sidebar"
-		"footer footer";
-}
+// .site {
+// 	// display: grid;
+// 	// grid-template-columns: auto ($size__site-sidebar);
+// 	// grid-template-areas:
+// 	// 	"header header"
+// 	// 	"main sidebar"
+// 	// 	"footer footer";
+// }
 
 .site-header {
 	grid-area: header;
@@ -25,3 +25,33 @@
 }
 
 @import "no-sidebar";
+
+#contents-wrapper {
+	margin: 0 auto;
+	width: min(100vw, $size__global-width-max-sp);
+	padding: 0 $size__side-margin;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	grid-template-areas:
+		"header"
+		"main"
+		"sidebar"
+		"footer";
+	// grid-template-columns: auto ($size__site-sidebar);
+	// grid-template-areas:
+	// 	"header header"
+	// 	"main sidebar"
+	// 	"footer footer";	
+
+	#primary {
+		display: grid;
+	}
+
+	#secondary {
+		display: flex;
+		flex-direction: column;
+	}
+
+}
+

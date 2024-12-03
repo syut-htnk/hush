@@ -390,7 +390,7 @@ optgroup,
 textarea {
   color: #404040;
   font-family: "Zen Kaku Gothic New", serif;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -520,19 +520,7 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-  color: #4169e1;
-}
-a:visited {
-  color: #800080;
-}
-a:hover, a:focus, a:active {
-  color: #191970;
-}
-a:focus {
-  outline: thin dotted;
-}
-a:hover, a:active {
-  outline: 0;
+  color: #404040;
 }
 
 /* Forms
@@ -621,12 +609,6 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-.site {
-  display: grid;
-  grid-template-columns: auto 25%;
-  grid-template-areas: "header header" "main sidebar" "footer footer";
-}
-
 .site-header {
   grid-area: header;
 }
@@ -648,6 +630,22 @@ textarea {
   display: grid;
   grid-template-columns: auto;
   grid-template-areas: "header" "main" "footer";
+}
+
+#contents-wrapper {
+  margin: 0 auto;
+  width: min(100vw, 416px);
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-areas: "header" "main" "sidebar" "footer";
+}
+#contents-wrapper #primary {
+  display: grid;
+}
+#contents-wrapper #secondary {
+  display: flex;
+  flex-direction: column;
 }
 
 /*--------------------------------------------------------------
@@ -755,7 +753,7 @@ textarea {
 }
 .main-navigation .menu-toggle span {
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 100%;
   background: #000;
   left: 0;

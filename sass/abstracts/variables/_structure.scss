@@ -1,5 +1,5 @@
 $size__site-main: 100%;
-$size__site-sidebar: 25%;
+$size__site-sidebar: 320px;
 
 $breakpoint__tb: 512px;
 $breakpoint__pc: 1024px;
@@ -14,3 +14,19 @@ $size__header-height-tb: 80px;
 $size__header-height-pc: 96px;
 
 $size__mobile-menu-width-max: 320px;
+
+$size__side-margin: 32px;
+$size__grid-gap: 32px;
+$size__grid-article-width: 320px;
+
+$size__global-width-max-sp: calc(
+    $size__side-margin * 2 
+    + $size__grid-article-width * 1 
+    + $size__grid-gap * 1
+);
+
+$column_num : (
+    'sp': 1,
+    'tb': 2,
+    'pc': 2
+);
