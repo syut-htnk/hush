@@ -12,6 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<div class="breadcrumb"><?php lull_get_breadcrumb(); ?></div>
 	</header><!-- .entry-header -->
 
 	<?php lull_post_thumbnail(); ?>

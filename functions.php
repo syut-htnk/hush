@@ -176,6 +176,26 @@ function lull_enable_google_fonts() {
 }
 add_action('wp_enqueue_scripts', 'lull_enable_google_fonts');
 
+function lull_get_breadcrumb() {
+    echo '<a href="' . home_url() . '" rel="nofollow">Home</a>';
+    if (is_category() || is_single()) {
+        echo ' » ';
+        the_category(' • ');
+        if (is_single()) {
+            echo ' » ';
+            the_title();
+        }
+    } elseif (is_page()) {
+        echo ' » ';
+        the_title();
+    } elseif (is_search()) {
+        echo ' » Search Results for… <em>';
+        echo get_search_query();
+        echo '</em>';
+    }
+}
+
+
 /**
  * Implement the Custom Header feature.
  */
