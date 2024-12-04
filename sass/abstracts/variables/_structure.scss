@@ -9,6 +9,12 @@ $breakpoints : (
     'pc': $breakpoint__pc
 );
 
+$column_num : (
+    sp: 1,
+    tb: 2,
+    pc: 2
+);
+
 $size__header-height-sp: 64px;
 $size__header-height-tb: 80px;
 $size__header-height-pc: 96px;
@@ -41,8 +47,3 @@ $size__global-width-max-pc:
     + $size__side-margin;
 
 
-$column_num : (
-    'sp': 1,
-    'tb': 2,
-    'pc': 2
-);

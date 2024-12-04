@@ -10,6 +10,27 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	
+	<?php
+	// カテゴリーをサムネイルの上に表示
+	if ( 'post' === get_post_type() ) :
+		?>
+		<div class="entry-categories">
+			<?php the_category( ', ' ); // カテゴリーを表示（カンマ区切り） ?>
+		</div><!-- .entry-categories -->
+	<?php endif; ?>
+
+	<?php lull_post_thumbnail(); // サムネイルを表示 ?>
+
+	<?php
+	// 投稿日をサムネイルの下に表示
+	if ( 'post' === get_post_type() ) :
+		?>
+		<div class="entry-date">
+			<?php echo get_the_date('Y-m-d'); // 投稿日を表示 ?>
+		</div><!-- .entry-date -->
+	<?php endif; ?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -29,33 +50,10 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php lull_post_thumbnail(); ?>
-
-	
 	<div class="entry-content">
 		<?php
-		// the_content(
-		// 	sprintf(
-		// 		wp_kses(
-		// 			/* translators: %s: Name of current post. Only visible to screen readers */
-		// 			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'lull' ),
-		// 			array(
-		// 				'span' => array(
-		// 					'class' => array(),
-		// 				),
-		// 			)
-		// 		),
-		// 		wp_kses_post( get_the_title() )
-		// 	)
-		// );
-
-		// wp_link_pages(
-		// 	array(
-		// 		'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lull' ),
-		// 		'after'  => '</div>',
-		// 	)
-		// );
-		// ?>
+		// コンテンツやページリンク関連のコードはコメントアウトされたまま保持
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

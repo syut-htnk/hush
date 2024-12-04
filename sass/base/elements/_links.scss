@@ -1,15 +1,16 @@
 a {
 	color: $color__link;
+	transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 	// &:visited {
 	// 	color: $color__link-visited;
 	// }
 
-	// &:hover,
-	// &:focus,
-	// &:active {
-	// 	color: $color__link-hover;
-	// }
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
 
 	// &:focus {
 	// 	outline: thin dotted;
