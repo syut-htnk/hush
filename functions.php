@@ -177,7 +177,7 @@ function lull_enable_google_fonts() {
 add_action('wp_enqueue_scripts', 'lull_enable_google_fonts');
 
 function lull_get_breadcrumb() {
-    echo '<a href="' . home_url() . '" rel="nofollow">Home</a>';
+    echo '<a href="' . home_url() . '" rel="nofollow">HOME</a>';
     if (is_category() || is_single()) {
         echo ' » ';
         the_category(' • ');
