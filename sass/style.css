@@ -669,12 +669,12 @@ textarea {
   grid-template-columns: 1fr;
 }
 @media (min-width: 768px) {
-  #contents-wrapper #primary.in-front-page {
+  #contents-wrapper #primary.in-front-page, #contents-wrapper #primary.in-archive-page {
     grid-template-columns: repeat(2, minmax(0, 320px));
   }
 }
 @media (min-width: 960px) {
-  #contents-wrapper #primary.in-front-page {
+  #contents-wrapper #primary.in-front-page, #contents-wrapper #primary.in-archive-page {
     grid-template-columns: repeat(2, minmax(0, 380px));
   }
 }

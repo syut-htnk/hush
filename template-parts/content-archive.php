@@ -22,15 +22,6 @@
 
 	<?php lull_post_thumbnail(); // サムネイルを表示 ?>
 
-	<?php
-	// 投稿日をサムネイルの下に表示
-	if ( 'post' === get_post_type() ) :
-		?>
-		<div class="entry-date">
-			<?php echo get_the_date('Y-m-d'); // 投稿日を表示 ?>
-		</div><!-- .entry-date -->
-	<?php endif; ?>
-
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -57,6 +48,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php lull_entry_footer(); ?>
+		<!-- <?php lull_entry_footer(); ?> -->
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

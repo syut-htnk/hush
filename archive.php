@@ -10,16 +10,19 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div id="contents-wrapper" class="contents-wrapper in-archive-page">
+	
+	<header class="page-header">
+		<?php
+		the_archive_title( '<h1 class="page-title">', '</h1>' );
+		the_archive_description( '<div class="archive-description">', '</div>' );
+		?>
+	</header><!-- .page-header -->
+
+	<main id="primary" class="site-main in-archive-page">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
 
 			<?php
 			/* Start the Loop */
@@ -45,7 +48,7 @@ get_header();
 		?>
 
 	</main><!-- #main -->
-
+	<?php get_sidebar(); ?>
+</div><!-- #contents-wrapper -->
 <?php
-get_sidebar();
 get_footer();
