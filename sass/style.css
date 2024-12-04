@@ -719,6 +719,10 @@ textarea {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+#contents-wrapper #primary .posts-navigation {
+  display: block;
+  width: 100%;
+}
 #contents-wrapper #secondary {
   width: 320px;
   display: flex;

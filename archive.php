@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <div id="contents-wrapper" class="contents-wrapper in-archive-page">
-	
+
 	<header class="page-header">
 		<?php
 		the_archive_title( '<h1 class="page-title">', '</h1>' );
@@ -38,8 +38,6 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
-
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -50,5 +48,8 @@ get_header();
 	</main><!-- #main -->
 	<?php get_sidebar(); ?>
 </div><!-- #contents-wrapper -->
+
+<?php the_posts_navigation(); ?>
+
 <?php
 get_footer();
