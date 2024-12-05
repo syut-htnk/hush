@@ -177,6 +177,23 @@ function lull_enable_google_fonts() {
 }
 add_action('wp_enqueue_scripts', 'lull_enable_google_fonts');
 
+/*
+ * Enqueue swiper files
+ */
+function lull_add_swiper_files() {
+	// CSS
+	wp_enqueue_style('swiper-style', get_template_directory_uri() . '/assets/swiper/swiper-bundle.min.css', array(), '1.0.0');
+	//wp_enqueue_style('swiper-css-style', get_template_directory_uri() . '/css/slider.css', array('swiper-style'), '1.0.0');
+
+	// JS
+	/*
+		* load in footer
+		*/
+	wp_enqueue_script( 'swiper-script', get_template_directory_uri() . '/assets/swiper/swiper-bundle.min.js', array(), '1.0.0', true);
+	wp_enqueue_script( 'swiper-js-script', get_template_directory_uri() . '/js/swiper.js', array('swiper-script'), '1.0.0', true);
+}
+add_action( 'wp_enqueue_scripts', 'lull_add_swiper_files' );
+
 function lull_get_breadcrumb() {
     echo '<a href="' . home_url() . '" rel="nofollow">HOME</a>';
     if (is_category() || is_single()) {
