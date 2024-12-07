@@ -389,10 +389,10 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 500;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 h1,
@@ -402,10 +402,27 @@ h4,
 h5,
 h6 {
   clear: both;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  padding: 1.25rem 0;
+}
+
+h4 {
+  font-size: 1.125rem;
+  padding: 1.125rem 0;
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
 }
 
 dfn,
@@ -690,7 +707,7 @@ textarea {
   flex-direction: row;
   gap: 8px;
   margin: 0;
-  padding: 16px 0;
+  padding: 0.75rem 0;
 }
 #contents-wrapper #primary article .entry-categories a {
   color: #6d6d6d;
@@ -717,7 +734,6 @@ textarea {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
-  padding-bottom: 2rem;
 }
 #contents-wrapper #primary article .entry-header h2.entry-title {
   margin: 0;
@@ -739,7 +755,8 @@ textarea {
   flex-direction: row;
   gap: 8px;
   margin: 0;
-  padding: 16px 0;
+  font-size: 0.75rem;
+  font-weight: 300;
 }
 #contents-wrapper #primary article .entry-header .entry-meta .entry-date {
   color: #6d6d6d;
@@ -977,6 +994,11 @@ textarea {
   height: 24px;
 }
 
+.breadcrumb {
+  margin: 2rem 0 1rem 0;
+  font-size: 0.75rem;
+}
+
 /* Media
 --------------------------------------------- */
 .page-content .wp-smiley,
@@ -1138,8 +1160,105 @@ textarea {
 .site-footer {
   background-color: #000000;
   color: #fdfdfd;
+}
+
+.footer-contents-wrapper {
+  margin: 0 auto;
   padding: 1em;
-  text-align: center;
+  padding: 0 32px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "left" "center" "right";
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .footer-contents-wrapper {
+    max-width: 736px;
+  }
+}
+@media (min-width: 960px) {
+  .footer-contents-wrapper {
+    max-width: 1208px;
+  }
+}
+@media (min-width: 768px) {
+  .footer-contents-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "right right" "left center";
+    -moz-column-gap: 32px;
+         column-gap: 32px;
+  }
+}
+@media (min-width: 960px) {
+  .footer-contents-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left center right";
+    -moz-column-gap: 32px;
+         column-gap: 32px;
+  }
+}
+.footer-contents-wrapper .footer-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.footer-contents-wrapper .footer-left .footer-category-list {
+  justify-content: flex-start;
+  align-items: left;
+  justify-items: left;
+  list-style: none;
+  margin: 0;
+}
+.footer-contents-wrapper .footer-left a {
+  color: #fdfdfd;
+  text-decoration: none;
+}
+.footer-contents-wrapper .footer-left a:hover {
+  color: #404040;
+}
+.footer-contents-wrapper .footer-center {
+  grid-area: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.footer-contents-wrapper .footer-center .footer-tag-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-contents-wrapper .footer-center a {
+  color: #fdfdfd;
+  text-decoration: none;
+}
+.footer-contents-wrapper .footer-center a:hover {
+  color: #404040;
+}
+.footer-contents-wrapper .footer-right {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.footer-contents-wrapper .footer-right ul {
+  list-style: none;
+}
+.footer-contents-wrapper .footer-right a {
+  color: #fdfdfd;
+  text-decoration: none;
+}
+.footer-contents-wrapper .footer-right a:hover {
+  color: #404040;
 }
 
 /* Swiper Slider

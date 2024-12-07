@@ -85,7 +85,7 @@
 				flex-direction: row;
 				gap: 8px;
 				margin: 0;
-				padding: 16px 0;
+				padding: .75rem 0;
 
 				a {
 					color: $color__text-sub;
@@ -117,7 +117,7 @@
 					
 					font-size: 1.5rem;
 					font-weight: $font__weight-bold;
-					padding-bottom: 2rem;
+					//padding-bottom: 2rem;
 					// display: -webkit-box;
 					// -webkit-line-clamp: 3;
 					// -webkit-box-orient: vertical;
@@ -145,7 +145,10 @@
 					flex-direction: row;
 					gap: 8px;
 					margin: 0;
-					padding: 16px 0;
+					//padding: 16px 0;
+
+					font-size: .75rem;
+					font-weight: 300;
 
 					.entry-date {
 						color: $color__text-sub;

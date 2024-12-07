@@ -11,7 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<div class="entry-categories"><?php the_category( ', ' );?></div>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<div class="entry-meta"><?php lull_posted_on(); ?></div>
 		<div class="breadcrumb"><?php lull_get_breadcrumb(); ?></div>
 	</header><!-- .entry-header -->
 

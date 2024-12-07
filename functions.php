@@ -52,6 +52,7 @@ function lull_setup() {
 			//'menu-1' => esc_html__( 'Primary', 'lull' ),
 			'header-menu-mobile' => esc_html__( 'header-menu-mobile', 'lull' ),
 			'header-menu' => esc_html__( 'header-menu', 'lull' ),
+			'footer-menu' => esc_html__( 'footer-menu', 'lull' ),
 		)
 	);
 
@@ -160,8 +161,8 @@ function lull_enable_google_fonts() {
 	// Define the font URL
 	wp_enqueue_style(
         'google-fonts',
-        //'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap',
-		'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@500;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap',
+		//'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@500;700&display=swap',
         [],
         null
     );
