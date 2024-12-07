@@ -720,6 +720,7 @@ textarea {
   gap: 4px;
   margin: 0;
   padding: 16px 0;
+  font-size: 0.75rem;
 }
 #contents-wrapper #primary article .entry-tags a {
   color: #6d6d6d;
