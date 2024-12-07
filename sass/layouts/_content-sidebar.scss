@@ -28,7 +28,8 @@
 
 #contents-wrapper {
 	margin: 0 auto;
-	width: min(100vw, $size__global-width-max-sp);
+	//width: min(100vw, $size__global-width-max-pc);
+	//max-width: $size__global-width-max-pc;
 
 	padding: 0 $size__side-margin;
 	//max-width: 100%;
@@ -66,7 +67,7 @@
 		gap: $size__grid-gap;
 		grid-template-columns: 1fr;
 
-		width: calc(100vw - 64px);
+		max-width: calc(100vw - 64px);
 		margin: 0 auto;
 
 		&.in-front-page,

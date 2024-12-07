@@ -53,28 +53,45 @@
 				<!-- <?php esc_html_e( 'Primary Menu', 'lull' ); ?> -->
 			</button>
 			<!-- <div class="menu-sp-overlay"></div> -->
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'header-menu-mobile',
-					'container'      => 'nav',
-					'container_id'   => 'header-menu-sp-wrapper',
-					'container_class' => 'header-menu-wrapper',
-					'fallback_cb'    => '',
-					'items_wrap'     => '<div class="header-menu-sp-wrapper-inner">%3$s</div>',
-				)
-			);
-			?>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'header-menu',
-					'container'      => 'nav',
-					'container_id'   => 'header-menu-pc-wrapper',
-					'container_class' => 'header-menu-wrapper',
-					'fallback_cb'    => '',
-				)
-			);
-			?>
+			<nav id="header-menu-sp-wrapper" class="header-menu-wrapper">
+				<h4 class="header-sp-title">Menu</h4>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'header-menu-mobile',
+						// 'container'      => 'nav',
+						// 'container_id'   => 'header-menu-sp-wrapper',
+						// 'container_class' => 'header-menu-wrapper',
+						'fallback_cb'    => '',
+						//'items_wrap'     => '<div class="header-menu-sp-wrapper-inner">%3$s</div>',
+					)
+				);
+				?>
+				<h4 class="header-sp-title">Categories</h4>
+				<ul class="header-category-list">
+					<?php wp_list_categories(
+						array(
+							'orderby'    => 'name',       // Order categories by name
+							'order'      => 'ASC',        // Order categories ascendingly
+							'show_count' => 0,            // Do not display the number of posts in each category
+							'hide_empty' => 1,            // Hide categories with no posts
+							'title_li'   => '',           // Remove the list title
+						)); 
+					?>
+				</ul>
+			</nav>
+			<div>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'header-menu',
+						'container'      => 'nav',
+						'container_id'   => 'header-menu-pc-wrapper',
+						'container_class' => 'header-menu-wrapper',
+						'fallback_cb'    => '',
+					)
+				);
+				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
