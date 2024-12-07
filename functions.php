@@ -324,6 +324,146 @@ function lull_add_index( $content ) {
 }
 add_filter( 'the_content', 'lull_add_index' );
 
+/*
+ * Add noindex meta box
+ */
+function lull_manage_noindex_meta_box() {
+    add_meta_box(
+        'noindex_meta_box',        // ID
+        'SEO設定: noindex',        // タイトル
+        'lull_noindex_meta_box_cb',// コールバック関数 (メタボックスの内容)
+        ['post', 'page'],          // 対象投稿タイプ (投稿と固定ページ)
+        'side',                    // 表示位置 (サイド)
+        'default'                  // 優先度
+    );
+}
+add_action('add_meta_boxes', 'lull_manage_noindex_meta_box');
+
+function lull_noindex_meta_box_cb($post) {
+    $value = get_post_meta($post->ID, '_noindex_meta_key', true); // 既存の値を取得
+    // Nonceフィールドを追加
+    wp_nonce_field('noindex_meta_action', 'noindex_meta_nonce');
+    ?>
+    <label for="noindex_meta">
+        <input type="checkbox" name="noindex_meta" id="noindex_meta" value="1" <?php checked($value, '1'); ?> />
+        この投稿をnoindexにする
+    </label>
+    <?php
+}
+
+function lull_save_noindex_meta($post_id) {
+    // Nonce確認
+    if (!isset($_POST['noindex_meta_nonce']) || 
+        !wp_verify_nonce($_POST['noindex_meta_nonce'], 'noindex_meta_action')) {
+        return;
+    }
+
+    // 自動保存の場合は何もしない
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    // 権限を確認
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    // フィールドが送信されている場合に保存、されていなければ削除
+    if (isset($_POST['noindex_meta'])) {
+        update_post_meta($post_id, '_noindex_meta_key', '1');
+    } else {
+        delete_post_meta($post_id, '_noindex_meta_key');
+    }
+}
+add_action('save_post', 'lull_save_noindex_meta');
+
+function lull_add_noindex_meta_tag() {
+    if (is_singular()) {
+        $noindex = get_post_meta(get_the_ID(), '_noindex_meta_key', true);
+        if ($noindex) {
+            echo '<meta name="robots" content="noindex">';
+        }
+    }
+}
+add_action('wp_head', 'lull_add_noindex_meta_tag');
+
+/*
+ * Add description meta box
+ */
+
+function lull_manage_meta_boxes() {
+	add_meta_box(
+		'meta_boxes',             // ID
+		'SEO設定: Meta情報',      // タイトル
+		'lull_meta_boxes_cb',     // コールバック関数
+		['post', 'page'],         // 対象投稿タイプ
+		'side',                   // 表示位置
+		'default'                 // 優先度
+	);
+}
+add_action('add_meta_boxes', 'lull_manage_meta_boxes');
+
+function lull_meta_boxes_cb($post) {
+    // 既存の値を取得
+    $description = get_post_meta($post->ID, '_meta_description', true);
+    $keywords = get_post_meta($post->ID, '_meta_keywords', true);
+
+    // Nonceフィールドを追加
+    wp_nonce_field('meta_boxes_action', 'meta_boxes_nonce');
+
+    ?>
+    <p>
+        <label for="meta_description">Meta Description:</label><br>
+        <textarea name="meta_description" id="meta_description" rows="3" style="width:100%;"><?php echo esc_textarea($description); ?></textarea>
+    </p>
+    <p>
+        <label for="meta_keywords">Meta Keywords:</label><br>
+        <input type="text" name="meta_keywords" id="meta_keywords" value="<?php echo esc_attr($keywords); ?>" style="width:100%;" />
+    </p>
+    <?php
+}
+
+function lull_save_meta_boxes($post_id) {
+    // Nonce確認
+    if (!isset($_POST['meta_boxes_nonce']) || 
+        !wp_verify_nonce($_POST['meta_boxes_nonce'], 'meta_boxes_action')) {
+        return;
+    }
+
+    // 自動保存の場合は何もしない
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    // 権限を確認
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    // Meta Descriptionを保存
+    if (isset($_POST['meta_description'])) {
+        update_post_meta($post_id, '_meta_description', sanitize_textarea_field($_POST['meta_description']));
+    } else {
+        delete_post_meta($post_id, '_meta_description');
+    }
+
+    // Meta Keywordsを保存
+    if (isset($_POST['meta_keywords'])) {
+        update_post_meta($post_id, '_meta_keywords', sanitize_text_field($_POST['meta_keywords']));
+    } else {
+        delete_post_meta($post_id, '_meta_keywords');
+    }
+}
+add_action('save_post', 'lull_save_meta_boxes');
+
+function lull_add_meta_tags() {
+    if (is_singular()) {
+        // Meta Description
+        $description = get_post_meta(get_the_ID(), '_meta_description', true);
+        if ($description) {
+            echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+        }
+
+        // Meta Keywords
+        $keywords = get_post_meta(get_the_ID(), '_meta_keywords', true);
+        if ($keywords) {
+            echo '<meta name="keywords" content="' . esc_attr($keywords) . '">' . "\n";
+        }
+    }
+}
+add_action('wp_head', 'lull_add_meta_tags');
 
 /**
  * Implement the Custom Header feature.
