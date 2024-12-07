@@ -38,6 +38,18 @@
 				//lull_posted_by();
 				?>
 			</div><!-- .entry-meta -->
+
+			<div class="entry-tags">
+			<?php 
+				if (get_the_tags()) : // タグがあるか確認
+					foreach (get_the_tags() as $tag) : ?>
+						<a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="tag-link">
+						<?php echo '#' . esc_html($tag->name); ?>
+						</a>
+					<?php endforeach; 
+				endif; 
+			?>
+			</div><!-- .entry-categories -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 

@@ -92,6 +92,20 @@
 				}
 			}
 
+			.entry-tags {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: row;
+				gap: 4px;
+				margin: 0;
+				padding: 16px 0;
+
+				a {
+					color: $color__text-sub;
+				}
+			}
+
 			.entry-header {
 				margin: 0;
 				padding: 0;
@@ -121,6 +135,20 @@
 						-webkit-line-clamp: 3;
 						-webkit-box-orient: vertical;
 						overflow: hidden;
+					}
+				}
+
+				.entry-meta {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: row;
+					gap: 8px;
+					margin: 0;
+					padding: 16px 0;
+
+					.entry-date {
+						color: $color__text-sub;
 					}
 				}
 			}

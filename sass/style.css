@@ -694,6 +694,18 @@ textarea {
 #contents-wrapper #primary article .entry-categories a {
   color: #6d6d6d;
 }
+#contents-wrapper #primary article .entry-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+  margin: 0;
+  padding: 16px 0;
+}
+#contents-wrapper #primary article .entry-tags a {
+  color: #6d6d6d;
+}
 #contents-wrapper #primary article .entry-header {
   margin: 0;
   padding: 0;
@@ -718,6 +730,18 @@ textarea {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+#contents-wrapper #primary article .entry-header .entry-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0;
+  padding: 16px 0;
+}
+#contents-wrapper #primary article .entry-header .entry-meta .entry-date {
+  color: #6d6d6d;
 }
 #contents-wrapper #primary .posts-navigation {
   display: block;
