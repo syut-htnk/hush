@@ -35,7 +35,7 @@
 			<div class="entry-meta">
 				<?php
 				lull_posted_on();
-				lull_posted_by();
+				//lull_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
