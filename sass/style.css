@@ -898,7 +898,7 @@ textarea {
   list-style: none;
   gap: 16px;
   padding: 0;
-  margin: 0 16px;
+  margin: 0 24px;
 }
 .main-navigation #header-menu-sp-wrapper {
   position: fixed;
@@ -1240,7 +1240,7 @@ textarea {
 .site-header .site-branding {
   display: flex;
   height: inherit;
-  margin: 0 16px;
+  margin: 0 24px;
   align-items: center;
   justify-content: center;
   width: 196px;
