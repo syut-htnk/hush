@@ -1268,7 +1268,7 @@ textarea {
   max-width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas: "left" "center" "right";
+  grid-template-areas: "left" "center" "right" "bottom";
   align-items: start;
 }
 @media (min-width: 768px) {
@@ -1284,7 +1284,7 @@ textarea {
 @media (min-width: 768px) {
   .footer-contents-wrapper {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "right right" "left center";
+    grid-template-areas: "center center" "left right" "bottom bottom";
     -moz-column-gap: 32px;
          column-gap: 32px;
   }
@@ -1292,7 +1292,7 @@ textarea {
 @media (min-width: 960px) {
   .footer-contents-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "left center right";
+    grid-template-areas: "left center right" "bottom bottom bottom";
     -moz-column-gap: 32px;
          column-gap: 32px;
   }
@@ -1358,6 +1358,11 @@ textarea {
 }
 .footer-contents-wrapper .footer-right a:hover {
   color: #404040;
+}
+.footer-contents-wrapper .footer-bottom {
+  grid-area: bottom;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 /* Swiper Slider

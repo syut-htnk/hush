@@ -16,7 +16,8 @@
     grid-template-areas:
         "left"
         "center"
-        "right";
+        "right"
+        "bottom";
 
     align-items: start;
 
@@ -24,8 +25,9 @@
     @include responsive(tb) {
         grid-template-columns: 1fr 1fr; 
         grid-template-areas:
-            "right right"
-            "left center";
+            "center center"
+            "left right"
+            "bottom bottom";
         column-gap: $size__grid-gap;
         //grid-template-columns: 1fr ;
     }
@@ -34,7 +36,8 @@
     @include responsive(pc) {
 		grid-template-columns: 1fr 1fr 1fr; 
 		grid-template-areas:
-			"left center right";
+			"left center right"
+            "bottom bottom bottom";
 		column-gap: $size__grid-gap;
 		//grid-template-columns: 1fr ;
 	}
@@ -112,6 +115,12 @@
                 color: $color__text-main;
             }
         }
+    }
+
+    .footer-bottom {
+        grid-area: bottom;
+        text-align: center;
+        margin: 2rem 0;
     }
 
 

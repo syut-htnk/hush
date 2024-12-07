@@ -64,9 +64,6 @@
 			</div>
 		</section>
 
-
-
-
 		<section class="footer-right">
 			<h4 class="footer-title">Contents</h4>
 			<?php
@@ -80,6 +77,10 @@
 				)
 			);
 			?>
+		</section>
+
+		<section class="footer-bottom">
+			<p>&copy; 2024 puroam.com All rights reserved. </p>
 		</section>
 
 		</div>
