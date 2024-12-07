@@ -16,33 +16,38 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 
 	<!-- Recommended Posts -->
-	<section class="widget widget_recent_entries">
-		<h2 class="widget-title">Recommended Posts</h2>
-		<ul>
-			<?php
-			$recommended_posts = new WP_Query( array(
-				'posts_per_page' => 5,
-				'orderby' => 'rand'
-			) );
+	<section class="widget widget_recomended">
+	<h4 class="widget-title">Recomended Posts</h4>
+	<?php
+		// 表示したい投稿IDを配列で指定
+		$include_ids = [1011, 993, 1148];
 
-			if ( $recommended_posts->have_posts() ) {
-				while ( $recommended_posts->have_posts() ) {
-					$recommended_posts->the_post();
-					?>
-					<li>
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					</li>
-					<?php
-				}
-			}
+		// カスタムクエリを作成
+		$args = [
+			'post__in'       => $include_ids, // 指定したIDのみ取得
+			'post_type'      => 'post',       // 投稿タイプ（例: post, page）
+			'orderby'        => 'post__in',   // 配列の順序で取得
+			'posts_per_page' => -1,           // 全て取得
+		];
+		$query = new WP_Query($args);
+
+		if ($query->have_posts()) :
+			while ($query->have_posts()) :
+				$query->the_post();
+				//echo '<p>Post ID: ' . get_the_ID() . '</p>';
+				get_template_part( 'template-parts/content-sidebar', get_post_type() );
+			endwhile;
 			wp_reset_postdata();
-			?>
-		</ul>
+
+		else :
+			echo '<p>No posts found.</p>';
+		endif;
+	?>
 	</section>
 
 	<!-- Categories -->
 	<section class="widget widget_categories">
-		<h2 class="widget-title">Categories</h2>
+		<h4 class="widget-title">Categories</h4>
 		<ul>
 			<?php
 			$categories = get_categories( array(

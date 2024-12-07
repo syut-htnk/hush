@@ -772,6 +772,53 @@ textarea {
   display: flex;
   flex-direction: column;
 }
+#contents-wrapper #secondary .widget-title {
+  text-align: center;
+}
+#contents-wrapper #secondary .post-wrapper {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  grid-template-areas: "post_left post_right";
+  gap: 16px;
+}
+#contents-wrapper #secondary .post-wrapper .post-thumbnail {
+  grid-area: post_left;
+  width: 128px;
+  height: 128px;
+}
+#contents-wrapper #secondary .post-wrapper .post-thumbnail .wp-post-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#contents-wrapper #secondary .post-wrapper .entry-header {
+  grid-area: post_right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+#contents-wrapper #secondary .post-wrapper .entry-header .entry-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#contents-wrapper #secondary .post-wrapper .entry-header .entry-meta {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+#contents-wrapper #secondary .post-wrapper .entry-header .entry-tags {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
 
 /*--------------------------------------------------------------
 # Components
@@ -1142,6 +1189,23 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 .site-main.in-archive-page .post-thumbnail:hover .attachment-post-thumbnail {
+  transform: scale(1.05);
+}
+
+#secondary .post-thumbnail {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+#secondary .post-thumbnail .attachment-post-thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+#secondary .post-thumbnail:hover .attachment-post-thumbnail {
   transform: scale(1.05);
 }
 

@@ -43,3 +43,25 @@
         }
     }
 }   
+
+#secondary {
+    .post-thumbnail {
+        position: relative;
+        display: block;
+        overflow: hidden;
+
+        .attachment-post-thumbnail {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: $transition-master;
+        }
+
+        &:hover {
+            .attachment-post-thumbnail {
+                transform: scale(1.05);
+            }
+        }
+    }
+}

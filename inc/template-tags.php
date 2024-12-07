@@ -154,6 +154,36 @@ if ( ! function_exists( 'lull_post_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'lull_post_thumbnail_link' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function lull_post_thumbnail_link() {
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		}
+		?>
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php
+				the_post_thumbnail(
+					'post-thumbnail',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
+			?>
+		</a>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.
