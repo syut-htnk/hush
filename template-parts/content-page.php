@@ -17,6 +17,9 @@
 
 	<?php lull_post_thumbnail(); ?>
 
+	<!-- <?php lull_get_sns_buttons(); ?> -->
+
+
 	<div class="entry-content">
 		<?php
 		the_content();

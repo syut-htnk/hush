@@ -6,3 +6,16 @@
 		max-width: 100%;
 	}
 }
+
+.sns-buttons-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+
+	.sns-button {
+		width: 24px;
+		height: 24px;
+	}
+}

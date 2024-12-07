@@ -213,6 +213,44 @@ function lull_get_breadcrumb() {
     }
 }
 
+function lull_get_sns_buttons() {
+    // 現在の投稿の URL とタイトルを取得
+    $url   = urlencode(get_permalink());
+    $title = urlencode(get_the_title());
+
+    // テーマディレクトリのURLを取得
+    $template_directory = get_template_directory_uri();
+
+    // 各 SNS のボタンを生成
+    $html = '<div class="sns-buttons-wrapper">';
+
+    // Twitter
+	//$html .= '<button id="twitter-button" class="sns-button" data-url="' . $url . '" data-text="' . $title . '" data-lang="ja">';
+    $html .= '<a id="twitter-button" class="sns-button" href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $url . '" target="_blank" rel="noopener noreferrer">';
+    $html .= '<img src="' . $template_directory . '/assets/img/svg/twitter.svg" alt="Twitterでシェア">';
+    $html .= '</a>';
+	//$html .= '</button>';
+
+    // LINE
+	//$html .= '<button id="line-button" class="sns-button" data-url="' . $url . '" data-text="' . $title . '" data-lang="ja">';
+    $html .= '<a id="line-button" class="sns-button" href="https://social-plugins.line.me/lineit/share?url=' . $url . '" target="_blank" rel="noopener noreferrer">';
+    $html .= '<img src="' . $template_directory . '/assets/img/svg/line.svg" alt="LINEでシェア">';
+    $html .= '</a>';
+	//$html .= '</button>';
+
+    // Pinterest
+    // 必要に応じて有効化
+    // $html .= '<a href="https://pinterest.com/pin/create/button/?url=' . $url . '&media=' . $media . '&description=' . $title . '" target="_blank" rel="noopener noreferrer">';
+    // $html .= '<img src="' . $template_directory . '/images/pinterest-icon.png" alt="Pinterestでシェア">';
+    // $html .= '</a>';
+
+    $html .= '</div>';
+
+    // HTML を出力
+    echo $html;
+}
+
+
 
 /**
  * Implement the Custom Header feature.

@@ -460,6 +460,7 @@ big {
 --------------------------------------------- */
 body {
   background: #FAFAFA;
+  font-size: 16px;
 }
 
 hr {
@@ -714,9 +715,9 @@ textarea {
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  padding-bottom: 32px;
+  padding-bottom: 2rem;
 }
 #contents-wrapper #primary article .entry-header h2.entry-title {
   margin: 0;
@@ -962,6 +963,18 @@ textarea {
 }
 .widget select {
   max-width: 100%;
+}
+
+.sns-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.sns-buttons-wrapper .sns-button {
+  width: 24px;
+  height: 24px;
 }
 
 /* Media
