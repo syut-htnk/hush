@@ -756,6 +756,7 @@ textarea {
   flex-direction: row;
   gap: 8px;
   margin: 0;
+  padding: 0.75rem 0;
   font-size: 0.75rem;
   font-weight: 300;
 }
@@ -1000,6 +1001,30 @@ textarea {
   font-size: 0.75rem;
 }
 
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagination {
+  grid-column: span 2; /* Span across both columns */
+  margin: 1.5em 0;
+  text-align: center; /* Center-align pagination */
+}
+.pagination .page-numbers {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+  color: #6d6d6d;
+  text-decoration: none;
+}
+.pagination .page-numbers.current {
+  color: #404040;
+}
+
 /* Media
 --------------------------------------------- */
 .page-content .wp-smiley,
@@ -1166,7 +1191,7 @@ textarea {
 .footer-contents-wrapper {
   margin: 0 auto;
   padding: 1em;
-  padding: 0 32px;
+  padding: 32px 32px;
   max-width: 100%;
   display: grid;
   grid-template-columns: 1fr;

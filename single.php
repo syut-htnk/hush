@@ -39,12 +39,12 @@ get_header();
 	</div><!-- #contents-wrapper -->
 
 	<?php 
-		the_post_navigation(
-			array(
-				'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'lull' ) . '</span> <span class="nav-title">%title</span>',
-				'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'lull' ) . '</span> <span class="nav-title">%title</span>',
-			)
-		); 
+		// the_post_navigation(
+		// 	array(
+		// 		'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'lull' ) . '</span> <span class="nav-title">%title</span>',
+		// 		'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'lull' ) . '</span> <span class="nav-title">%title</span>',
+		// 	)
+		// ); 
 	?>
 <?php
 get_footer();

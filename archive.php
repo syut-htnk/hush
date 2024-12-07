@@ -49,7 +49,9 @@ get_header();
 	<?php get_sidebar(); ?>
 </div><!-- #contents-wrapper -->
 
-<?php the_posts_navigation(); ?>
+<!-- <?php the_posts_navigation(); ?> -->
+
+
 
 <?php
 get_footer();

@@ -16,22 +16,18 @@ get_header();
 ?>
 
 <!-- Slider main container -->
-<div class="swiper">
-  <!-- Additional required wrapper -->
+<!-- <div class="swiper">
   <div class="swiper-wrapper">
-    <!-- Slides -->
     <div class="swiper-slide">Slide 1</div>
     <div class="swiper-slide">Slide 2</div>
     <div class="swiper-slide">Slide 3</div>
     ...
   </div>
-  <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
 
-  <!-- If we need navigation buttons -->
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-</div>
+</div> -->
 
 <div id="contents-wrapper" class="contents-wrapper in-front-page">
 	<main id="primary" class="site-main in-front-page">
@@ -69,11 +65,24 @@ get_header();
 		endif;
 		?>
 
+		<div class="pagination">
+			<?php the_posts_pagination(
+				array(
+					'mid_size'  => 5,
+					'prev_text' => __( '<<', 'lull' ),
+					'next_text' => __( '>>', 'lull' ),
+				)
+			); ?>
+		</div>
+
+
 	</main><!-- #main -->
 	<?php get_sidebar(); ?>
 </div>
 
-<?php the_posts_navigation(); ?>
+<!-- <?php the_posts_navigation(); ?> -->
+
+
 
 <?php
 get_footer();

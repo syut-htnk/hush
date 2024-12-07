@@ -6,7 +6,7 @@
 .footer-contents-wrapper {
     margin: 0 auto;
     padding: 1em;
-    padding: 0 $size__side-margin;
+    padding: 32px $size__side-margin;
 	max-width: 100%;
 	@include responsive(tb) { max-width: $size__global-width-max-tb; }
 	@include responsive(pc) { max-width: $size__global-width-max-pc; }
@@ -51,7 +51,7 @@
             justify-content: flex-start;
             align-items: left;
             justify-items: left;
-            
+
             list-style: none;
             margin: 0;
         }
