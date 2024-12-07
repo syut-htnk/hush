@@ -63,6 +63,8 @@
 		display: grid;
 		gap: $size__grid-gap;
 		grid-template-columns: 1fr;
+
+		max-width: calc(100vw - 64px);
 		//margin: 0 auto;
 
 		&.in-front-page,
@@ -166,6 +168,7 @@
 
 	#secondary {
 		width: $size__site-sidebar;
+		max-width: calc(100vw - 64px);;
 		display: flex;
 		flex-direction: column;
 

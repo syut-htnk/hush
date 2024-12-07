@@ -685,6 +685,7 @@ textarea {
   display: grid;
   gap: 32px;
   grid-template-columns: 1fr;
+  max-width: calc(100vw - 64px);
 }
 @media (min-width: 768px) {
   #contents-wrapper #primary.in-front-page, #contents-wrapper #primary.in-archive-page {
@@ -769,6 +770,7 @@ textarea {
 }
 #contents-wrapper #secondary {
   width: 320px;
+  max-width: calc(100vw - 64px);
   display: flex;
   flex-direction: column;
 }
@@ -1231,7 +1233,7 @@ textarea {
 .site-header .site-branding {
   display: flex;
   height: inherit;
-  margin: 0;
+  margin: 0 16px;
   align-items: center;
   justify-content: center;
   width: 196px;
@@ -1353,6 +1355,21 @@ textarea {
 
 /* Swiper Slider
 --------------------------------------------- */
+/* Index
+--------------------------------------------- */
+.single__index {
+  max-width: min(380px, 100%);
+  margin: 0 auto;
+}
+.single__index .index__title {
+  margin: 0;
+  padding: 1rem 0;
+  text-align: center;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/

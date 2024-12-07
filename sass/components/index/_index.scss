@@ -1,0 +1,13 @@
+.single__index {
+    max-width: min($size__grid-article-width-pc-max, 100%);
+    margin: 0 auto;
+
+    .index__title {
+        margin: 0;
+        padding: 1rem 0;
+        text-align: center;
+        font-family: $font__heading;
+        font-weight: $font__weight-bold;
+        font-size: 1.0rem;
+    }
+}

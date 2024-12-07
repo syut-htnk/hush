@@ -16,7 +16,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 
 	<!-- Recommended Posts -->
-	<section class="widget widget_recomended">
+	<section class="widget widget_recomended_entries">
 	<h4 class="widget-title">Recomended Posts</h4>
 	<?php
 		// 表示したい投稿IDを配列で指定
@@ -43,6 +43,24 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			echo '<p>No posts found.</p>';
 		endif;
 	?>
+	</section>
+
+	<!-- Recent 3 Posts !-->
+	<section class="widget widget_recent_entries">
+		<h4 class="widget-title">Recent Posts</h4>
+		<?php
+		$args = array(
+			'posts_per_page' => 3,
+			'post_status'    => 'publish',
+		);
+		$recent_posts_query = new WP_Query( $args );
+		if ( $recent_posts_query->have_posts() ) :
+			while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post();
+				get_template_part( 'template-parts/content-sidebar', get_post_type() );
+			endwhile;
+			wp_reset_postdata();
+		endif;
+		?>
 	</section>
 
 	<!-- Categories -->
