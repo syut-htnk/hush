@@ -667,12 +667,12 @@ textarea {
     max-width: 736px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   #contents-wrapper {
     max-width: 1208px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   #contents-wrapper {
     grid-template-columns: auto;
     grid-template-areas: "header header" "main sidebar" "footer footer";
@@ -693,7 +693,7 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 320px));
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   #contents-wrapper #primary.in-front-page, #contents-wrapper #primary.in-archive-page {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 380px));
@@ -776,7 +776,7 @@ textarea {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   #contents-wrapper #secondary {
     width: 320px;
   }
@@ -879,7 +879,7 @@ textarea {
     display: block;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   .main-navigation #header-menu-sp-wrapper {
     display: none;
   }
@@ -917,7 +917,7 @@ textarea {
     top: 80px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   .main-navigation #header-menu-sp-wrapper {
     top: 96px;
   }
@@ -973,7 +973,7 @@ textarea {
     height: calc(100vh - 80px);
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   .main-navigation::before {
     top: 96px;
     height: calc(100vh - 96px);
@@ -1236,7 +1236,7 @@ textarea {
     height: 80px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   .site-header {
     height: 96px;
   }
@@ -1280,7 +1280,7 @@ textarea {
     max-width: 736px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   .footer-contents-wrapper {
     max-width: 1208px;
   }
@@ -1293,7 +1293,7 @@ textarea {
          column-gap: 32px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1088px) {
   .footer-contents-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "left center right" "bottom bottom bottom";
