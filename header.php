@@ -17,6 +17,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+	<?php
+		global $meta_post_data;
+		$og_url = get_permalink();
+		$og_title = get_the_title();
+		$og_description = has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 55, '...'); // 記事の抜粋
+		$og_image = has_post_thumbnail() ? get_the_post_thumbnail_url($meta_post_data, 'full') : 'Default Image Path'; // アイキャッチ画像またはデフォルト
+		$og_site_name = get_bloginfo('name'); // サイト名
+	?>
+	<meta property="og:url" content="<?php echo esc_url($og_url); ?>" />
+	<meta property="og:title" content="<?php echo esc_attr($og_title); ?>" />
+	<meta property="og:type" content="article" />
+	<meta property="og:description" content="<?php echo esc_attr($og_description); ?>" />
+	<meta property="og:image" content="<?php echo esc_url($og_image); ?>" />
+	<meta property="og:site_name" content="<?php echo esc_attr($og_site_name); ?>" />
+	<meta property="og:locale" content="ja_JP" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="" />
+	<meta property="fb:app_id" content="" />
+
 	<?php wp_head(); ?>
 </head>
 
