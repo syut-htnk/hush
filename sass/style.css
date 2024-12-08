@@ -49,6 +49,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+/* ----- old ----- */
+/* ポストコンテンツの最大幅 */
+/* ポストコンテンツの最大幅 */
+/* ポストコンテンツの最大幅 */
+/* フロントページコンテンツの最大幅 */
+/* フロントページコンテンツの最大幅 */
+/* フロントページコンテンツの最大幅 */
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -1302,40 +1309,51 @@ textarea {
 
 /* Swiper Slider
 --------------------------------------------- */
-.swiper {
+.swiper-primary {
   background-color: red;
-  width: calc(100vw - 4rem);
-  height: calc(100vh - 4rem - 64px);
-  margin: 2rem;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem - 64px);
+  margin: 1rem;
 }
 @media (min-width: 768px) {
-  .swiper {
-    width: calc(100vw - 4rem);
-    height: calc(100vh - 4rem - 80px);
+  .swiper-primary {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem - 80px);
   }
 }
 @media (min-width: 1088px) {
-  .swiper {
-    width: calc(100vw - 4rem);
-    height: calc(100vh - 4rem - 96px);
+  .swiper-primary {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem - 96px);
   }
 }
-.swiper .swiper-wrapper {
+.swiper-primary .swiper-wrapper {
   transition: all 0.3s ease-in-out;
+  height: 100%; /* これを追加して高さを100%に設定 */
 }
-.swiper .swiper-wrapper .swiper-slide {
+.swiper-primary .swiper-wrapper .swiper-slide {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100%; /* ここで高さを100%に設定 */
 }
-.swiper .swiper-wrapper .swiper-slide a {
+.swiper-primary .swiper-wrapper .swiper-slide a {
   display: block;
   position: relative;
   width: 100%;
-  height: 100%;
-  /* ドットフィルターの追加 */
+  height: 100%; /* 親要素に合わせて高さ100%に設定 */
 }
-.swiper .swiper-wrapper .swiper-slide a::before {
+.swiper-primary .swiper-wrapper .swiper-slide a .attachment-post-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* 高さ100%に設定 */
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  overflow: hidden;
+}
+.swiper-primary .swiper-wrapper .swiper-slide a::before {
   content: "";
   display: block;
   position: absolute;
@@ -1343,23 +1361,14 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 必要に応じて透明度を変更 */
+  background-color: rgba(0, 0, 0, 0.5);
   background-image: radial-gradient(#111 30%, transparent 31%), radial-gradient(#111 30%, transparent 31%);
   background-size: 4px 4px;
   background-position: 0 0, 2px 2px;
-  z-index: 2; /* 重要: これでフィルターが前面に表示される */
-  pointer-events: none; /* クリックイベントを無視する */
+  z-index: 2;
+  pointer-events: none;
 }
-.swiper .swiper-wrapper .swiper-slide a .attachment-post-thumbnail {
-  position: relative;
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
-  overflow: hidden;
-}
-.swiper .swiper-wrapper .swiper-slide h2 {
+.swiper-primary .swiper-wrapper .swiper-slide h2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1368,7 +1377,7 @@ textarea {
   font-size: 24px;
   text-align: center;
   padding: 10px 20px;
-  z-index: 3; /* h2がフィルターより上に来るように */
+  z-index: 3;
 }
 
 /* Index

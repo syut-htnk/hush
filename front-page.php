@@ -16,9 +16,8 @@ get_header();
 ?>
 
 <!-- Slider main container -->
-<div class="swiper">
+<div class="swiper swiper-primary">
   <div class="swiper-wrapper">
-
     <?php 
     $args = array(
       'post_status' => 'publish',
@@ -55,7 +54,6 @@ get_header();
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
 </div>
-
 
 
 <div id="contents-wrapper" class="contents-wrapper in-front-page">

@@ -1,4 +1,4 @@
-const mySwiper = new Swiper('.swiper', {
+const swiperPrimary = new Swiper('.swiper-primary', {
     // Optional parameters
     loop: true,
 
@@ -17,4 +17,4 @@ const mySwiper = new Swiper('.swiper', {
     scrollbar: {
         el: '.swiper-scrollbar',
     },
-})
+});
