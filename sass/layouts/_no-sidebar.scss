@@ -21,142 +21,116 @@
 
 #contents-wrapper {
 	margin: 0 auto;
-	//width: min(100vw, $size__global-width-max-pc);
-	//max-width: $size__global-width-max-pc;
-
-	//padding: 0 $size__side-margin;
-	//max-width: 100%;
-	@include responsive(tb) { max-width: $size__global-width-max-tb; }
-	@include responsive(pc) { max-width: $size__global-width-max-pc; }
-
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-areas:
-		"header"
-		"main"
-		"sidebar"
-		"footer";
-
-	justify-items: center;
-
+  
 	#primary {
+	  display: block;
+	  max-width: $size__front-contents-width-max-pc;
+	  padding: 2rem;
+	  
+	  .article-card {
 		display: block;
-		//display: grid;
-		gap: $size__grid-gap;
-		grid-template-columns: 1fr;
-		margin: 0 auto;
+		margin: 0;
+		padding: 0;
+		width: 100%;
 
-		&.in-front-page,
-		&.in-archive-page {
-			@include responsive(tb) { 
-				display: grid;
-				grid-template-columns: repeat(2, minmax(0, $size__grid-article-width-tb-max));
-			}
-			@include responsive(pc) { 
-				display: grid;
-				grid-template-columns: repeat(2, minmax(0, $size__grid-article-width-pc-max));
-			}
-		}
-
-		article {
+		// background-color: rebeccapurple;
+		.article-meta {
+			.article-title {
 			margin: 0;
 			padding: 0;
+			color: $color__text-main;
+			font-size: 1.125rem;
+			text-align: left;
+			width: 100%;
 
-			.entry-content{
-				margin: 0 1rem;
-				padding: 0;
-				font-size: 1rem;
-			}
-
-			.entry-categories {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: row;
-				gap: 8px;
-				margin: 0;
-				padding: .75rem 0;
-				font-size: .75rem;
-
-				a {
-					color: $color__text-sub;
-				}
-			}
-
-			.entry-tags {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: row;
-				gap: 4px;
-				margin: 0;
-				padding: 12px 0;
-				font-size: .75rem;
-
-				a {
-					color: $color__text-sub;
-				}
-			}
-
-			.entry-header {
-				margin: 0 1rem;
-				padding: 0;
-
-				h1.entry-title {
-					margin: 0;
-					padding: 0;
-					text-align: center;
-					
-					font-size: 1.5rem;
-					font-weight: $font__weight-bold;
-					//padding-bottom: 2rem;
-					// display: -webkit-box;
-					// -webkit-line-clamp: 3;
-					// -webkit-box-orient: vertical;
-					// overflow: hidden;
-				}
-
-				h2.entry-title {
-					margin: 0;
-					padding: 0;
-					text-align: center;
-					a {
-						font-size: 1.25rem;
-						font-weight: $font__weight-bold;
-						display: -webkit-box;
-						-webkit-line-clamp: 3;
-						-webkit-box-orient: vertical;
-						overflow: hidden;
-					}
-				}
-
-				.entry-meta {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: row;
-					gap: 8px;
-					margin: 0;
-					padding: .75rem 0;
-
-					font-size: .75rem;
-					font-weight: 300;
-
-					.entry-date {
-						color: $color__text-sub;
-					}
-
-				}
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
 			}
 		}
+	  }
+	  
 
-		.posts-navigation {
+	  .article-card-sub {
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		align-items: center;
+		gap: 1rem;
+
+		// background-color: rebeccapurple;
+
+		.article-thumbnail-link {
 			display: block;
 			width: 100%;
+			// background-color: rebeccapurple;
+			height: 100%;
+			.article-thumbnail {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 
-		#comments {
-			display: none;
+		.article-meta {
+			.article-title {
+			  margin: 0;
+			  padding: 0;
+			  color: $color__text-main;
+			  font-size: 1.0rem;
+			  text-align: left;
+			  width: 100%;
+	
+			  display: -webkit-box;
+			  -webkit-line-clamp: 2;
+			  line-clamp: 2;
+			  -webkit-box-orient: vertical;
+			  overflow: hidden;
+			}
 		}
+	  }
+
+	  #latest-contents-wrapper {
+		.article-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+		  gap: 2rem;
+		  margin: 0;
+		  padding: 0;
+
+		}
+	  }
+
+	  #category-1-contents-wrapper {
+		.grid-wrapper {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		  @include responsive(tb) { grid-template-columns: repeat(2, minmax(320px, 1fr)); }
+		  gap: 2rem;
+		  margin: 0;
+		  padding: 0;
+
+		  .article-grid-1 {
+			display: grid;
+			// background-color: rebeccapurple;
+		}
+		  .article-grid-2 {
+			display: grid;
+			gap: 1rem;
+			// background-color: red;
+		}
+		}
+	  }
+  
+	  .posts-navigation {
+		display: block;
+		width: 100%;
+	  }
+  
+	  #comments {
+		display: none;
+	  }
 	}
-}
+  }
+  

@@ -76,25 +76,16 @@ get_header();
   <div class="swiper-button-next"></div>
 </div>
 
-
-
-
-<div id="contents-wrapper" class="contents-wrapper in-front-page">
-	<main id="primary" class="site-main in-front-page">
-
-		<!-- <section id="front-overview-wrapper">
-
-		</section> -->
-
-		<section id="latest-contents-wrapper" class="front-contents-wrapper">
-			<h2 class="front-contents-title">最新の記事</h2>
-			<div class="front-contents">
+<div id="contents-wrapper" class="layout-wrapper is-front-page">
+	<main id="primary" class="site-main is-front-page">
+		<section id="latest-contents-wrapper" class="front-section">
+			<h2 class="section-title">最新の記事</h2>
+			<div class="article-grid">
 				<?php
 				$args = array(
-					'post_status' => 'publish',
-					'posts_per_page' => 5,
-					//固定記事は除外
-					'ignore_sticky_posts' => 1,
+					'post_status'        => 'publish',
+					'posts_per_page'     => 12,
+					'ignore_sticky_posts'=> 1,
 				);
 				$query = new WP_Query( $args );
 
@@ -102,81 +93,141 @@ get_header();
 					while ( $query->have_posts() ) :
 						$query->the_post();
 				?>
-						<article class="front-content">
+						<article class="article-card">
 							<?php if ( has_post_thumbnail() ) : ?>
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail(); ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('full', ['class' => 'article-thumbnail']); ?>
 								</a>
 							<?php endif; ?>
-							<h3 class="front-content-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<p class="front-content-date"><?php the_time( 'Y年n月j日' ); ?></p>
+							<div class="article-meta">
+							<div class="article-category">
+								<?php
+										$categories = get_the_category();
+										if ( ! empty( $categories ) ) {
+										foreach ( $categories as $category ) {
+											echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+										}
+										}
+									?>
+								</div>
+								<h3 class="article-title">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
+							</div>
 						</article>
 				<?php
 					endwhile;
-					wp_reset_postdata(); // クエリのリセット
+					wp_reset_postdata();
+				else :
 				?>
-				<?php else : ?>
 					<p>投稿が見つかりませんでした。</p>
 				<?php endif; ?>
 			</div>
 		</section>
 
-		<section id="popular-contents-wrapper" class="front-contents-wrapper">
-
+		<!-- <section id="popular-contents-wrapper" class="front-section">
 		</section>
 
-		<section id="pinned-contents-wrapper" class="front-contents-wrapper">
+		<section id="pinned-contents-wrapper" class="front-section">
+		</section> -->
 
+		<section id="category-1-contents-wrapper" class="front-section">
+			<!-- カテゴリ別の記事をここに表示 -->
+			<h2 class="section-title">ガジェット</h2>
+			<div class="grid-wrapper">
+					<div class="article-grid-1">
+					<?php
+				$args = array(
+					'post_status'        => 'publish',
+					'posts_per_page'     => 1,
+					'ignore_sticky_posts'=> 1,
+				);
+				$query = new WP_Query( $args );
+
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) :
+						$query->the_post();
+				?>
+						<article class="article-card">
+							<?php if ( has_post_thumbnail() ) : ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('full', ['class' => 'article-thumbnail']); ?>
+								</a>
+							<?php endif; ?>
+							<div class="article-meta">
+								<div class="article-category">
+								<?php
+										$categories = get_the_category();
+										if ( ! empty( $categories ) ) {
+										foreach ( $categories as $category ) {
+											echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+										}
+										}
+									?>
+								</div>
+								<h3 class="article-title">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
+							</div>
+						</article>
+				<?php
+					endwhile;
+					wp_reset_postdata();
+				else :
+				?>
+					<p>投稿が見つかりませんでした。</p>
+				<?php endif; ?>
+					</div>
+					<div class="article-grid-2">
+					<?php
+				$args = array(
+					'post_status'        => 'publish',
+					'posts_per_page'     => 4,
+					'ignore_sticky_posts'=> 1,
+				);
+				$query = new WP_Query( $args );
+
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) :
+						$query->the_post();
+				?>
+						<article class="article-card-sub">
+							<div class="article-meta">
+								<div class="article-category">
+								<?php
+										$categories = get_the_category();
+										if ( ! empty( $categories ) ) {
+										foreach ( $categories as $category ) {
+											echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+										}
+										}
+									?>
+								</div>
+								<h3 class="article-title">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
+							</div>
+							<?php if ( has_post_thumbnail() ) : ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('full', ['class' => 'article-thumbnail']); ?>
+								</a>
+							<?php endif; ?>
+							<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
+						</article>
+				<?php
+					endwhile;
+					wp_reset_postdata();
+				else :
+				?>
+					<p>投稿が見つかりませんでした。</p>
+				<?php endif; ?>
+					</div>
+			</div>
 		</section>
-
-		<section id="category-contents-wrapper" class="front-contents-wrapper">
-
-		</section>
-
-		<!-- <?php
-		// if ( have_posts() ) :
-
-		// 	if ( is_home() && ! is_front_page() ) :
-		// 		?>
-		// 		<header>
-		// 			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-		// 		</header>
-		// 		<?php
-		// 	endif;
-
-		// 	/* Start the Loop */
-		// 	while ( have_posts() ) :
-		// 		the_post();
-
-		// 		/*
-		// 		* Include the Post-Type-specific template for the content.
-		// 		* If you want to override this in a child theme, then include a file
-		// 		* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-		// 		*/
-		// 		get_template_part( 'template-parts/content-archive', get_post_type() );
-
-		// 	endwhile;
-
-		// 	//the_posts_navigation();
-
-		// else :
-
-		// 	get_template_part( 'template-parts/content', 'none' );
-
-		// endif;
-		?>
-
-		<div class="pagination">
-			<?php the_posts_pagination(
-				array(
-					'mid_size'  => 5,
-					'prev_text' => __( '<<', 'lull' ),
-					'next_text' => __( '>>', 'lull' ),
-				)
-			); ?>
-		</div> -->
-
-	</main><!-- #main -->
+	</main>
 	<?php get_sidebar(); ?>
 </div>
 

@@ -688,111 +688,86 @@ textarea {
 
 #contents-wrapper {
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "header" "main" "sidebar" "footer";
-  justify-items: center;
-}
-@media (min-width: 768px) {
-  #contents-wrapper {
-    max-width: 736px;
-  }
-}
-@media (min-width: 1088px) {
-  #contents-wrapper {
-    max-width: 1208px;
-  }
 }
 #contents-wrapper #primary {
   display: block;
-  gap: 32px;
-  grid-template-columns: 1fr;
-  margin: 0 auto;
+  max-width: 1280px;
+  padding: 2rem;
 }
-@media (min-width: 768px) {
-  #contents-wrapper #primary.in-front-page, #contents-wrapper #primary.in-archive-page {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 320px));
-  }
-}
-@media (min-width: 1088px) {
-  #contents-wrapper #primary.in-front-page, #contents-wrapper #primary.in-archive-page {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 380px));
-  }
-}
-#contents-wrapper #primary article {
+#contents-wrapper #primary .article-card {
+  display: block;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
-#contents-wrapper #primary article .entry-content {
-  margin: 0 1rem;
-  padding: 0;
-  font-size: 1rem;
-}
-#contents-wrapper #primary article .entry-categories {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 8px;
-  margin: 0;
-  padding: 0.75rem 0;
-  font-size: 0.75rem;
-}
-#contents-wrapper #primary article .entry-categories a {
-  color: #6d6d6d;
-}
-#contents-wrapper #primary article .entry-tags {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 4px;
-  margin: 0;
-  padding: 12px 0;
-  font-size: 0.75rem;
-}
-#contents-wrapper #primary article .entry-tags a {
-  color: #6d6d6d;
-}
-#contents-wrapper #primary article .entry-header {
-  margin: 0 1rem;
-  padding: 0;
-}
-#contents-wrapper #primary article .entry-header h1.entry-title {
+#contents-wrapper #primary .article-card .article-meta .article-title {
   margin: 0;
   padding: 0;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-#contents-wrapper #primary article .entry-header h2.entry-title {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-#contents-wrapper #primary article .entry-header h2.entry-title a {
-  font-size: 1.25rem;
-  font-weight: 700;
+  color: #404040;
+  font-size: 1.125rem;
+  text-align: left;
+  width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-#contents-wrapper #primary article .entry-header .entry-meta {
-  display: flex;
-  justify-content: center;
+#contents-wrapper #primary .article-card-sub {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
-  flex-direction: row;
-  gap: 8px;
-  margin: 0;
-  padding: 0.75rem 0;
-  font-size: 0.75rem;
-  font-weight: 300;
+  gap: 1rem;
 }
-#contents-wrapper #primary article .entry-header .entry-meta .entry-date {
-  color: #6d6d6d;
+#contents-wrapper #primary .article-card-sub .article-thumbnail-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#contents-wrapper #primary .article-card-sub .article-thumbnail-link .article-thumbnail {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#contents-wrapper #primary .article-card-sub .article-meta .article-title {
+  margin: 0;
+  padding: 0;
+  color: #404040;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#contents-wrapper #primary #latest-contents-wrapper .article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+#contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  #contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+  }
+}
+#contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper .article-grid-1 {
+  display: grid;
+}
+#contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper .article-grid-2 {
+  display: grid;
+  gap: 1rem;
 }
 #contents-wrapper #primary .posts-navigation {
   display: block;
