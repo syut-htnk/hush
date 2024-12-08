@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+	<!-- meta -->
 	<?php
 		global $meta_post_data;
 		$og_url = get_permalink();
@@ -35,6 +36,18 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="" />
 	<meta property="fb:app_id" content="" />
+	<!-- /meta -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-00D7QE8WWC"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-00D7QE8WWC');
+	</script>
+	<!-- /Google tag (gtag.js) -->
 
 	<?php wp_head(); ?>
 </head>
