@@ -465,42 +465,6 @@ function lull_add_meta_tags() {
 }
 add_action('wp_head', 'lull_add_meta_tags');
 
-/*
- * Add Google Analytics, Google Tag Manager, etc.
- */
-
-function lull_customize_register( $wp_customize ) {
-    // セクションを追加（必要に応じて名前を変更）
-    $wp_customize->add_section( 'lull_code_section', array(
-        'title'    => __( 'ヘッド用コード挿入', 'lull' ),
-        'priority' => 160,
-    ) );
-
-    // 設定を追加
-    $wp_customize->add_setting( 'lull_head_code', array(
-        'default'           => '',
-        'sanitize_callback' => 'wp_kses_post', // HTMLタグを許容する場合
-        // 完全に任意のコードを入れたい場合は、'sanitize_callback' => null にして注意深く使用
-    ) );
-
-    // コントロールを追加（テキストエリア）
-    $wp_customize->add_control( 'lull_head_code_control', array(
-        'label'    => __( 'Head 内コード（Google Analytics / Adsなど）', 'lull' ),
-        'section'  => 'lull_code_section',
-        'settings' => 'lull_head_code',
-        'type'     => 'textarea',
-    ) );
-}
-add_action( 'customize_register', 'lull_customize_register' );
-
-function lull_print_head_code() {
-    $head_code = get_theme_mod( 'lull_head_code', '' );
-    if ( ! empty( $head_code ) ) {
-        echo $head_code . "\n";
-    }
-}
-add_action( 'wp_head', 'lull_print_head_code' );
-
 /**
  * Implement the Custom Header feature.
  */
