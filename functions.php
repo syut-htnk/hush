@@ -143,6 +143,9 @@ add_action( 'widgets_init', 'lull_widgets_init' );
 function lull_scripts() {
 	//wp_enqueue_style( 'lull-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'lull-style-destyle', get_template_directory_uri() . '/sass/destyle.min.css', array(), _S_VERSION );
+
+	//swiperのcssは先に読み込む
+	wp_enqueue_style('swiper-style', get_template_directory_uri() . '/assets/swiper/swiper-bundle.min.css', array(), '1.0.0');
 	wp_enqueue_style( 'lull-style-scss', get_template_directory_uri() . '/sass/style.css', array(), _S_VERSION );
 	//wp_style_add_data( 'lull-style', 'rtl', 'replace' );
 
@@ -183,7 +186,9 @@ add_action('wp_enqueue_scripts', 'lull_enable_google_fonts');
  */
 function lull_add_swiper_files() {
 	// CSS
-	wp_enqueue_style('swiper-style', get_template_directory_uri() . '/assets/swiper/swiper-bundle.min.css', array(), '1.0.0');
+	// swiperのcssは lull_scripts() で先に読み込んでおく
+	//wp_enqueue_style('swiper-style', get_template_directory_uri() . '/assets/swiper/swiper-bundle.min.css', array(), '1.0.0');
+	
 	//wp_enqueue_style('swiper-css-style', get_template_directory_uri() . '/css/slider.css', array('swiper-style'), '1.0.0');
 
 	// JS

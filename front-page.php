@@ -16,53 +16,102 @@ get_header();
 ?>
 
 <!-- Slider main container -->
-<!-- <div class="swiper">
+<div class="swiper">
   <div class="swiper-wrapper">
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    ...
-  </div>
-  <div class="swiper-pagination"></div>
 
+    <?php 
+    $args = array(
+      'post_status' => 'publish',
+      'posts_per_page' => 3,
+    );
+    $query = new WP_Query( $args ); 
+
+    if ( $query->have_posts() ) : 
+      while ( $query->have_posts() ) : 
+        $query->the_post(); 
+    ?>
+        <div class="swiper-slide">
+          <?php if ( has_post_thumbnail() ) : ?>
+            <a href="<?php the_permalink(); ?>">
+              <?php the_post_thumbnail(); ?>
+            </a>
+          <?php endif; ?>
+          <!-- <h2><?php the_title(); ?></h2> -->
+          <!-- <a href="<?php the_permalink(); ?>" class="read-more">続きを読む</a> -->
+        </div>
+      <?php 
+      endwhile; 
+      wp_reset_postdata(); // クエリのリセット
+      ?>
+    <?php else : ?>
+      <div class="swiper-slide">
+        <p>投稿が見つかりませんでした。</p>
+      </div>
+    <?php endif; ?>
+
+  </div>
+
+  <div class="swiper-pagination"></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-</div> -->
+</div>
+
+
 
 <div id="contents-wrapper" class="contents-wrapper in-front-page">
 	<main id="primary" class="site-main in-front-page">
 
-		<?php
-		if ( have_posts() ) :
+		<!-- <section id="front-overview-wrapper">
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+		</section> -->
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+		<section id="latest-contents-wrapper" class="front-contents-wrapper">
 
-				/*
-				* Include the Post-Type-specific template for the content.
-				* If you want to override this in a child theme, then include a file
-				* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				*/
-				get_template_part( 'template-parts/content-archive', get_post_type() );
+		</section>
 
-			endwhile;
+		<section id="popular-contents-wrapper" class="front-contents-wrapper">
 
-			//the_posts_navigation();
+		</section>
 
-		else :
+		<section id="pinned-contents-wrapper" class="front-contents-wrapper">
 
-			get_template_part( 'template-parts/content', 'none' );
+		</section>
 
-		endif;
+		<section id="category-contents-wrapper" class="front-contents-wrapper">
+
+		</section>
+
+		<!-- <?php
+		// if ( have_posts() ) :
+
+		// 	if ( is_home() && ! is_front_page() ) :
+		// 		?>
+		// 		<header>
+		// 			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+		// 		</header>
+		// 		<?php
+		// 	endif;
+
+		// 	/* Start the Loop */
+		// 	while ( have_posts() ) :
+		// 		the_post();
+
+		// 		/*
+		// 		* Include the Post-Type-specific template for the content.
+		// 		* If you want to override this in a child theme, then include a file
+		// 		* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+		// 		*/
+		// 		get_template_part( 'template-parts/content-archive', get_post_type() );
+
+		// 	endwhile;
+
+		// 	//the_posts_navigation();
+
+		// else :
+
+		// 	get_template_part( 'template-parts/content', 'none' );
+
+		// endif;
 		?>
 
 		<div class="pagination">
@@ -73,8 +122,7 @@ get_header();
 					'next_text' => __( '>>', 'lull' ),
 				)
 			); ?>
-		</div>
-
+		</div> -->
 
 	</main><!-- #main -->
 	<?php get_sidebar(); ?>

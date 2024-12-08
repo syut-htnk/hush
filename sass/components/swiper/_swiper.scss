@@ -1,0 +1,16 @@
+.swiper {
+    background-color: red;
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+
+    .swiper-wrapper {
+        .swiper-slide {
+
+            .attachment-post-thumbnail {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
+}
