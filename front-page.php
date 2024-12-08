@@ -19,43 +19,64 @@ get_header();
 <div class="swiper swiper-primary">
   <div class="swiper-wrapper">
     <?php 
-    $args = array(
-      'post_status' => 'publish',
-      'posts_per_page' => 3,
-    );
-    $query = new WP_Query( $args ); 
+      $args = array(
+        'post_status' => 'publish',
+        'posts_per_page' => 10,
+      );
+      $query = new WP_Query( $args ); 
 
-    if ( $query->have_posts() ) : 
-      while ( $query->have_posts() ) : 
-        $query->the_post(); 
+      if ( $query->have_posts() ) : 
+        while ( $query->have_posts() ) : 
+          $query->the_post(); 
     ?>
-        <div class="swiper-slide">
-          <?php if ( has_post_thumbnail() ) : ?>
-            <a class="thumbnail-wrapper" href="<?php the_permalink(); ?>">
-              <?php the_post_thumbnail(); ?>
-            </a>
-          	<?php endif; ?>
-		  	<div class="swiper-entry-meta">
-			  <h2 class="main-visual-title"><?php the_title(); ?></h2>
-			  <a href="<?php the_permalink(); ?>" class="main-visual-read-more">Read More</a>
-			</div>
+      <div class="swiper-slide">
+        <?php if ( has_post_thumbnail() ) : ?>
+          <!-- <a class="slide-image-wrapper" href="<?php the_permalink(); ?>"> -->
+			<div class="slide-image-wrapper">
+			<!-- <div class="slide-image">
+				<?php the_post_thumbnail()?>
+			</div> -->
+			<?php the_post_thumbnail('', ['class' => 'slide-image']); ?>
+          <!-- </a> -->
+		  </div>
+        <?php endif; ?>
+        <div class="slide-content">
+		  <!-- category -->
+		  <!-- <button class="slide-category"> -->
+		<div class="slide-category">
+		  <?php
+				$categories = get_the_category();
+				if ( ! empty( $categories ) ) {
+				foreach ( $categories as $category ) {
+					echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+				}
+				}
+			?>
+		</div>
+		  <!-- </button> -->
+          <h2 class="slide-title"><?php the_title(); ?></h2>
+		  <button class="slide-read-more">
+			  <a href="<?php the_permalink(); ?>">Read More</a>
+		  </button>
         </div>
-      <?php 
-      endwhile; 
-      wp_reset_postdata(); // クエリのリセット
-      ?>
-    <?php else : ?>
+      </div>
+    <?php 
+        endwhile; 
+        wp_reset_postdata(); 
+      else : 
+    ?>
       <div class="swiper-slide">
         <p>投稿が見つかりませんでした。</p>
       </div>
     <?php endif; ?>
-
   </div>
 
   <div class="swiper-pagination"></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
 </div>
+
+
 
 
 <div id="contents-wrapper" class="contents-wrapper in-front-page">

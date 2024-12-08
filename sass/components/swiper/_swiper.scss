@@ -1,102 +1,131 @@
 .swiper-primary {
-    background-color: red;
-    width: calc(100vw - 2rem);
-    height: calc(100vh - 2rem - $size__header-height-sp);
-    margin: 1rem;
-
-    @include responsive('tb') {
-        width: calc(100vw - 2rem);
-        height: calc(100vh - 2rem - $size__header-height-tb);
+    background-color: gray;
+    width: calc(100vw - 32px);
+    height: calc(100vh - 32px - $size__header-height-sp);
+    margin: 16px;
+  
+    @include responsive(tb) {
+      height: calc(100vh - 32px - $size__header-height-tb);
     }
-    @include responsive('pc') {
-        width: calc(100vw - 2rem);
-        height: calc(100vh - 2rem - $size__header-height-pc);
+  
+    @include responsive(pc) {
+      height: calc(100vh - 32px - $size__header-height-pc);
     }
-
+  
     .swiper-wrapper {
-        transition: $transition-master;
-        height: 100%; /* 親要素に合わせて高さ100%に設定 */
+      transition: $transition-master;
+      height: 100%;
+  
+      .swiper-slide {
+        position: relative;
+        width: 100%;
+        height: 100%;
+  
+        .slide-image-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
 
-        .swiper-slide {
-            position: relative;
+  
+          .slide-image {
+            //position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%; /* 親要素に合わせて高さ100%に設定 */
-
-            .thumbnail-wrapper {
-                display: block;
-                position: relative;
-                width: 100%;
-                height: 100%; /* 親要素に合わせて高さ100%に設定 */
-
-                .attachment-post-thumbnail {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%; /* 高さ100%に設定 */
-                    object-fit: cover;
-                    display: block;
-                    overflow: hidden;
-                }
-                
-                &::before {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5); 
-                    background-image: radial-gradient(#111 30%, transparent 31%), radial-gradient(#111 30%, transparent 31%);
-                    background-size: 4px 4px;
-                    background-position: 0 0, 2px 2px;
-                    z-index: 2; 
-                    pointer-events: none;
-                }
-            }
-
-            .swiper-entry-meta {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 128;
-
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start; /* 左寄せにするための追加 */
-
-                .main-visual-title {
-                    margin: 0;
-                    padding: 0;
-    
-                    display: block; /* inline-block から block に変更 */
-                    color: $color__text-main-inv;
-                    font-size: 1.5rem;
-                    text-align: left; 
-                    z-index: 128;
-    
-                    width: 100%; /* 親要素に合わせて幅を100%に設定 */
-                }
-
-                .main-visual-read-more {
-                    margin: 0;
-                    padding: 0;
-    
-                    display: block; /* inline-block から block に変更 */
-                    color: $color__text-main-inv;
-                    font-size: 1rem;
-                    font-weight: $font__weight-bold;
-                    text-align: left; 
-                    z-index: 128;
-
-                    background-color: transparent;
-                    border: 1px solid $color__text-main-inv;
-                    padding: 0.5rem 1rem; /* パディングを追加してボタンのサイズ感を調整 */
-                    width: auto; /* 幅を自動で調整 */
-                }
-            }
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            overflow: hidden;
+            //z-index: 128;
+          }
+  
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-image: radial-gradient(#111 30%, transparent 31%), radial-gradient(#111 30%, transparent 31%);
+            background-size: 4px 4px;
+            background-position: 0 0, 2px 2px;
+            z-index: 2;
+            pointer-events: none;;
+          }
         }
+  
+        .slide-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+          z-index: 256;
+
+          width: calc(100vw - 32px - 96px);
+
+          .slide-category {
+            margin: 0;
+            padding: 0;
+            color: $color__text-main-inv;
+            font-size: 1rem;
+            text-align: left;
+
+            a {
+                color: $color__text-main-inv;
+            }
+          }
+  
+          .slide-title {
+            margin: 0;
+            padding: 0;
+            color: $color__text-main-inv;
+            font-size: 1.5rem;
+            text-align: left;
+            width: 100%;
+          }
+
+          .slide-read-more {
+            border: 1px solid $color__text-main-inv;
+            color: $color__text-main-inv;
+
+            a {
+                color: $color__text-main-inv;
+            }
+
+            &:hover {
+              background-color: $color__text-main-inv;
+              color: $color__text-main;
+                a {
+                    color: $color__text-main;
+                }
+            }
+          }
+  
+        //   .slide-read-more {
+        //     position: relative;
+        //     margin: 0;
+        //     padding: 0.5rem 1rem;
+        //     color: $color__text-main-inv;
+        //     font-size: 1rem;
+        //     font-weight: $font__weight-bold;
+        //     text-align: left;
+        //     background-color: transparent;
+        //     border: 1px solid $color__text-main-inv;
+        //     border-radius: 2rem;
+        //     width: auto;
+
+        //     &:hover {
+        //       background-color: $color__text-main-inv;
+        //       color: $color__text-main;
+        //     }
+        //   }
+        }
+      }
     }
-}
+  }
+  
