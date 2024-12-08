@@ -36,7 +36,7 @@ get_header();
               <?php the_post_thumbnail(); ?>
             </a>
           <?php endif; ?>
-          <!-- <h2><?php the_title(); ?></h2> -->
+          <h2><?php the_title(); ?></h2>
           <!-- <a href="<?php the_permalink(); ?>" class="read-more">続きを読む</a> -->
         </div>
       <?php 
