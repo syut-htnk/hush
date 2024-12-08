@@ -86,8 +86,8 @@
 	}
 
 	.menu-toggle {
-		width: 30px;
-		height: 25px;
+		width: 22px;
+		height: 16px;
 		position: relative;
 		cursor: pointer;
 		// display: block;
@@ -96,19 +96,19 @@
 			position: absolute;
 			height: 2px;
 			width: 100%;
-			background: #000;
+			background: $color__text-main;
 			left: 0;
-			transition: all 0.3s ease-in-out;
+			transition: $transition-master;
 	
 			&:nth-child(1) {
 				top: 0;
 			}
 			&:nth-child(2) {
-				top: 11px;
+				top: 8px;
 				width: 80%;
 			}
 			&:nth-child(3) {
-				top: 22px;
+				top: 16px;
 			}
 		}
 	

@@ -869,8 +869,8 @@ textarea {
   padding: 0px 1rem;
 }
 .main-navigation .menu-toggle {
-  width: 30px;
-  height: 25px;
+  width: 22px;
+  height: 16px;
   position: relative;
   cursor: pointer;
 }
@@ -878,7 +878,7 @@ textarea {
   position: absolute;
   height: 2px;
   width: 100%;
-  background: #000;
+  background: #404040;
   left: 0;
   transition: all 0.3s ease-in-out;
 }
@@ -886,11 +886,11 @@ textarea {
   top: 0;
 }
 .main-navigation .menu-toggle span:nth-child(2) {
-  top: 11px;
+  top: 8px;
   width: 80%;
 }
 .main-navigation .menu-toggle span:nth-child(3) {
-  top: 22px;
+  top: 16px;
 }
 .main-navigation::before {
   content: "";
@@ -1329,20 +1329,20 @@ textarea {
 }
 .swiper-primary .swiper-wrapper {
   transition: all 0.3s ease-in-out;
-  height: 100%; /* これを追加して高さを100%に設定 */
+  height: 100%; /* 親要素に合わせて高さ100%に設定 */
 }
 .swiper-primary .swiper-wrapper .swiper-slide {
   position: relative;
   width: 100%;
-  height: 100%; /* ここで高さを100%に設定 */
+  height: 100%; /* 親要素に合わせて高さ100%に設定 */
 }
-.swiper-primary .swiper-wrapper .swiper-slide a {
+.swiper-primary .swiper-wrapper .swiper-slide .thumbnail-wrapper {
   display: block;
   position: relative;
   width: 100%;
   height: 100%; /* 親要素に合わせて高さ100%に設定 */
 }
-.swiper-primary .swiper-wrapper .swiper-slide a .attachment-post-thumbnail {
+.swiper-primary .swiper-wrapper .swiper-slide .thumbnail-wrapper .attachment-post-thumbnail {
   position: absolute;
   top: 0;
   left: 0;
@@ -1353,7 +1353,7 @@ textarea {
   display: block;
   overflow: hidden;
 }
-.swiper-primary .swiper-wrapper .swiper-slide a::before {
+.swiper-primary .swiper-wrapper .swiper-slide .thumbnail-wrapper::before {
   content: "";
   display: block;
   position: absolute;
@@ -1368,16 +1368,39 @@ textarea {
   z-index: 2;
   pointer-events: none;
 }
-.swiper-primary .swiper-wrapper .swiper-slide h2 {
+.swiper-primary .swiper-wrapper .swiper-slide .swiper-entry-meta {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 24px;
-  text-align: center;
-  padding: 10px 20px;
-  z-index: 3;
+  z-index: 128;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左寄せにするための追加 */
+}
+.swiper-primary .swiper-wrapper .swiper-slide .swiper-entry-meta .main-visual-title {
+  margin: 0;
+  padding: 0;
+  display: block; /* inline-block から block に変更 */
+  color: #fdfdfd;
+  font-size: 1.5rem;
+  text-align: left;
+  z-index: 128;
+  width: 100%; /* 親要素に合わせて幅を100%に設定 */
+}
+.swiper-primary .swiper-wrapper .swiper-slide .swiper-entry-meta .main-visual-read-more {
+  margin: 0;
+  padding: 0;
+  display: block; /* inline-block から block に変更 */
+  color: #fdfdfd;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  z-index: 128;
+  background-color: transparent;
+  border: 1px solid #fdfdfd;
+  padding: 0.5rem 1rem; /* パディングを追加してボタンのサイズ感を調整 */
+  width: auto; /* 幅を自動で調整 */
 }
 
 /* Index

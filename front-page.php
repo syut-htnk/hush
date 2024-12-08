@@ -31,12 +31,14 @@ get_header();
     ?>
         <div class="swiper-slide">
           <?php if ( has_post_thumbnail() ) : ?>
-            <a href="<?php the_permalink(); ?>">
+            <a class="thumbnail-wrapper" href="<?php the_permalink(); ?>">
               <?php the_post_thumbnail(); ?>
             </a>
-          <?php endif; ?>
-          <h2><?php the_title(); ?></h2>
-          <!-- <a href="<?php the_permalink(); ?>" class="read-more">続きを読む</a> -->
+          	<?php endif; ?>
+		  	<div class="swiper-entry-meta">
+			  <h2 class="main-visual-title"><?php the_title(); ?></h2>
+			  <a href="<?php the_permalink(); ?>" class="main-visual-read-more">Read More</a>
+			</div>
         </div>
       <?php 
       endwhile; 
@@ -64,7 +66,38 @@ get_header();
 		</section> -->
 
 		<section id="latest-contents-wrapper" class="front-contents-wrapper">
+			<h2 class="front-contents-title">最新の記事</h2>
+			<div class="front-contents">
+				<?php
+				$args = array(
+					'post_status' => 'publish',
+					'posts_per_page' => 5,
+					//固定記事は除外
+					'ignore_sticky_posts' => 1,
+				);
+				$query = new WP_Query( $args );
 
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) :
+						$query->the_post();
+				?>
+						<article class="front-content">
+							<?php if ( has_post_thumbnail() ) : ?>
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail(); ?>
+								</a>
+							<?php endif; ?>
+							<h3 class="front-content-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<p class="front-content-date"><?php the_time( 'Y年n月j日' ); ?></p>
+						</article>
+				<?php
+					endwhile;
+					wp_reset_postdata(); // クエリのリセット
+				?>
+				<?php else : ?>
+					<p>投稿が見つかりませんでした。</p>
+				<?php endif; ?>
+			</div>
 		</section>
 
 		<section id="popular-contents-wrapper" class="front-contents-wrapper">
