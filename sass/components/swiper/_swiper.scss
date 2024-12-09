@@ -48,8 +48,8 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             background-image: radial-gradient(#111 30%, transparent 31%), radial-gradient(#111 30%, transparent 31%);
-            background-size: 2px 2px;
-            background-position: 0 0, 1px 1px;
+            background-size: 4px 4px;
+            background-position: 0 0, 2px 2px;
             z-index: 2;
             pointer-events: none;;
           }

@@ -33,7 +33,7 @@ get_header();
 					<?php if (has_post_thumbnail()): ?>
 						<!-- <a class="slide-image-wrapper" href="<?php the_permalink(); ?>"> -->
 						<div class="slide-image-wrapper">
-							<?php the_post_thumbnail('medium', ['class' => 'slide-image']); ?>
+							<?php the_post_thumbnail('large', ['class' => 'slide-image']); ?>
 							<!-- </a> -->
 						</div>
 					<?php endif; ?>
@@ -76,7 +76,7 @@ get_header();
 <div id="contents-wrapper" class="layout-wrapper is-front-page">
 	<main id="primary" class="site-main is-front-page">
 		<section id="latest-contents-wrapper" class="front-section">
-			<h2 class="section-title">最新の記事</h2>
+			<h2 class="section-title">Latest Posts</h2>
 			<div class="article-grid">
 				<?php
 				$args = array(
@@ -110,7 +110,19 @@ get_header();
 								<h3 class="article-title">
 									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 								</h3>
-								<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
+								<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
+								<div class="article-tags">
+									<?php
+									// endwhile;
+									// endif;
+									$tags = get_the_tags();
+									if ($tags) {
+										foreach ($tags as $tag) {
+											echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+										}
+									}
+									?>
+								</div>
 							</div>
 						</article>
 						<?php
@@ -122,109 +134,6 @@ get_header();
 				<?php endif; ?>
 			</div>
 		</section>
-
-		<!-- <section id="popular-contents-wrapper" class="front-section">
-		</section>
-
-		<section id="pinned-contents-wrapper" class="front-section">
-		</section> -->
-
-		<!-- <section id="category-1-contents-wrapper" class="front-section">
-			<!-- カテゴリ別の記事をここに表示 -->
-			<!-- <h2 class="section-title">ガジェット</h2>
-			<div class="grid-wrapper">
-				<div class="article-grid-1">
-					<?php
-					$args = array(
-						'post_status' => 'publish',
-						'posts_per_page' => 1,
-						'ignore_sticky_posts' => 1,
-					);
-					$query = new WP_Query($args);
-
-					if ($query->have_posts()):
-						while ($query->have_posts()):
-							$query->the_post();
-							?>
-							<article class="article-card">
-								<?php if (has_post_thumbnail()): ?>
-									<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
-										<?php the_post_thumbnail('full', ['class' => 'article-thumbnail']); ?>
-									</a>
-								<?php endif; ?>
-								<div class="article-meta">
-									<div class="article-category">
-										<?php
-										$categories = get_the_category();
-										if (!empty($categories)) {
-											foreach ($categories as $category) {
-												echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
-											}
-										}
-										?>
-									</div>
-									<h3 class="article-title">
-										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-									</h3>
-									<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
-								</div>
-							</article>
-							<?php
-						endwhile;
-						wp_reset_postdata();
-					else:
-						?>
-						<p>投稿が見つかりませんでした。</p>
-					<?php endif; ?>
-				</div>
-				<div class="article-grid-2">
-					<?php
-					// $args = array(
-					// 	'post_status' => 'publish',
-					// 	'posts_per_page' => 4,
-					// 	'ignore_sticky_posts' => 1,
-					// );
-					// $query = new WP_Query($args);
-
-					// if ($query->have_posts()):
-					// 	while ($query->have_posts()):
-					// 		$query->the_post();
-					// 		?>
-					// 		<article class="article-card-sub">
-					// 			<div class="article-meta">
-					// 				<div class="article-category">
-					// 					<?php
-					// 					$categories = get_the_category();
-					// 					if (!empty($categories)) {
-					// 						foreach ($categories as $category) {
-					// 							echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
-					// 						}
-					// 					}
-					// 					?>
-					// 				</div>
-					// 				<h3 class="article-title">
-					// 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					// 				</h3>
-					// 				<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
-					// 			</div>
-					// 			<?php if (has_post_thumbnail()): ?>
-					// 				<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
-					// 					<?php the_post_thumbnail('full', ['class' => 'article-thumbnail']); ?>
-					// 				</a>
-					// 			<?php endif; ?>
-					// 			<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
-					<!-- // 		</article> -->
-					<!-- // 		<?php
-					
-					// 	endwhile;
-					// 	wp_reset_postdata();
-					// else:
-					// 	?>
-					// 	<p>投稿が見つかりませんでした。</p>
-					 <?php endif; ?>
-				 </div> -->
-			<!-- </div> --> 
-		<!-- </section> --> 
 
 		<?php
 			// カテゴリーIDの配列
@@ -266,7 +175,19 @@ get_header();
 										<h3 class="article-title">
 											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 										</h3>
-										<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
+										<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
+										<div class="article-tags">
+											<?php
+											// endwhile;
+											// endif;
+											$tags = get_the_tags();
+											if ($tags) {
+												foreach ($tags as $tag) {
+													echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+												}
+											}
+											?>
+										</div>
 									</div>
 								</article>
 							<?php endwhile; ?>
@@ -294,7 +215,19 @@ get_header();
 											<h3 class="article-title">
 												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 											</h3>
-											<p class="article-date"><?php the_time('Y年n月j日'); ?></p>
+											<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
+											<div class="article-tags">
+												<?php
+												// endwhile;
+												// endif;
+												$tags = get_the_tags();
+												if ($tags) {
+													foreach ($tags as $tag) {
+														echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+													}
+												}
+												?>
+											</div>
 										</div>
 										<?php if ( has_post_thumbnail() ) : ?>
 											<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">

@@ -39,19 +39,52 @@
 
 		// background-color: rebeccapurple;
 		.article-meta {
-			.article-title {
-			margin: 0;
-			padding: 0;
-			color: $color__text-main;
-			font-size: 1.125rem;
-			text-align: left;
-			width: 100%;
+			.article-category {
+				margin: 0;
+				padding: 0;
+				// color: $color__text-sub;
+				font-size: 0.875rem;
+				text-align: left;
+				width: 100%;
+				a {
+					color: $color__text-sub;
+				}
+			}
 
-			display: -webkit-box;
-			-webkit-line-clamp: 3;
-			line-clamp: 3;
-			-webkit-box-orient: vertical;
-			overflow: hidden;
+			.article-tags {
+				margin: 0;
+				padding: 0;
+				// color: $color__text-sub;
+				font-size: 0.875rem;
+				text-align: left;
+				width: 100%;
+				a {
+					color: $color__text-sub;
+				}
+			}
+
+			.article-title {
+				margin: 0;
+				padding: 0;
+				color: $color__text-main;
+				font-size: 1.125rem;
+				text-align: left;
+				width: 100%;
+
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			.article-date {
+				margin: 0;
+				padding: 0;
+				color: $color__text-sub;
+				font-size: 0.875rem;
+				text-align: right;
+				width: 100%;
 			}
 		}
 	  }
@@ -78,19 +111,52 @@
 		}
 
 		.article-meta {
+			.article-category {
+				margin: 0;
+				padding: 0;
+				// color: $color__text-sub;
+				font-size: 0.875rem;
+				text-align: left;
+				width: 100%;
+				a {
+					color: $color__text-sub;
+				}
+			}
+
+			.article-tags {
+				margin: 0;
+				padding: 0;
+				// color: $color__text-sub;
+				font-size: 0.875rem;
+				text-align: left;
+				width: 100%;
+				a {
+					color: $color__text-sub;
+				}
+			}
+
 			.article-title {
-			  margin: 0;
-			  padding: 0;
-			  color: $color__text-main;
-			  font-size: 1.0rem;
-			  text-align: left;
-			  width: 100%;
-	
-			  display: -webkit-box;
-			  -webkit-line-clamp: 2;
-			  line-clamp: 2;
-			  -webkit-box-orient: vertical;
-			  overflow: hidden;
+				margin: 0;
+				padding: 0;
+				color: $color__text-main;
+				font-size: 1.125rem;
+				text-align: left;
+				width: 100%;
+
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			.article-date {
+				margin: 0;
+				padding: 0;
+				color: $color__text-sub;
+				font-size: 0.875rem;
+				text-align: right;
+				width: 100%;
 			}
 		}
 	  }
