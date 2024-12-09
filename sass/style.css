@@ -1180,12 +1180,12 @@ textarea {
 
 /* Thumbnails
 --------------------------------------------- */
-.site-main.in-front-page .post-thumbnail {
+.site-main.is-front-page .article-thumbnail-link, .site-main.is-archive-page .article-thumbnail-link {
   position: relative;
   display: block;
   overflow: hidden;
 }
-.site-main.in-front-page .post-thumbnail .attachment-post-thumbnail {
+.site-main.is-front-page .article-thumbnail-link .article-thumbnail, .site-main.is-archive-page .article-thumbnail-link .article-thumbnail {
   display: block;
   width: 100%;
   height: auto;
@@ -1193,24 +1193,9 @@ textarea {
      object-fit: cover;
   transition: all 0.3s ease-in-out;
 }
-.site-main.in-front-page .post-thumbnail:hover .attachment-post-thumbnail {
+.site-main.is-front-page .article-thumbnail-link:hover .article-thumbnail, .site-main.is-archive-page .article-thumbnail-link:hover .article-thumbnail {
   transform: scale(1.05);
-}
-.site-main.in-archive-page .post-thumbnail {
-  position: relative;
-  display: block;
-  overflow: hidden;
-}
-.site-main.in-archive-page .post-thumbnail .attachment-post-thumbnail {
-  display: block;
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: all 0.3s ease-in-out;
-}
-.site-main.in-archive-page .post-thumbnail:hover .attachment-post-thumbnail {
-  transform: scale(1.05);
+  filter: brightness(0.8);
 }
 
 #secondary .post-thumbnail {
