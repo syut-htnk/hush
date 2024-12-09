@@ -53,7 +53,7 @@ get_header();
 						<!-- </button> -->
 						<h2 class="slide-title"><?php the_title(); ?></h2>
 						<button class="slide-read-more">
-							<a href="<?php the_permalink(); ?>">Read More</a>
+							<a href="<?php the_permalink(); ?>">もっと読む</a>
 						</button>
 					</div>
 				</div>
@@ -95,7 +95,7 @@ get_header();
 						<article class="article-card">
 							<?php if (has_post_thumbnail()): ?>
 								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
-									<?php the_post_thumbnail('full', ['class' => 'article-thumbnail']); ?>
+									<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
 								</a>
 							<?php endif; ?>
 							<div class="article-meta">
