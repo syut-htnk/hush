@@ -22,9 +22,9 @@
 		global $meta_post_data;
 		$og_url = get_permalink();
 		$og_title = get_the_title();
-		$og_description = has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 55, '...'); // 記事の抜粋
-		$og_image = has_post_thumbnail() ? get_the_post_thumbnail_url($meta_post_data, 'full') : 'Default Image Path'; // アイキャッチ画像またはデフォルト
-		$og_site_name = get_bloginfo('name'); // サイト名
+		$og_description = has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 55, '...'); 
+		$og_image = has_post_thumbnail() ? get_the_post_thumbnail_url($meta_post_data, 'full') : 'Default Image Path'; 
+		$og_site_name = get_bloginfo('name'); 
 	?>
 	<meta property="og:url" content="<?php echo esc_url($og_url); ?>" />
 	<meta property="og:title" content="<?php echo esc_attr($og_title); ?>" />
@@ -39,15 +39,14 @@
 	<!-- /meta -->
 
 	<!-- Google tag (gtag.js) -->
-	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-00D7QE8WWC"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP0W7WDLL"></script>
 	<script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 
-	gtag('config', 'G-00D7QE8WWC'); -->
-	<!-- </script> -->
-	<!-- /Google tag (gtag.js) -->
+	gtag('config', 'G-0FP0W7WDLL');
+	</script>
 
 	<?php wp_head(); ?>
 </head>
