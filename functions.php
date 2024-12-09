@@ -197,11 +197,18 @@ function lull_add_swiper_files() {
 		*/
 	wp_enqueue_script( 'swiper-script', get_template_directory_uri() . '/assets/swiper/swiper-bundle.min.js', array(), '1.0.0', true);
 	wp_enqueue_script( 'swiper-js-script', get_template_directory_uri() . '/js/swiper.js', array('swiper-script'), '1.0.0', true);
+
+	// Enqueue debug script if WP_DEBUG is enabled
+	// if ( WP_DEBUG ) {
+	// 	wp_enqueue_script( 'debug-script', get_template_directory_uri() . '/js/debug.js', array(), '1.0.0', true );
+	// }
+	// Add inline script to display message in console
+	//wp_add_inline_script( 'swiper-js-script', 'console.log("This message is displayed in the console.");' );
 }
 add_action( 'wp_enqueue_scripts', 'lull_add_swiper_files' );
 
 function lull_get_breadcrumb() {
-    echo '<a href="' . home_url() . '" rel="nofollow">HOME</a>';
+    echo '<a href="' . home_url() . '">HOME</a>';
     if (is_category() || is_single()) {
         echo ' » ';
         the_category(' • ');
