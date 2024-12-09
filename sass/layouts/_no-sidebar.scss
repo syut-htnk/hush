@@ -19,193 +19,211 @@
 		"footer";
 }
 
-		
+
 .section-divider {
 	margin-top: 3em;
 }
 
 #contents-wrapper {
 	margin: 0 auto;
-  
+
 	#primary {
-	  display: block;
-	  max-width: $size__front-contents-width-max-pc;
-	  padding: 2rem;
-
-	  &.is-single-page {
-		max-width: 756px;
-	  }
-	  
-	  .article-card {
 		display: block;
-		margin: 0;
-		padding: 0;
-		width: 100%;
+		max-width: $size__front-contents-width-max-pc;
+		padding: 2rem;
 
-		// background-color: rebeccapurple;
-		.article-meta {
-			.article-category {
-				margin: 0;
-				padding: 0;
-				// color: $color__text-sub;
-				font-size: 0.875rem;
-				text-align: left;
-				width: 100%;
-				a {
-					color: $color__text-sub;
-				}
+		&.is-single-page {
+			max-width: 756px;
+
+			.entry-title {
+				// font-size: 2rem;
+				text-align: center;
 			}
 
-			.article-tags {
-				margin: 0;
-				padding: 0;
-				// color: $color__text-sub;
-				font-size: 0.875rem;
-				text-align: left;
-				width: 100%;
-				a {
-					color: $color__text-sub;
-				}
+			.entry-categories {
+				text-align: center;
 			}
 
-			.article-title {
-				margin: 0;
-				padding: 0;
-				color: $color__text-main;
-				font-size: 1.125rem;
-				text-align: left;
-				width: 100%;
-
-				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				line-clamp: 3;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
-			}
-
-			.article-date {
-				margin: 0;
-				padding: 0;
-				color: $color__text-sub;
-				font-size: 0.875rem;
-				text-align: right;
-				width: 100%;
+			.entry-meta {
+				text-align: center;
 			}
 		}
-	  }
-	  
 
-	  .article-card-sub {
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		align-items: center;
-		gap: 1rem;
+		.article-card {
+			display: block;
+			margin: 0;
+			padding: 0;
+			width: 100%;
 
-		// background-color: rebeccapurple;
+			// background-color: rebeccapurple;
+			.article-meta {
+				.article-category {
+					margin: 0;
+					padding: 0;
+					// color: $color__text-sub;
+					font-size: 0.875rem;
+					text-align: left;
+					width: 100%;
+					// a {
+					// 	color: $color__text-sub;
+					// }
+				}
 
-		.article-thumbnail-link {
+				.article-tags {
+					margin: 0;
+					padding: 0;
+					// color: $color__text-sub;
+					font-size: 0.875rem;
+					text-align: left;
+					width: 100%;
+					// a {
+					// 	color: $color__text-sub;
+					// }
+				}
+
+				.article-title {
+					margin: 0;
+					padding: 0;
+					color: $color__text-main;
+					font-size: 1.125rem;
+					text-align: left;
+					width: 100%;
+
+					display: -webkit-box;
+					-webkit-line-clamp: 3;
+					line-clamp: 3;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+				}
+
+				.article-date {
+					margin: 0;
+					padding: 0;
+					color: $color__text-sub;
+					font-size: 0.875rem;
+					text-align: right;
+					width: 100%;
+				}
+			}
+		}
+
+
+		.article-card-sub {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			align-items: center;
+			gap: 1rem;
+
+			// background-color: rebeccapurple;
+
+			.article-thumbnail-link {
+				display: block;
+				width: 100%;
+				// background-color: rebeccapurple;
+				height: 100%;
+
+				.article-thumbnail {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			.article-meta {
+				.article-category {
+					margin: 0;
+					padding: 0;
+					// color: $color__text-sub;
+					font-size: 0.875rem;
+					text-align: left;
+					width: 100%;
+					// a {
+					// 	color: $color__text-sub;
+					// }
+				}
+
+				.article-tags {
+					margin: 0;
+					padding: 0;
+					// color: $color__text-sub;
+					font-size: 0.875rem;
+					text-align: left;
+					width: 100%;
+					// a {
+					// 	color: $color__text-sub;
+					// }
+				}
+
+				.article-title {
+					margin: 0;
+					padding: 0;
+					color: $color__text-main;
+					font-size: 1.125rem;
+					text-align: left;
+					width: 100%;
+
+					display: -webkit-box;
+					-webkit-line-clamp: 3;
+					line-clamp: 3;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+				}
+
+				.article-date {
+					margin: 0;
+					padding: 0;
+					color: $color__text-sub;
+					font-size: 0.875rem;
+					text-align: right;
+					width: 100%;
+				}
+			}
+		}
+
+		#latest-contents-wrapper {
+			.article-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+				gap: 2rem;
+				margin: 0;
+				padding: 0;
+
+			}
+		}
+
+		.categories-contents-wrapper {
+			.grid-wrapper {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+				@include responsive(tb) {
+					grid-template-columns: repeat(2, minmax(320px, 1fr));
+				}
+
+				gap: 2rem;
+				margin: 0;
+				padding: 0;
+
+				.article-grid-1 {
+					display: grid;
+					// background-color: rebeccapurple;
+				}
+
+				.article-grid-2 {
+					display: grid;
+					gap: 1rem;
+					// background-color: red;
+				}
+			}
+		}
+
+		.posts-navigation {
 			display: block;
 			width: 100%;
-			// background-color: rebeccapurple;
-			height: 100%;
-			.article-thumbnail {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
 		}
 
-		.article-meta {
-			.article-category {
-				margin: 0;
-				padding: 0;
-				// color: $color__text-sub;
-				font-size: 0.875rem;
-				text-align: left;
-				width: 100%;
-				a {
-					color: $color__text-sub;
-				}
-			}
-
-			.article-tags {
-				margin: 0;
-				padding: 0;
-				// color: $color__text-sub;
-				font-size: 0.875rem;
-				text-align: left;
-				width: 100%;
-				a {
-					color: $color__text-sub;
-				}
-			}
-
-			.article-title {
-				margin: 0;
-				padding: 0;
-				color: $color__text-main;
-				font-size: 1.125rem;
-				text-align: left;
-				width: 100%;
-
-				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				line-clamp: 3;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
-			}
-
-			.article-date {
-				margin: 0;
-				padding: 0;
-				color: $color__text-sub;
-				font-size: 0.875rem;
-				text-align: right;
-				width: 100%;
-			}
+		#comments {
+			display: none;
 		}
-	  }
-
-	  #latest-contents-wrapper {
-		.article-grid {
-		  display: grid;
-		  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
-		  gap: 2rem;
-		  margin: 0;
-		  padding: 0;
-
-		}
-	  }
-
-	  .categories-contents-wrapper {
-		.grid-wrapper {
-		  display: grid;
-		  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-		  @include responsive(tb) { grid-template-columns: repeat(2, minmax(320px, 1fr)); }
-		  gap: 2rem;
-		  margin: 0;
-		  padding: 0;
-
-		  .article-grid-1 {
-			display: grid;
-			// background-color: rebeccapurple;
-		}
-		  .article-grid-2 {
-			display: grid;
-			gap: 1rem;
-			// background-color: red;
-		}
-		}
-	  }
-  
-	  .posts-navigation {
-		display: block;
-		width: 100%;
-	  }
-  
-	  #comments {
-		display: none;
-	  }
 	}
-  }
-  
+}
