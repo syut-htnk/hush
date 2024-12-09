@@ -693,6 +693,14 @@ textarea {
 #contents-wrapper {
   margin: 0 auto;
 }
+#contents-wrapper .page-header h1.page-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+#contents-wrapper .page-header .archive-description {
+  font-size: 1rem;
+  text-align: center;
+}
 #contents-wrapper #primary {
   display: block;
   max-width: 1280px;
@@ -709,6 +717,9 @@ textarea {
 }
 #contents-wrapper #primary.is-single-page .entry-meta {
   text-align: center;
+}
+#contents-wrapper #primary.is-archive-page {
+  max-width: 1024px;
 }
 #contents-wrapper #primary .article-card {
   display: block;
@@ -803,7 +814,8 @@ textarea {
   text-align: right;
   width: 100%;
 }
-#contents-wrapper #primary #latest-contents-wrapper .article-grid {
+#contents-wrapper #primary #latest-contents-wrapper .article-grid,
+#contents-wrapper #primary #category-contents-wrapper .article-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
   gap: 2rem;

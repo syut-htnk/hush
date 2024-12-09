@@ -14,37 +14,43 @@ get_header();
 
 	<header class="page-header">
 		<?php
-		the_archive_title( '<h1 class="page-title">', '</h1>' );
-		the_archive_description( '<div class="archive-description">', '</div>' );
+		$archive_title = get_the_archive_title();
+		$archive_title = strip_tags($archive_title);
+		$clean_title = preg_replace('/^.*?:\s/', '', $archive_title); // 「カテゴリー：」を削除
+		?>
+		<h1 class="page-title"><?php echo esc_html($clean_title); ?></h1>
+		<?php
+		the_archive_description('<div class="archive-description">', '</div>');
 		?>
 	</header><!-- .page-header -->
 
-	<main id="primary" class="site-main in-archive-page">
+	<main id="primary" class="site-main is-archive-page">
+		<section id="category-contents-wrapper" class="">
+			<!-- <h2 class="section-title">Latest Posts</h2> -->
+			<div class="article-grid">
+				<?php if (have_posts()): ?>
+					<?php
+					/* Start the Loop */
+					while (have_posts()):
+						the_post();
 
-		<?php if ( have_posts() ) : ?>
+						/*
+						 * Include the Post-Type-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+						 */
+						get_template_part('template-parts/content-archive', get_post_type());
 
+					endwhile;
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				else:
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content-archive', get_post_type() );
+					get_template_part('template-parts/content', 'none');
 
-			endwhile;
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
+				endif;
+				?>
+			</div>
+		</section>
 	</main><!-- #main -->
 	<?php get_sidebar(); ?>
 </div><!-- #contents-wrapper -->

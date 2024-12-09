@@ -27,6 +27,18 @@
 #contents-wrapper {
 	margin: 0 auto;
 
+	.page-header {
+		h1.page-title {
+			font-size: 1.5rem;
+			text-align: center;
+		}
+
+		.archive-description {
+			font-size: 1rem;
+			text-align: center;
+		}
+	}
+
 	#primary {
 		display: block;
 		max-width: $size__front-contents-width-max-pc;
@@ -47,6 +59,10 @@
 			.entry-meta {
 				text-align: center;
 			}
+		}
+
+		&.is-archive-page {
+			max-width: 1024px;
 		}
 
 		.article-card {
@@ -180,7 +196,8 @@
 			}
 		}
 
-		#latest-contents-wrapper {
+		#latest-contents-wrapper,
+		#category-contents-wrapper {
 			.article-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
