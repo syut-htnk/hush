@@ -694,6 +694,9 @@ textarea {
   max-width: 1280px;
   padding: 2rem;
 }
+#contents-wrapper #primary.is-single-page {
+  max-width: 756px;
+}
 #contents-wrapper #primary .article-card {
   display: block;
   margin: 0;
@@ -750,7 +753,7 @@ textarea {
   margin: 0;
   padding: 0;
 }
-#contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper {
+#contents-wrapper #primary .categories-contents-wrapper .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
@@ -758,14 +761,14 @@ textarea {
   padding: 0;
 }
 @media (min-width: 768px) {
-  #contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper {
+  #contents-wrapper #primary .categories-contents-wrapper .grid-wrapper {
     grid-template-columns: repeat(2, minmax(320px, 1fr));
   }
 }
-#contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper .article-grid-1 {
+#contents-wrapper #primary .categories-contents-wrapper .grid-wrapper .article-grid-1 {
   display: grid;
 }
-#contents-wrapper #primary #category-1-contents-wrapper .grid-wrapper .article-grid-2 {
+#contents-wrapper #primary .categories-contents-wrapper .grid-wrapper .article-grid-2 {
   display: grid;
   gap: 1rem;
 }
@@ -1368,8 +1371,8 @@ textarea {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   background-image: radial-gradient(#111 30%, transparent 31%), radial-gradient(#111 30%, transparent 31%);
-  background-size: 4px 4px;
-  background-position: 0 0, 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 0, 1px 1px;
   z-index: 2;
   pointer-events: none;
 }

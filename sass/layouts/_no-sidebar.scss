@@ -26,6 +26,10 @@
 	  display: block;
 	  max-width: $size__front-contents-width-max-pc;
 	  padding: 2rem;
+
+	  &.is-single-page {
+		max-width: 756px;
+	  }
 	  
 	  .article-card {
 		display: block;
@@ -102,7 +106,7 @@
 		}
 	  }
 
-	  #category-1-contents-wrapper {
+	  .categories-contents-wrapper {
 		.grid-wrapper {
 		  display: grid;
 		  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

@@ -10,8 +10,8 @@
 get_header();
 ?>
 
-	<div id="contents-wrapper" class="contents-wrapper in-single-page">
-		<main id="primary" class="site-main in-single-page">
+	<div id="contents-wrapper" class="contents-wrapper is-single-page">
+		<main id="primary" class="site-main is-single-page">
 
 			<?php
 			while ( have_posts() ) :
