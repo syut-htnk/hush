@@ -5,7 +5,7 @@
     &-wrapper {
         margin: 0 auto;
         padding: 32px $size__side-margin;
-        max-width: 100%;
+        max-width: 768px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
