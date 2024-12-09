@@ -477,32 +477,6 @@ function lull_add_meta_tags() {
 }
 add_action('wp_head', 'lull_add_meta_tags');
 
-/**
- * Register google tag manager
- */
-
-function lull_gtm_head_scripts() {
-?>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-KHR58VBV');</script>
-	<!-- End Google Tag Manager -->
-<?php
-}
-add_action('wp_head','lull_gtm_head_scripts', 0);
-
-function lull_gtm_body_scripts() {
-?>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHR58VBV"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-<?php
-}
-add_action('wp_body_open','lull_gtm_body_scripts', 0);
 
 /**
  * Implement the Custom Header feature.
