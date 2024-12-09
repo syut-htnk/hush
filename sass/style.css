@@ -1443,6 +1443,35 @@ textarea {
   color: #333333;
 }
 
+.swiper-button-next {
+  transition: all 0.3s ease-in-out;
+  color: #f2f2f2;
+}
+.swiper-button-next::after {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  content: "≫";
+}
+.swiper-button-next:hover {
+  transform: translateX(4px);
+}
+
+.swiper-button-prev {
+  transition: all 0.3s ease-in-out;
+  color: #f2f2f2;
+}
+.swiper-button-prev::after {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  content: "≪";
+}
+.swiper-button-prev:hover {
+  transform: translateX(-4px);
+}
+
+.swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: #f2f2f2;
+}
+
 /* Index
 --------------------------------------------- */
 .single__index {

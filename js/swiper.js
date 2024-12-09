@@ -1,6 +1,7 @@
 const swiperPrimary = new Swiper('.swiper-primary', {
     // Optional parameters
     loop: true,
+    autoplay: true,
 
     // If we need pagination
     pagination: {

@@ -136,4 +136,37 @@
       }
     }
 }
-  
+
+.swiper-button-next {
+  transition: $transition-master;
+  color: $color__text-main-inv;
+
+  &::after {
+    font-family: $font__main;
+    content: '≫';
+  }
+
+  &:hover {
+    transform: translateX(4px);
+  }
+}
+
+.swiper-button-prev {
+  transition: $transition-master;
+  color: $color__text-main-inv;
+
+  &::after {
+    font-family: $font__main;
+    content: '≪';
+  }
+
+  &:hover {
+    transform: translateX(-4px);
+  }
+}
+
+.swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  // background: var(--swiper-pagination-color, var(--swiper-theme-color));
+  background: $color__text-main-inv;
+}
