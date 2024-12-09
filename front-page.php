@@ -21,7 +21,7 @@ get_header();
 		<?php
 		$args = array(
 			'post_status' => 'publish',
-			'posts_per_page' => 10,
+			'posts_per_page' => 5,
 		);
 		$query = new WP_Query($args);
 
@@ -72,6 +72,8 @@ get_header();
 	<div class="swiper-button-prev"></div>
 	<div class="swiper-button-next"></div>
 </div>
+
+<!-- <hr class="section-divider"> -->
 
 <div id="contents-wrapper" class="layout-wrapper is-front-page">
 	<main id="primary" class="site-main is-front-page">
@@ -134,6 +136,8 @@ get_header();
 				<?php endif; ?>
 			</div>
 		</section>
+
+		<hr class="section-divider">
 
 		<?php
 			// カテゴリーIDの配列
@@ -241,6 +245,7 @@ get_header();
 						</div>
 					</div>
 				</section>
+				<hr class="section-divider">
 			<?php
 				else :
 					echo '<p>投稿が見つかりませんでした。</p>';

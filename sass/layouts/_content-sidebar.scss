@@ -60,8 +60,11 @@
 	// 	"header header"
 	// 	"main sidebar"
 	// 	"footer footer";	
-
+	
 	#primary {
+
+		
+
 		display: block;
 		//display: grid;
 		gap: $size__grid-gap;
@@ -236,9 +239,10 @@
 					font-weight: 300;
 				}
 			}
-
+			
 		}
 	}
+
 
 }
 

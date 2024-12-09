@@ -1,127 +1,92 @@
-.site-footer {
+.footer {
     background-color: $color__background-footer;
     color: $color__text-main-inv;
-}
 
-.footer-contents-wrapper {
-    margin: 0 auto;
-    padding: 1em;
-    padding: 32px $size__side-margin;
-	max-width: 100%;
-	@include responsive(tb) { max-width: $size__global-width-max-tb; }
-	@include responsive(pc) { max-width: $size__global-width-max-pc; }
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "left"
-        "center"
-        "right"
-        "bottom";
-
-    align-items: start;
-
-
-    @include responsive(tb) {
-        grid-template-columns: 1fr 1fr; 
+    &-wrapper {
+        margin: 0 auto;
+        padding: 32px $size__side-margin;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "center center"
             "left right"
             "bottom bottom";
-        column-gap: $size__grid-gap;
-        //grid-template-columns: 1fr ;
-    }
+        gap: $size__grid-gap;
+        align-items: start;
 
-
-    @include responsive(pc) {
-		grid-template-columns: 1fr 1fr 1fr; 
-		grid-template-areas:
-			"left center right"
-            "bottom bottom bottom";
-		column-gap: $size__grid-gap;
-		//grid-template-columns: 1fr ;
-	}
-
-    .footer-left {
-        grid-area: left;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-
-        .footer-category-list {
-            justify-content: flex-start;
-            align-items: left;
-            justify-items: left;
-
-            list-style: none;
-            margin: 0;
+        @include responsive(tb) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "center center"
+                "left right"
+                "bottom bottom";
         }
 
-        a {
-            color: $color__text-main-inv;
-            text-decoration: none;
-
-            &:hover {
-                color: $color__text-main;
-            }
+        @include responsive(pc) {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "left center right"
+                "bottom bottom bottom";
         }
-    }
-
-    .footer-center {
-        grid-area: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-
-        .footer-tag-list {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        a {
-            color: $color__text-main-inv;
-            text-decoration: none;
-
-            &:hover {
-                color: $color__text-main;
-            }
-        }
-    }
-
-    .footer-right {
-        grid-area: right;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
 
         ul {
             list-style: none;
-        }
+            margin: 0;
 
-        a {
-            color: $color__text-main-inv;
-            text-decoration: none;
-
-            &:hover {
-                color: $color__text-main;
+            li {
+                margin: 0;
             }
         }
+
+        .title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            text-align: left;
+        }
+
+        &-left, &-center, &-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            a {
+                color: $color__text-main-inv;
+                text-decoration: none;
+
+                &:hover {
+                    color: $color__text-main;
+                }
+            }
+        }
+
+        &-left {
+            grid-area: left;
+
+            ul {
+                margin: 0;
+            }
+        }
+
+        &-center {
+            grid-area: center;
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+
+        &-right {
+            grid-area: right;
+        }
+
+        &-bottom {
+            grid-area: bottom;
+            text-align: center;
+            margin: 2rem 0;
+        }
     }
-
-    .footer-bottom {
-        grid-area: bottom;
-        text-align: center;
-        margin: 2rem 0;
-    }
-
-
 }
