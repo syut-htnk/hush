@@ -135,6 +135,15 @@ get_header();
 					<p>投稿が見つかりませんでした。</p>
 				<?php endif; ?>
 			</div>
+<button class="view-all-posts">
+    <?php
+    // サイトの投稿アーカイブURLを生成
+    $archive_link = archive_url(); // デフォルトのアーカイブURLを取得
+
+    // リンクを表示
+    echo '<a href="' . esc_url( $archive_link ) . '" class="archive-link">すべての投稿を見る</a>';
+    ?>
+</button>
 		</section>
 
 		<hr class="section-divider">

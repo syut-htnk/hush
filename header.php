@@ -26,6 +26,7 @@
 		$og_image = has_post_thumbnail() ? get_the_post_thumbnail_url($meta_post_data, 'full') : 'Default Image Path'; 
 		$og_site_name = get_bloginfo('name'); 
 	?>
+	
 	<meta property="og:url" content="<?php echo esc_url($og_url); ?>" />
 	<meta property="og:title" content="<?php echo esc_attr($og_title); ?>" />
 	<meta property="og:type" content="article" />
