@@ -197,7 +197,8 @@
 		}
 
 		#latest-contents-wrapper,
-		#category-contents-wrapper {
+		#category-contents-wrapper,
+		.categories-contents-wrapper {
 			.article-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
@@ -205,6 +206,30 @@
 				margin: 0;
 				padding: 0;
 
+			}
+			.view-all-posts-wrapper {
+				text-align: center;
+				margin-top: 2rem;
+				.view-all-posts-button {
+
+					position: relative;
+					padding: 0.5rem 1rem;
+					color: $color__text-main;
+					font-size: 1rem;
+					font-weight: $font__weight-bold;
+					text-align: left;
+					background-color: transparent;
+					border: 1px solid $color__text-main;
+					border-radius: 2rem;
+					width: auto;
+				
+					transition: $transition-master;
+
+					&:hover {
+						background-color: $color__text-main;
+						color: $color__text-main-inv;
+					}
+				}
 			}
 		}
 

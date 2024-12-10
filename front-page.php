@@ -135,15 +135,9 @@ get_header();
 					<p>投稿が見つかりませんでした。</p>
 				<?php endif; ?>
 			</div>
-<button class="view-all-posts">
-    <?php
-    // サイトの投稿アーカイブURLを生成
-    $archive_link = archive_url(); // デフォルトのアーカイブURLを取得
-
-    // リンクを表示
-    echo '<a href="' . esc_url( $archive_link ) . '" class="archive-link">すべての投稿を見る</a>';
-    ?>
-</button>
+			<div class="view-all-posts-wrapper">
+				<a class="view-all-posts-button" href="<?php echo esc_url(home_url('/archive/'));?>">全ての記事を見る</a>
+			</div>
 		</section>
 
 		<hr class="section-divider">
@@ -252,6 +246,9 @@ get_header();
 							<?php endif; ?>
 							<?php wp_reset_postdata(); ?>
 						</div>
+					</div>
+					<div class="view-all-posts-wrapper">
+						<a class="view-all-posts-button" href="<?php echo esc_url(get_category_link($cat_id)); ?>">全ての記事を見る</a>
 					</div>
 				</section>
 				<hr class="section-divider">

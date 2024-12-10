@@ -815,12 +815,40 @@ textarea {
   width: 100%;
 }
 #contents-wrapper #primary #latest-contents-wrapper .article-grid,
-#contents-wrapper #primary #category-contents-wrapper .article-grid {
+#contents-wrapper #primary #category-contents-wrapper .article-grid,
+#contents-wrapper #primary .categories-contents-wrapper .article-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
   gap: 2rem;
   margin: 0;
   padding: 0;
+}
+#contents-wrapper #primary #latest-contents-wrapper .view-all-posts-wrapper,
+#contents-wrapper #primary #category-contents-wrapper .view-all-posts-wrapper,
+#contents-wrapper #primary .categories-contents-wrapper .view-all-posts-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+#contents-wrapper #primary #latest-contents-wrapper .view-all-posts-wrapper .view-all-posts-button,
+#contents-wrapper #primary #category-contents-wrapper .view-all-posts-wrapper .view-all-posts-button,
+#contents-wrapper #primary .categories-contents-wrapper .view-all-posts-wrapper .view-all-posts-button {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  background-color: transparent;
+  border: 1px solid #333333;
+  border-radius: 2rem;
+  width: auto;
+  transition: all 0.3s ease-in-out;
+}
+#contents-wrapper #primary #latest-contents-wrapper .view-all-posts-wrapper .view-all-posts-button:hover,
+#contents-wrapper #primary #category-contents-wrapper .view-all-posts-wrapper .view-all-posts-button:hover,
+#contents-wrapper #primary .categories-contents-wrapper .view-all-posts-wrapper .view-all-posts-button:hover {
+  background-color: #333333;
+  color: #f2f2f2;
 }
 #contents-wrapper #primary .categories-contents-wrapper .grid-wrapper {
   display: grid;
