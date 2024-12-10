@@ -98,19 +98,23 @@
           }
 
           .slide-read-more {
-            border: 1px solid $color__text-main-inv;
+            position: relative;
+            margin: 0;
+            padding: 0.5rem 1rem;
             color: $color__text-main-inv;
-
-            a {
-                color: $color__text-main-inv;
-            }
+            font-size: 1rem;
+            font-weight: $font__weight-bold;
+            text-align: left;
+            background-color: transparent;
+            border: 1px solid $color__text-main-inv;
+            border-radius: 2rem;
+            width: auto;
+          
+            transition: $transition-master;
 
             &:hover {
               background-color: $color__text-main-inv;
               color: $color__text-main;
-                a {
-                    color: $color__text-main;
-                }
             }
           }
   

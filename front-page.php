@@ -52,9 +52,7 @@ get_header();
 						</div>
 						<!-- </button> -->
 						<h2 class="slide-title"><?php the_title(); ?></h2>
-						<button class="slide-read-more">
-							<a href="<?php the_permalink(); ?>">もっと読む</a>
-						</button>
+						<a class="slide-read-more" href="<?php the_permalink(); ?>">もっと読む</a>
 					</div>
 				</div>
 			<?php

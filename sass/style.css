@@ -1454,17 +1454,21 @@ textarea {
   width: 100%;
 }
 .swiper-primary .swiper-wrapper .swiper-slide .slide-content .slide-read-more {
+  position: relative;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  color: #f2f2f2;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  background-color: transparent;
   border: 1px solid #f2f2f2;
-  color: #f2f2f2;
-}
-.swiper-primary .swiper-wrapper .swiper-slide .slide-content .slide-read-more a {
-  color: #f2f2f2;
+  border-radius: 2rem;
+  width: auto;
+  transition: all 0.3s ease-in-out;
 }
 .swiper-primary .swiper-wrapper .swiper-slide .slide-content .slide-read-more:hover {
   background-color: #f2f2f2;
-  color: #333333;
-}
-.swiper-primary .swiper-wrapper .swiper-slide .slide-content .slide-read-more:hover a {
   color: #333333;
 }
 
