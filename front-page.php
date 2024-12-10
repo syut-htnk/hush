@@ -41,12 +41,22 @@ get_header();
 						<!-- category -->
 						<!-- <button class="slide-category"> -->
 						<div class="slide-category">
+							<!-- <?php
+							// $categories = get_the_category();
+							// if (!empty($categories)) {
+							// 	foreach ($categories as $category) {
+							// 		echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+							// 	}
+							// }
+							?> -->
 							<?php
 							$categories = get_the_category();
 							if (!empty($categories)) {
+								$links = array();
 								foreach ($categories as $category) {
-									echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+									$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
 								}
+								echo implode('・', $links);
 							}
 							?>
 						</div>
@@ -98,12 +108,22 @@ get_header();
 							<?php endif; ?>
 							<div class="article-meta">
 								<div class="article-category">
+									<!-- <?php
+									// $categories = get_the_category();
+									// if (!empty($categories)) {
+									// 	foreach ($categories as $category) {
+									// 		echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+									// 	}
+									// }
+									?> -->
 									<?php
 									$categories = get_the_category();
 									if (!empty($categories)) {
+										$links = array();
 										foreach ($categories as $category) {
-											echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+											$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
 										}
+										echo implode('・', $links);
 									}
 									?>
 								</div>
@@ -168,12 +188,22 @@ get_header();
 									<?php endif; ?>
 									<div class="article-meta">
 										<div class="article-category">
+											<!-- <?php
+											// $categories = get_the_category();
+											// if ( ! empty( $categories ) ) {
+											// 	foreach ( $categories as $category ) {
+											// 		echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+											// 	}
+											// }
+											?> -->
 											<?php
 											$categories = get_the_category();
-											if ( ! empty( $categories ) ) {
-												foreach ( $categories as $category ) {
-													echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+											if (!empty($categories)) {
+												$links = array();
+												foreach ($categories as $category) {
+													$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
 												}
+												echo implode('・', $links);
 											}
 											?>
 										</div>
@@ -208,12 +238,22 @@ get_header();
 									<article class="article-card-sub">
 										<div class="article-meta">
 											<div class="article-category">
+												<!-- <?php
+												// $categories = get_the_category();
+												// if ( ! empty( $categories ) ) {
+												// 	foreach ( $categories as $category ) {
+												// 		echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+												// 	}
+												// }
+												?> -->
 												<?php
 												$categories = get_the_category();
-												if ( ! empty( $categories ) ) {
-													foreach ( $categories as $category ) {
-														echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="category-link">' . esc_html( $category->name ) . '</a>';
+												if (!empty($categories)) {
+													$links = array();
+													foreach ($categories as $category) {
+														$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
 													}
+													echo implode('・', $links);
 												}
 												?>
 											</div>
