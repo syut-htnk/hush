@@ -11,6 +11,11 @@ get_header();
 ?>
 
 	<div id="contents-wrapper" class="contents-wrapper is-single-page">
+
+		<?php if ( is_active_sidebar( 'article-top' ) ) : ?>
+			<?php dynamic_sidebar( 'article-top' ); ?>
+		<?php endif; ?>
+
 		<main id="primary" class="site-main is-single-page">
 
 			<?php
@@ -35,6 +40,11 @@ get_header();
 			?>
 
 		</main><!-- #main -->
+
+		<?php if ( is_active_sidebar( 'article-bottom' ) ) : ?>
+			<?php dynamic_sidebar( 'article-bottom' ); ?>
+		<?php endif; ?>
+
 		<?php get_sidebar(); ?>
 	</div><!-- #contents-wrapper -->
 

@@ -492,6 +492,45 @@ function lull_post_has_archive( $args, $post_type ) {
 add_filter( 'register_post_type_args', 'lull_post_has_archive', 10, 2 );
 
 
+/*
+ * Register Widget Area
+ */
+
+
+function lull_article_widget_init() {
+	// register_sidebar( array(
+	// 	'name'=> 'Article Bottom', 
+	// 	'id'=> 'article-bottom',
+	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h4 class="widget-title">',
+	// 	'after_title' => '</h4>',
+	// ) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Article Top', 'lull' ),
+			'id'            => 'article-top',
+			'description'   => esc_html__( 'Add widgets here.', 'lull' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Article Bottom', 'lull' ),
+			'id'            => 'article-bottom',
+			'description'   => esc_html__( 'Add widgets here.', 'lull' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		)
+	);
+}
+add_action('widgets_init', 'lull_article_widget_init');
+
 /**
  * Implement the Custom Header feature.
  */
