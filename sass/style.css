@@ -1375,6 +1375,7 @@ textarea {
   width: calc(100vw - 32px);
   height: calc(100vh - 32px - 64px);
   margin: 16px;
+  margin-top: 0;
 }
 @media (min-width: 768px) {
   .swiper-primary {

@@ -3,6 +3,7 @@
     width: calc(100vw - 32px);
     height: calc(100vh - 32px - $size__header-height-sp);
     margin: 16px;
+    margin-top: 0;
   
     @include responsive(tb) {
       height: calc(100vh - 32px - $size__header-height-tb);
