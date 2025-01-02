@@ -41,88 +41,147 @@ get_header();
 
 		<!-- Related Posts -->
 		<section id="related-contents-wrapper" class="single-section">
-		<h2 class="section-title">Related Posts</h2>
-		<div class="article-grid">
-			<?php
+			<h2 class="section-title">Related Posts</h2>
+			<div class="article-grid">
+				<?php
 
-			$catkwds = array();
+				$catkwds = array();
 
-			if (has_category()) {
+				if (has_category()) {
 
-				$cats = get_the_category();
+					$cats = get_the_category();
 
-				foreach ($cats as $cat) {
-					$catkwds[] = $cat->term_id;
+					foreach ($cats as $cat) {
+						$catkwds[] = $cat->term_id;
+					}
+
 				}
 
-			}
+				$args = array(
+					'post_type' => 'post',
+					'posts_per_page' => '4',
+					'post__not_in' => array($post->ID),
+					'category__in' => $catkwds,
+					'orderby' => 'rand'
+				);
+				$query = new WP_Query($args);
 
-			$args = array(
-				'post_type' => 'post',
-				'posts_per_page' => '4',
-				'post__not_in' => array($post->ID),
-				'category__in' => $catkwds,
-				'orderby' => 'rand'
-			);
-			$query = new WP_Query($args);
-
-			if ($query->have_posts()):
-				while ($query->have_posts()):
-					$query->the_post();
+				if ($query->have_posts()):
+					while ($query->have_posts()):
+						$query->the_post();
+						?>
+						<article class="article-card">
+							<?php if (has_post_thumbnail()): ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
+								</a>
+							<?php endif; ?>
+							<div class="article-meta">
+								<div class="article-category">
+									<!-- <?php
+									// $categories = get_the_category();
+									// if (!empty($categories)) {
+									// 	foreach ($categories as $category) {
+									// 		echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+									// 	}
+									// }
+									?> -->
+									<?php
+									$categories = get_the_category();
+									if (!empty($categories)) {
+										$links = array();
+										foreach ($categories as $category) {
+											$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+										}
+										echo implode('・', $links);
+									}
+									?>
+								</div>
+								<h3 class="article-title">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
+								<div class="article-tags">
+									<?php
+									// endwhile;
+									// endif;
+									$tags = get_the_tags();
+									if ($tags) {
+										foreach ($tags as $tag) {
+											echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+										}
+									}
+									?>
+								</div>
+							</div>
+						</article>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				else:
 					?>
-					<article class="article-card">
-						<?php if (has_post_thumbnail()): ?>
-							<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
-								<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
-							</a>
-						<?php endif; ?>
-						<div class="article-meta">
-							<div class="article-category">
-								<!-- <?php
-								// $categories = get_the_category();
-								// if (!empty($categories)) {
-								// 	foreach ($categories as $category) {
-								// 		echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
-								// 	}
-								// }
-								?> -->
-								<?php
-								$categories = get_the_category();
-								if (!empty($categories)) {
-									$links = array();
-									foreach ($categories as $category) {
-										$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+					<p>投稿が見つかりませんでした。</p>
+				<?php endif; ?>
+			</div>
+		</section>
+
+		<!-- Related Posts -->
+		<section id="popular-contents-wrapper" class="single-section">
+			<h2 class="section-title">Popular Posts</h2>
+			<div class="article-grid">
+				<?php
+				$count = 1;
+
+				if(function_exists('sga_ranking_get_date')) {
+					$popular_posts = sga_ranking_get_date();
+					foreach ($popular_posts as $post) {
+						setup_postdata($post);
+						?>
+						<article class="article-card">
+							<?php if (has_post_thumbnail()): ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
+								</a>
+							<?php endif; ?>
+							<div class="article-meta">
+								<div class="article-category">
+									<?php
+									$categories = get_the_category();
+									if (!empty($categories)) {
+										$links = array();
+										foreach ($categories as $category) {
+											$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+										}
+										echo implode('・', $links);
 									}
-									echo implode('・', $links);
-								}
-								?>
-							</div>
-							<h3 class="article-title">
-								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-							</h3>
-							<!-- <p class="article-date"><?php the_time('Y年n月j日'); ?></p> -->
-							<div class="article-tags">
-								<?php
-								// endwhile;
-								// endif;
-								$tags = get_the_tags();
-								if ($tags) {
-									foreach ($tags as $tag) {
-										echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+									?>
+								</div>
+								<h3 class="article-title">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<div class="article-tags">
+									<?php
+									$tags = get_the_tags();
+									if ($tags) {
+										foreach ($tags as $tag) {
+											echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+										}
 									}
-								}
-								?>
+									?>
+								</div>
 							</div>
-						</div>
-					</article>
-					<?php
-				endwhile;
-				wp_reset_postdata();
-			else:
+						</article>
+						<?php
+						$count++;
+						if ($count > 4) {
+							break;
+						}
+					}
+					wp_reset_postdata();
+				}
 				?>
-				<p>投稿が見つかりませんでした。</p>
-			<?php endif; ?>
-		</div>
+			</div>
+			<!-- </div> -->
 		</section>
 
 	</main><!-- #main -->
