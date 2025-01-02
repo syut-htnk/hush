@@ -207,24 +207,69 @@ function lull_add_swiper_files() {
 }
 add_action( 'wp_enqueue_scripts', 'lull_add_swiper_files' );
 
+
 function lull_get_breadcrumb() {
-    echo '<a href="' . home_url() . '">HOME</a>';
-    if (is_category() || is_single()) {
-        echo ' » ';
-        the_category(' • ');
-        if (is_single()) {
-            echo ' » ';
-            the_title();
-        }
-    } elseif (is_page()) {
-        echo ' » ';
-        the_title();
-    } elseif (is_search()) {
-        echo ' » Search Results for… <em>';
-        echo get_search_query();
-        echo '</em>';
-    }
+	echo '<div itemscope itemtype="https://schema.org/BreadcrumbList">';
+	echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+	echo '<a itemprop="item" href="' . home_url() . '"><span itemprop="name">HOME</span></a>';
+	echo '<meta itemprop="position" content="1" />';
+	echo '</span>';
+
+	if (is_category() || is_single()) {
+		echo ' » ';
+		if (is_single()) {
+			$categories = get_the_category();
+			if ($categories) {
+				echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+				echo '<a itemprop="item" href="' . get_category_link($categories[0]->term_id) . '">';
+				echo '<span itemprop="name">' . $categories[0]->name . '</span></a>';
+				echo '<meta itemprop="position" content="2" />';
+				echo '</span> » ';
+				echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+				echo '<span itemprop="name">' . get_the_title() . '</span>';
+				echo '<meta itemprop="position" content="3" />';
+				echo '</span>';
+			}
+		} else {
+			echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+			single_cat_title('<span itemprop="name">', '</span>');
+			echo '<meta itemprop="position" content="2" />';
+			echo '</span>';
+		}
+	} elseif (is_page()) {
+		echo ' » ';
+		echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+		echo '<span itemprop="name">' . get_the_title() . '</span>';
+		echo '<meta itemprop="position" content="2" />';
+		echo '</span>';
+	} elseif (is_search()) {
+		echo ' » ';
+		echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+		echo '<span itemprop="name">Search Results for… ' . get_search_query() . '</span>';
+		echo '<meta itemprop="position" content="2" />';
+		echo '</span>';
+	}
+	echo '</div>';
 }
+
+// function lull_get_breadcrumb() {
+//     echo '<a href="' . home_url() . '">HOME</a>';
+//     if (is_category() || is_single()) {
+//         echo ' » ';
+//         the_category(' • ');
+//         if (is_single()) {
+//             echo ' » ';
+//             the_title();
+//         }
+//     } elseif (is_page()) {
+//         echo ' » ';
+//         the_title();
+//     } elseif (is_search()) {
+//         echo ' » Search Results for… <em>';
+//         echo get_search_query();
+//         echo '</em>';
+//     }
+// }
 
 function lull_get_sns_buttons() {
     // 現在の投稿の URL とタイトルを取得
