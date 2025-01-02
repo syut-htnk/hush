@@ -401,6 +401,13 @@ textarea {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.85;
+}
+body.entry-content,
+button.entry-content,
+input.entry-content,
+select.entry-content,
+optgroup.entry-content,
+textarea.entry-content {
   letter-spacing: 0.05rem;
 }
 
