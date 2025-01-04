@@ -1,4 +1,9 @@
 .site-header {
+    position: sticky;
+    position: -webkit-sticky;
+    // position: fixed;
+    z-index: 1000;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -7,6 +12,8 @@
     height: $size__header-height-sp;
     @include responsive(tb) { height: $size__header-height-tb; }
     @include responsive(pc) { height: $size__header-height-pc; }
+
+    background-color: $color__background-body;
     
     .site-branding {
         display: flex;
