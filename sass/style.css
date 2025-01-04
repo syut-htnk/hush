@@ -418,7 +418,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Jost", "Zen Kaku Gothic Antique", sans-serif;
   font-weight: 700;
 }
 
@@ -1539,7 +1539,7 @@ textarea {
   margin: 0;
   padding: 1rem 0;
   text-align: center;
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Jost", "Zen Kaku Gothic Antique", sans-serif;
   font-weight: 700;
   font-size: 1rem;
 }
