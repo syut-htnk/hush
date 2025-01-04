@@ -165,8 +165,9 @@ function lull_enable_google_fonts() {
 	wp_enqueue_style(
         'google-fonts',
         // 'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap',
-		'https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap',
+		// 'https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap',
 		//'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@500;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap',
         [],
         null
     );

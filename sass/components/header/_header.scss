@@ -15,19 +15,33 @@
     @include responsive(tb) { height: $size__header-height-tb; }
     @include responsive(pc) { height: $size__header-height-pc; }
 
-    background-color: $color__background-body;
+    // background-color: $color__background-body;
+    background-color: #ffffffe6;
+    // opacity: .8;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     
     .site-branding {
         display: flex;
-        height: inherit;
+        // height: inherit;
         margin: 0 24px;
-        align-items: center;
-        justify-content: center;
-        width: 128px;
+        // align-items: left;
+        justify-content: left;
+        // flex-wrap: nowrap;
+        // width: 512px;
         // height: 32px;
-        // width: auto;
+        // width: 256px;
 
         h1 {margin: 0; padding: 0; display: none;}
         p {margin: 0; padding: 0; display: none;}
+
+        font-family: $font__heading__menu;
+        font-size: 1.5rem;
+        letter-spacing: .5rem;
+        // text-indent: .5rem;
+        &:hover {
+            letter-spacing: .35rem;
+            text-indent: .5rem;
+        }
     }
 }
