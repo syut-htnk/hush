@@ -76,6 +76,8 @@
 		overflow: scroll;
 
 		h4.header-sp-title {
+			font-family: $font__heading__menu;
+			letter-spacing: .1rem;
 			text-align: left;
 			border-bottom: 1px solid $color__text-main;
 			padding-bottom: 0;

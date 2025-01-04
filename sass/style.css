@@ -418,7 +418,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  font-family: "Jost", "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
   font-weight: 700;
 }
 
@@ -982,6 +982,8 @@ textarea {
   }
 }
 .main-navigation #header-menu-sp-wrapper h4.header-sp-title {
+  font-family: "Jost", "Zen Kaku Gothic Antique", sans-serif;
+  letter-spacing: 0.1rem;
   text-align: left;
   border-bottom: 1px solid #333333;
   padding-bottom: 0;
@@ -1539,7 +1541,7 @@ textarea {
   margin: 0;
   padding: 1rem 0;
   text-align: center;
-  font-family: "Jost", "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
   font-weight: 700;
   font-size: 1rem;
 }
