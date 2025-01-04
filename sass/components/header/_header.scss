@@ -9,6 +9,8 @@
     justify-content: space-between;
     align-items: center;
 
+    border-bottom: 1px solid $color__background-hr;
+
     height: $size__header-height-sp;
     @include responsive(tb) { height: $size__header-height-tb; }
     @include responsive(pc) { height: $size__header-height-pc; }
