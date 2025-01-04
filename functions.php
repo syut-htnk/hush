@@ -578,6 +578,41 @@ function lull_article_widget_init() {
 }
 add_action('widgets_init', 'lull_article_widget_init');
 
+
+/*
+ * O
+ */
+function lull_add_fade_effect_script() {
+	?>
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// .fade-effectクラスを持つ要素を取得
+		const fadeInElements = document.querySelectorAll(".fade-effect");
+
+		// IntersectionObserverを使用して要素を監視
+		const observer = new IntersectionObserver(
+			(entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("effect-active");
+						observer.unobserve(entry.target); // 一度だけ実行
+					}
+				});
+			},
+			{
+				threshold: 0.1, // ビューポートの10%が要素と重なると発火
+			}
+		);
+
+		// 各要素を監視対象に追加
+		fadeInElements.forEach((element) => observer.observe(element));
+	});
+	</script>
+	<?php
+}
+add_action('wp_footer', 'lull_add_fade_effect_script');
+
+
 /**
  * Implement the Custom Header feature.
  */
