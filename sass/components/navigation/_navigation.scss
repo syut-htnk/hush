@@ -136,6 +136,14 @@
 				top: 16px;
 			}
 		}
+
+		&:hover {
+			span {
+				&:nth-child(2) {
+					width: 60%;
+				}
+			}
+		}
 	
 		// トグル時のアニメーション
 		// .toggled & span:nth-child(1) {
@@ -182,14 +190,14 @@
 		.menu-toggle {
 			& span:nth-child(1) {
 				transform: rotate(45deg);
-				top: 11px;
+				top: 8px;
 			}
 			& span:nth-child(2) {
 				opacity: 0;
 			}
 			& span:nth-child(3) {
 				transform: rotate(-45deg);
-				top: 11px;
+				top: 8px;
 			}
 		}
 	

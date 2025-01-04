@@ -1023,6 +1023,9 @@ textarea {
 .main-navigation .menu-toggle span:nth-child(3) {
   top: 16px;
 }
+.main-navigation .menu-toggle:hover span:nth-child(2) {
+  width: 60%;
+}
 .main-navigation::before {
   content: "";
   position: fixed;
@@ -1053,14 +1056,14 @@ textarea {
 }
 .main-navigation.toggled .menu-toggle span:nth-child(1) {
   transform: rotate(45deg);
-  top: 11px;
+  top: 8px;
 }
 .main-navigation.toggled .menu-toggle span:nth-child(2) {
   opacity: 0;
 }
 .main-navigation.toggled .menu-toggle span:nth-child(3) {
   transform: rotate(-45deg);
-  top: 11px;
+  top: 8px;
 }
 .main-navigation.toggled::before {
   opacity: 1;
