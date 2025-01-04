@@ -41,7 +41,7 @@ get_header();
 
 		<!-- Related Posts -->
 		<section id="related-contents-wrapper" class="single-section">
-			<h2 class="section-title">Related Posts</h2>
+			<h2 class="section-title fade-effect-heading">Related Posts</h2>
 			<div class="article-grid">
 				<?php
 
@@ -127,7 +127,7 @@ get_header();
 
 		<!-- Related Posts -->
 		<section id="popular-contents-wrapper" class="single-section">
-			<h2 class="section-title">Popular Posts</h2>
+			<h2 class="section-title fade-effect-heading">Popular Posts</h2>
 			<div class="article-grid">
 				<?php
 				$count = 1;

@@ -34,7 +34,40 @@ h4 {
 .section-title {
 	font-family: $font__heading__menu;
 	font-size: 1.75rem;
-	padding-bottom: 0;
-	border-bottom: 1px solid $color__text-main;
-	margin-bottom: 1rem;
+	display: inline-block;
+	position: relative;
+}
+
+.fade-effect-heading {
+	transition: $transition-master;
+	display: inline-block;
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		transform: translateY(-50%);
+		width: 0;
+		height: 1px;
+		background-color: $color__text-main;
+		margin-left: 12px;
+	}
+
+	&.effect-active::after {
+		animation: expandBorder 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+		// width: 128px;
+	}
+
+	@keyframes expandBorder {
+		from {
+			width: 0;
+		}
+
+		to {
+			width: 128px;
+		}
+	}
 }

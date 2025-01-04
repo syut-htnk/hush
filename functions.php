@@ -587,7 +587,7 @@ function lull_add_fade_effect_script() {
 	<script>
 	document.addEventListener("DOMContentLoaded", function () {
 		// .fade-effectクラスを持つ要素を取得
-		const fadeInElements = document.querySelectorAll(".fade-effect");
+		const fadeInElements = document.querySelectorAll(".fade-effect-heading");
 
 		// IntersectionObserverを使用して要素を監視
 		const observer = new IntersectionObserver(
@@ -600,7 +600,7 @@ function lull_add_fade_effect_script() {
 				});
 			},
 			{
-				threshold: 0.1, // ビューポートの10%が要素と重なると発火
+				threshold: 1, // 25%表示されたら実行
 			}
 		);
 

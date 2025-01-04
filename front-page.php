@@ -65,7 +65,7 @@ get_header();
 						<a class="slide-read-more" href="<?php the_permalink(); ?>">もっと読む</a>
 					</div>
 				</div>
-			<?php
+				<?php
 			endwhile;
 			wp_reset_postdata();
 		else:
@@ -86,7 +86,7 @@ get_header();
 <div id="contents-wrapper" class="layout-wrapper is-front-page">
 	<main id="primary" class="site-main is-front-page">
 		<section id="latest-contents-wrapper" class="front-section">
-			<h2 class="section-title">Latest Posts</h2>
+			<h2 class="section-title fade-effect-heading">Latest Posts</h2>
 			<div class="article-grid">
 				<?php
 				$args = array(
@@ -154,34 +154,95 @@ get_header();
 				<?php endif; ?>
 			</div>
 			<div class="view-all-posts-wrapper">
-				<a class="view-all-posts-button" href="<?php echo esc_url(home_url('/archive/'));?>">全ての記事を見る</a>
+				<a class="view-all-posts-button" href="<?php echo esc_url(home_url('/archive/')); ?>">全ての記事を見る</a>
+			</div>
+		</section>
+
+		<section id="popular-contents-wrapper" class="front-section">
+			<h2 class="section-title fade-effect-heading">Popular Posts</h2>
+			<div class="article-grid">
+				<?php
+				$count = 1;
+
+				if (function_exists('sga_ranking_get_date')) {
+					$popular_posts = sga_ranking_get_date();
+					foreach ($popular_posts as $post) {
+						setup_postdata($post);
+						?>
+						<article class="article-card">
+							<?php if (has_post_thumbnail()): ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
+								</a>
+							<?php endif; ?>
+							<div class="article-meta">
+								<div class="article-category">
+									<?php
+									$categories = get_the_category();
+									if (!empty($categories)) {
+										$links = array();
+										foreach ($categories as $category) {
+											$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+										}
+										echo implode('・', $links);
+									}
+									?>
+								</div>
+								<h3 class="article-title">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<div class="article-tags">
+									<?php
+									$tags = get_the_tags();
+									if ($tags) {
+										foreach ($tags as $tag) {
+											echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="tag-link">#' . esc_html($tag->name) . '</a> ';
+										}
+									}
+									?>
+								</div>
+							</div>
+						</article>
+						<?php
+						$count++;
+						if ($count > 6) { break; }
+					}
+					wp_reset_postdata();
+				}
+				?>
+			</div>
+			<div class="view-all-posts-wrapper">
+				<a class="view-all-posts-button" href="<?php echo esc_url(home_url('/archive/')); ?>">他の記事も見る</a>
 			</div>
 		</section>
 
 		<hr class="section-divider">
 
 		<?php
-			// カテゴリーIDの配列
-			$category_ids = array(1, 23, 52); // 例として1, 2, 3を指定
+		// カテゴリーIDの配列
+		$category_ids = array(2, 23, 52); // 例として1, 2, 3を指定
+		
+		foreach ($category_ids as $cat_id) {
+			$args = array(
+				'post_status' => 'publish',
+				'posts_per_page' => 1,
+				'ignore_sticky_posts' => 1,
+				'cat' => $cat_id, // カテゴリーIDを指定
+			);
+			$query = new WP_Query($args);
 
-			foreach ($category_ids as $cat_id) {
-				$args = array(
-					'post_status'        => 'publish',
-					'posts_per_page'     => 1,
-					'ignore_sticky_posts'=> 1,
-					'cat'                => $cat_id, // カテゴリーIDを指定
-				);
-				$query = new WP_Query( $args );
-
-				if ( $query->have_posts() ) :
-			?>
-				<section id="category-<?php echo $cat_id; ?>-contents-wrapper" class="front-section categories-contents-wrapper">
-					<h2 class="section-title"><?php echo get_cat_name($cat_id); ?></h2>
+			if ($query->have_posts()):
+				?>
+				<section id="category-<?php echo $cat_id; ?>-contents-wrapper"
+					class="front-section categories-contents-wrapper">
+					<!-- <h2 class="section-title"></h2> -->
+					<h2 class="section-title fade-effect-heading"><?php echo get_cat_name($cat_id); ?></h2>
 					<div class="grid-wrapper">
 						<div class="article-grid-1">
-							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+							<?php while ($query->have_posts()):
+								$query->the_post(); ?>
 								<article class="article-card">
-									<?php if ( has_post_thumbnail() ) : ?>
+									<?php if (has_post_thumbnail()): ?>
 										<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
 											<?php the_post_thumbnail('large', ['class' => 'article-thumbnail']); ?>
 										</a>
@@ -231,10 +292,11 @@ get_header();
 						<div class="article-grid-2">
 							<?php
 							$args['posts_per_page'] = 4; // 2列目の記事数を変更
-							$query = new WP_Query( $args );
-							if ( $query->have_posts() ) :
-								while ( $query->have_posts() ) : $query->the_post();
-							?>
+							$query = new WP_Query($args);
+							if ($query->have_posts()):
+								while ($query->have_posts()):
+									$query->the_post();
+									?>
 									<article class="article-card-sub">
 										<div class="article-meta">
 											<div class="article-category">
@@ -274,7 +336,7 @@ get_header();
 												?>
 											</div>
 										</div>
-										<?php if ( has_post_thumbnail() ) : ?>
+										<?php if (has_post_thumbnail()): ?>
 											<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
 												<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
 											</a>
@@ -290,11 +352,11 @@ get_header();
 					</div>
 				</section>
 				<hr class="section-divider">
-			<?php
-				else :
-					echo '<p>投稿が見つかりませんでした。</p>';
-				endif;
-			}
+				<?php
+			else:
+				echo '<p>投稿が見つかりませんでした。</p>';
+			endif;
+		}
 		?>
 
 

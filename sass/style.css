@@ -445,9 +445,37 @@ h4 {
 .section-title {
   font-family: "League Spartan", "Zen Kaku Gothic Antique", sans-serif;
   font-size: 1.75rem;
-  padding-bottom: 0;
-  border-bottom: 1px solid #333333;
-  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+}
+
+.fade-effect-heading {
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  position: relative;
+}
+.fade-effect-heading::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 1px;
+  background-color: #333333;
+  margin-left: 12px;
+}
+.fade-effect-heading.effect-active::after {
+  animation: expandBorder 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+@keyframes expandBorder {
+  from {
+    width: 0;
+  }
+  to {
+    width: 128px;
+  }
 }
 
 p {
