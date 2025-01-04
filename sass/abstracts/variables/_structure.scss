@@ -19,7 +19,7 @@ $size__header-height-sp: 64px;
 $size__header-height-tb: 80px;
 $size__header-height-pc: 96px;
 
-$size__mobile-menu-width-max: 320px;
+$size__mobile-menu-width-max: $breakpoint__tb;
 
 $size__side-margin: 32px;
 $size__grid-gap: 32px;
