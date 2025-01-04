@@ -71,6 +71,10 @@
 				</a>
 			</div><!-- .site-branding -->
 
+			<!-- <div>
+				<?php get_search_form(); ?>
+			</div> -->
+
 			<nav id="site-navigation" class="main-navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<span></span>
