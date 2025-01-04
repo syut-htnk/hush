@@ -30,3 +30,11 @@ h4 {
 	font-size: 1.125rem;
 	padding: 1.125rem 0;
 }
+
+.section-title {
+	font-family: $font__heading__menu;
+	font-size: 1.75rem;
+	padding-bottom: 0;
+	border-bottom: 1px solid $color__text-main;
+	margin-bottom: 1rem;
+}

@@ -442,6 +442,14 @@ h4 {
   padding: 1.125rem 0;
 }
 
+.section-title {
+  font-family: "League Spartan", "Zen Kaku Gothic Antique", sans-serif;
+  font-size: 1.75rem;
+  padding-bottom: 0;
+  border-bottom: 1px solid #333333;
+  margin-bottom: 1rem;
+}
+
 p {
   margin-bottom: 1.5rem;
 }
