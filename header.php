@@ -76,7 +76,7 @@
 			</div> -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menu-Toggle-Button">
 					<span></span>
 					<span></span>
 					<span></span>
