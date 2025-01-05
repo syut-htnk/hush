@@ -67,7 +67,7 @@
 					<span>O</span>
 					<span>A</span>
 					<span>M</span> -->
-					PUROAM
+					puroam
 				</a>
 			</div><!-- .site-branding -->
 
