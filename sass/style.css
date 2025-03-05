@@ -1331,7 +1331,6 @@ textarea {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ccc;
   height: 64px;
   background-color: rgba(255, 255, 255, 0.9019607843);
   backdrop-filter: blur(4px);
