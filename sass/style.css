@@ -800,6 +800,9 @@ textarea {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+#contents-wrapper #primary .article-card .article-meta .article-title a {
+  line-height: 1em;
+}
 #contents-wrapper #primary .article-card .article-meta .article-date {
   margin: 0;
   padding: 0;
@@ -851,6 +854,9 @@ textarea {
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+#contents-wrapper #primary .article-card-sub .article-meta .article-title a {
+  line-height: 1em;
 }
 #contents-wrapper #primary .article-card-sub .article-meta .article-date {
   margin: 0;
