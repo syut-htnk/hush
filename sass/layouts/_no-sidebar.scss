@@ -242,6 +242,25 @@
 			}
 		}
 
+		#pinned-contents-wrapper {
+			// background-color: rgb(218, 218, 218);
+			// margin: 0 calc(50% - 50vw); 
+			// width: 100vw;
+			.article-card {
+				width: 100vw;
+				max-width: 1024px;
+				margin: 0 auto;
+				padding: 64px 0;
+
+				.article-thumbnail-link {
+					.article-thumbnail {
+						// height: auto;
+						// max-height: 320px;
+					}
+				}
+			}
+		}
+
 		.categories-contents-wrapper {
 			.grid-wrapper {
 				display: grid;

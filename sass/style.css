@@ -904,6 +904,12 @@ textarea {
   background-color: #333333;
   color: #f2f2f2;
 }
+#contents-wrapper #primary #pinned-contents-wrapper .article-card {
+  width: 100vw;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 64px 0;
+}
 #contents-wrapper #primary .categories-contents-wrapper .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

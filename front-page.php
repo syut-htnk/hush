@@ -85,13 +85,16 @@ get_header();
 
 <div id="contents-wrapper" class="layout-wrapper is-front-page">
 	<main id="primary" class="site-main is-front-page">
+
+		<!-- 新規投稿のセクション -->
+
 		<section id="latest-contents-wrapper" class="front-section">
 			<h2 class="section-title fade-effect-heading">Latest Posts</h2>
 			<div class="article-grid">
 				<?php
 				$args = array(
 					'post_status' => 'publish',
-					'posts_per_page' => 12,
+					'posts_per_page' => 3,
 					'ignore_sticky_posts' => 1,
 				);
 				$query = new WP_Query($args);
@@ -158,6 +161,49 @@ get_header();
 			</div>
 		</section>
 
+		<!-- 新規投稿のセクションここまで -->
+
+		<!-- 固定投稿のセクション -->
+
+		<section id="pinned-contents-wrapper" class="front-section">
+			<!-- <h2 class="section-title fade-effect-heading">Pinned Posts</h2> -->
+			<!-- <div class="article-grid"> -->
+				<?php
+				// 固定投稿のIDを配列に指定（任意のIDに置き換えてください）
+				$fixed_posts = array(297);
+				$args = array(
+					'post_status' => 'publish',
+					'posts_per_page' => 1,           // 表示する投稿数を2件に設定
+					'post__in' => $fixed_posts,  // 固定投稿IDでフィルター
+					'orderby' => 'post__in',    // 指定した順番に表示
+				);
+				$query = new WP_Query($args);
+
+				if ($query->have_posts()):
+					while ($query->have_posts()):
+						$query->the_post();
+						?>
+						<article class="article-card">
+							<?php if (has_post_thumbnail()): ?>
+								<a href="<?php the_permalink(); ?>" class="article-thumbnail-link">
+									<?php the_post_thumbnail('medium', ['class' => 'article-thumbnail']); ?>
+								</a>
+							<?php endif; ?>
+						</article>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				else:
+					?>
+					<p>投稿が見つかりませんでした。</p>
+				<?php endif; ?>
+			<!-- </div> -->
+		</section>
+
+		<!-- 固定投稿のセクションここまで -->
+
+		<!-- 人気投稿のセクション -->
+
 		<section id="popular-contents-wrapper" class="front-section">
 			<h2 class="section-title fade-effect-heading">Popular Posts</h2>
 			<div class="article-grid">
@@ -205,7 +251,9 @@ get_header();
 						</article>
 						<?php
 						$count++;
-						if ($count > 6) { break; }
+						if ($count > 6) {
+							break;
+						}
 					}
 					wp_reset_postdata();
 				}
@@ -216,8 +264,11 @@ get_header();
 			</div>
 		</section>
 
+		<!-- 人気投稿のセクションここまで -->
+
 		<hr class="section-divider">
 
+		<!-- カテゴリー毎のセクション -->
 		<?php
 		// カテゴリーIDの配列
 		$category_ids = array(2, 23, 52); // 例として1, 2, 3を指定
@@ -358,6 +409,7 @@ get_header();
 			endif;
 		}
 		?>
+		<!-- カテゴリー毎のセクションここまで -->
 
 
 	</main>
