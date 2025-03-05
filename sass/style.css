@@ -1553,6 +1553,7 @@ textarea {
 .swiper-button-next {
   transition: all 0.3s ease-in-out;
   color: #f2f2f2;
+  display: none;
 }
 .swiper-button-next::after {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -1565,6 +1566,7 @@ textarea {
 .swiper-button-prev {
   transition: all 0.3s ease-in-out;
   color: #f2f2f2;
+  display: none;
 }
 .swiper-button-prev::after {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;

@@ -157,6 +157,8 @@
   &:hover {
     transform: translateX(4px);
   }
+
+  display: none;
 }
 
 .swiper-button-prev {
@@ -171,6 +173,8 @@
   &:hover {
     transform: translateX(-4px);
   }
+
+  display: none;
 }
 
 .swiper-pagination-bullet-active {
