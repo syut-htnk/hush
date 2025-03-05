@@ -54,7 +54,13 @@
 			}
 
 			.entry-categories {
-				text-align: center;
+				text-align: left;
+				margin-bottom: 1rem;
+				a {
+					background-color: $color__text-sub;
+					padding: .1rem .5rem;
+					color: $color__text-main-inv;
+				}
 			}
 
 			.entry-meta {

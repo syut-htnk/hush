@@ -756,7 +756,13 @@ textarea {
   text-align: center;
 }
 #contents-wrapper #primary.is-single-page .entry-categories {
-  text-align: center;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+#contents-wrapper #primary.is-single-page .entry-categories a {
+  background-color: #6d6d6d;
+  padding: 0.1rem 0.5rem;
+  color: #f2f2f2;
 }
 #contents-wrapper #primary.is-single-page .entry-meta {
   text-align: center;
