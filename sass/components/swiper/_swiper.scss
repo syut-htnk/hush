@@ -17,7 +17,10 @@
     }
   
     .swiper-wrapper {
-      transition: $transition-master;
+      scroll-behavior: smooth;
+      transition-timing-function: $transition-master !important;
+      // transition-timing-function: ease-in !important;
+      // transition: $transition-master;
       height: 100%;
   
       .swiper-slide {

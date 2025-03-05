@@ -1,5 +1,6 @@
 const swiperPrimary = new Swiper('.swiper-primary', {
     // Optional parameters
+    cssMode: true,
     loop: true,
     autoplay: true,
 
