@@ -1,16 +1,19 @@
 .swiper-primary {
     background-color: gray;
-    width: calc(100vw - 32px);
-    height: calc(100vh - 32px - $size__header-height-sp);
-    margin: 16px;
-    margin-top: 0;
+    // width: calc(100vw - 32px);
+    width: 100vw;
+    height: calc(100vh -  $size__header-height-sp -  $size__header-height-sp);
+    // margin: 16px;
+    margin: 0;
+    // margin-top: 16px;
   
     @include responsive(tb) {
-      height: calc(100vh - 32px - $size__header-height-tb);
+      // height: calc(100vh - 32px - $size__header-height-tb);
+      height: calc(100vh - 64px - $size__header-height-tb - $size__header-height-tb);
     }
   
     @include responsive(pc) {
-      height: calc(100vh - 32px - $size__header-height-pc);
+      height: calc(100vh - 64px - $size__header-height-pc - $size__header-height-pc);
     }
   
     .swiper-wrapper {

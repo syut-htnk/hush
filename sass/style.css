@@ -1450,19 +1450,18 @@ textarea {
 --------------------------------------------- */
 .swiper-primary {
   background-color: gray;
-  width: calc(100vw - 32px);
-  height: calc(100vh - 32px - 64px);
-  margin: 16px;
-  margin-top: 0;
+  width: 100vw;
+  height: calc(100vh - 64px - 64px);
+  margin: 0;
 }
 @media (min-width: 768px) {
   .swiper-primary {
-    height: calc(100vh - 32px - 80px);
+    height: calc(100vh - 64px - 80px - 80px);
   }
 }
 @media (min-width: 1088px) {
   .swiper-primary {
-    height: calc(100vh - 32px - 96px);
+    height: calc(100vh - 64px - 96px - 96px);
   }
 }
 .swiper-primary .swiper-wrapper {
