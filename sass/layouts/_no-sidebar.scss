@@ -67,6 +67,11 @@
 			max-width: 1088px;
 		}
 
+		&.is-front-page {
+			// max-width: 1024px;
+			max-width: 1088px;
+		}
+
 		.article-card {
 			display: block;
 			margin: 0;
@@ -204,7 +209,8 @@
 		.categories-contents-wrapper {
 			.article-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+				// grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 				gap: 2rem;
 				margin: 0;
 				padding: 0;
