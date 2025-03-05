@@ -1,3 +1,17 @@
+// 横方向スクロール防止
+html,
+body {
+	overflow-x: hidden; // 横方向のスクロールを防止
+	width: 100vw; // 幅を制限
+}
+
+// サイト全体のコンテナにもオーバーフロー制御を追加
+.site {
+	overflow-x: hidden;
+	position: relative;
+	width: 100%;
+}
+
 .main-navigation {
 	display: flex;
 	flex-direction: row;
@@ -28,43 +42,75 @@
 		padding: 0;
 	}
 
-	#header-menu-sp-wrapper { display: block; }
-	#header-menu-pc-wrapper { display: none; } 
-	.menu-toggle { display: block; }
-    @include responsive(tb) { 
-        #header-menu-sp-wrapper { display: block; }
-        #header-menu-pc-wrapper { display: none; }
-		.menu-toggle { display: block; } 
-    }
-    @include responsive(pc) { 
-        #header-menu-sp-wrapper { display: none; } 
-        #header-menu-pc-wrapper { display: block; } 
-		.menu-toggle { display: none; } 
-    }
+	#header-menu-sp-wrapper {
+		display: block;
+	}
 
-    #header-menu-pc-wrapper {
-        ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-            list-style: none;
+	#header-menu-pc-wrapper {
+		display: none;
+	}
+
+	.menu-toggle {
+		display: block;
+	}
+
+	@include responsive(tb) {
+		#header-menu-sp-wrapper {
+			display: block;
+		}
+
+		#header-menu-pc-wrapper {
+			display: none;
+		}
+
+		.menu-toggle {
+			display: block;
+		}
+	}
+
+	@include responsive(pc) {
+		#header-menu-sp-wrapper {
+			display: none;
+		}
+
+		#header-menu-pc-wrapper {
+			display: block;
+		}
+
+		.menu-toggle {
+			display: none;
+		}
+	}
+
+	#header-menu-pc-wrapper {
+		ul {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			list-style: none;
 			gap: 16px;
-            padding: 0;
-            margin: 0 24px ;
-        }
-    }
+			padding: 0;
+			margin: 0 24px;
+		}
+	}
 
 	// .menu-toggle {
 	// 	z-index: 99999;
 	// }
 
 	#header-menu-sp-wrapper {
-		position: fixed; 
+		position: fixed;
 		top: $size__header-height-sp;
-		@include responsive(tb) { top: $size__header-height-tb; }
-		@include responsive(pc) { top: $size__header-height-pc; }
-		
+
+		@include responsive(tb) {
+			top: $size__header-height-tb;
+		}
+
+		@include responsive(pc) {
+			top: $size__header-height-pc;
+		}
+
 		right: -100%;
 		height: 100vh;
 		width: min(100vw, $size__mobile-menu-width-max);
@@ -83,7 +129,7 @@
 			padding-bottom: 0;
 			width: 0;
 			margin-bottom: 1rem;
-			
+
 			// animation: borderExpand 10.0s cubic-bezier(0.8, 0, 0.175, 1) forwards;
 
 			// @keyframes borderExpand {
@@ -96,7 +142,7 @@
 			// }
 		}
 
-	
+
 		ul {
 			display: flex;
 			flex-direction: column;
@@ -116,7 +162,7 @@
 		position: relative;
 		cursor: pointer;
 		// display: block;
-	
+
 		span {
 			position: absolute;
 			height: 2px;
@@ -124,14 +170,16 @@
 			background: $color__text-main;
 			left: 0;
 			transition: $transition-master;
-	
+
 			&:nth-child(1) {
 				top: 0;
 			}
+
 			&:nth-child(2) {
 				top: 8px;
 				width: 80%;
 			}
+
 			&:nth-child(3) {
 				top: 16px;
 			}
@@ -144,7 +192,7 @@
 				}
 			}
 		}
-	
+
 		// トグル時のアニメーション
 		// .toggled & span:nth-child(1) {
 		// 	transform: rotate(45deg);
@@ -164,12 +212,14 @@
 		position: fixed;
 		top: $size__header-height-sp;
 		height: calc(100vh - $size__header-height-sp);
-		@include responsive(tb) { 
-			top: $size__header-height-tb; 
+
+		@include responsive(tb) {
+			top: $size__header-height-tb;
 			height: calc(100vh - $size__header-height-tb);
 		}
-		@include responsive(pc) { 
-			top: $size__header-height-pc; 
+
+		@include responsive(pc) {
+			top: $size__header-height-pc;
 			height: calc(100vh - $size__header-height-pc);
 		}
 
@@ -192,15 +242,17 @@
 				transform: rotate(45deg);
 				top: 8px;
 			}
+
 			& span:nth-child(2) {
 				opacity: 0;
 			}
+
 			& span:nth-child(3) {
 				transform: rotate(-45deg);
 				top: 8px;
 			}
 		}
-	
+
 		// Add Overlay
 		&::before {
 			opacity: 1;

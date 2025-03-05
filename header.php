@@ -71,19 +71,14 @@
 				</a>
 			</div><!-- .site-branding -->
 
-			<!-- <div>
-				<?php get_search_form(); ?>
-			</div> -->
-
 			<nav id="site-navigation" class="main-navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
 					aria-label="Menu-Toggle-Button">
 					<span></span>
 					<span></span>
 					<span></span>
-					<!-- <?php esc_html_e('Primary Menu', 'lull'); ?> -->
 				</button>
-				<!-- <div class="menu-sp-overlay"></div> -->
+
 				<nav id="header-menu-sp-wrapper" class="header-menu-wrapper">
 					<h4 class="header-sp-title">Contents</h4>
 					<?php
@@ -125,8 +120,8 @@
 						}
 						?>
 					</ul>
-
 				</nav>
+
 				<div>
 					<?php
 					wp_nav_menu(

@@ -64,12 +64,12 @@
 
 		&.is-archive-page {
 			// max-width: 1024px;
-			max-width: 1088px;
+			max-width: min(1088px, calc(100vw - 4rem));
 		}
 
 		&.is-front-page {
 			// max-width: 1024px;
-			max-width: 1088px;
+			max-width: min(1088px, calc(100vw - 4rem));
 		}
 
 		.article-card {
@@ -247,7 +247,7 @@
 			// margin: 0 calc(50% - 50vw); 
 			// width: 100vw;
 			.article-card {
-				width: 100vw;
+				width: 100%;
 				max-width: 1024px;
 				margin: 0 auto;
 				padding: 64px 0;
@@ -255,7 +255,7 @@
 				.article-thumbnail-link {
 					.article-thumbnail {
 						// height: auto;
-						// max-height: 320px;
+						max-height: 320px;
 					}
 				}
 			}
