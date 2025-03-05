@@ -8,6 +8,10 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+#wpadminbar {
+	display: none;
+}
+
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
