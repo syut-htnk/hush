@@ -41,14 +41,14 @@
 	<!-- /meta -->
 
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP0W7WDLL"></script>
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP0W7WDLL"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 
 		gtag('config', 'G-0FP0W7WDLL');
-	</script>
+	</script> -->
 
 	<?php wp_head(); ?>
 </head>
@@ -76,7 +76,8 @@
 			</div> -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menu-Toggle-Button">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
+					aria-label="Menu-Toggle-Button">
 					<span></span>
 					<span></span>
 					<span></span>
