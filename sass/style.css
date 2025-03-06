@@ -747,7 +747,7 @@ textarea {
 }
 #contents-wrapper #primary {
   display: block;
-  padding: 2rem;
+  padding: 1rem;
 }
 #contents-wrapper #primary.is-single-page {
   max-width: 820px;
@@ -775,10 +775,10 @@ textarea {
   text-align: center;
 }
 #contents-wrapper #primary.is-archive-page {
-  max-width: min(1088px, 100vw - 4rem);
+  max-width: 1088px;
 }
 #contents-wrapper #primary.is-front-page {
-  max-width: min(1088px, 100vw - 4rem);
+  max-width: 1088px;
 }
 #contents-wrapper #primary .article-card {
   display: block;
@@ -903,7 +903,7 @@ textarea {
 #contents-wrapper #primary #category-contents-wrapper .article-grid,
 #contents-wrapper #primary .categories-contents-wrapper .article-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
   gap: 2rem;
   margin: 0;
   padding: 0;
@@ -952,14 +952,14 @@ textarea {
 }
 #contents-wrapper #primary .categories-contents-wrapper .grid-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
   gap: 2rem;
   margin: 0;
   padding: 0;
 }
 @media (min-width: 768px) {
   #contents-wrapper #primary .categories-contents-wrapper .grid-wrapper {
-    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, minmax(256px, 1fr));
   }
 }
 #contents-wrapper #primary .categories-contents-wrapper .grid-wrapper .article-grid-1 {

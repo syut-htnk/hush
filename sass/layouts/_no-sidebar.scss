@@ -42,7 +42,7 @@
 	#primary {
 		display: block;
 		// max-width: $size__front-contents-width-max-pc;
-		padding: 2rem;
+		padding: 1rem;
 
 		&.is-single-page {
 			// max-width: 756px;
@@ -82,13 +82,13 @@
 		}
 
 		&.is-archive-page {
-			// max-width: 1024px;
-			max-width: min(1088px, calc(100vw - 4rem));
+			max-width: 1088px;
+			// max-width: min(1088px, calc(100vw - 4rem));
 		}
 
 		&.is-front-page {
-			// max-width: 1024px;
-			max-width: min(1088px, calc(100vw - 4rem));
+			max-width: 1088px;
+			// max-width: min(1088px, calc(100vw - 4rem));
 		}
 
 		.article-card {
@@ -263,7 +263,7 @@
 			.article-grid {
 				display: grid;
 				// grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
-				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
 				gap: 2rem;
 				margin: 0;
 				padding: 0;
@@ -317,10 +317,10 @@
 		.categories-contents-wrapper {
 			.grid-wrapper {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
 
 				@include responsive(tb) {
-					grid-template-columns: repeat(2, minmax(320px, 1fr));
+					grid-template-columns: repeat(2, minmax(256px, 1fr));
 				}
 
 				gap: 2rem;
