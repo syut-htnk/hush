@@ -271,7 +271,7 @@ get_header();
 		<!-- カテゴリー毎のセクション -->
 		<?php
 		// カテゴリーIDの配列
-		$category_ids = array(2, 23, 52); // 例として1, 2, 3を指定
+		$category_ids = array(7, 22, 13); // 例として1, 2, 3を指定
 		
 		foreach ($category_ids as $cat_id) {
 			$args = array(
