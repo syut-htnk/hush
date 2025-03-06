@@ -903,10 +903,28 @@ textarea {
 #contents-wrapper #primary #category-contents-wrapper .article-grid,
 #contents-wrapper #primary .categories-contents-wrapper .article-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin: 0;
   padding: 0;
+}
+@media (min-width: 768px) {
+  #contents-wrapper #primary #latest-contents-wrapper .article-grid,
+  #contents-wrapper #primary #related-contents-wrapper .article-grid,
+  #contents-wrapper #primary #popular-contents-wrapper .article-grid,
+  #contents-wrapper #primary #category-contents-wrapper .article-grid,
+  #contents-wrapper #primary .categories-contents-wrapper .article-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1088px) {
+  #contents-wrapper #primary #latest-contents-wrapper .article-grid,
+  #contents-wrapper #primary #related-contents-wrapper .article-grid,
+  #contents-wrapper #primary #popular-contents-wrapper .article-grid,
+  #contents-wrapper #primary #category-contents-wrapper .article-grid,
+  #contents-wrapper #primary .categories-contents-wrapper .article-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 #contents-wrapper #primary #latest-contents-wrapper .view-all-posts-wrapper,
 #contents-wrapper #primary #related-contents-wrapper .view-all-posts-wrapper,
