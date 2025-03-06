@@ -170,7 +170,7 @@ get_header();
 			<!-- <div class="article-grid"> -->
 				<?php
 				// 固定投稿のIDを配列に指定（任意のIDに置き換えてください）
-				$fixed_posts = array(297);
+				$fixed_posts = array(130);
 				$args = array(
 					'post_status' => 'publish',
 					'posts_per_page' => 1,           // 表示する投稿数を2件に設定
