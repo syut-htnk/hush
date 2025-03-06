@@ -93,7 +93,7 @@
 						)
 					);
 					?>
-					<h4 class="header-sp-title">Categories</h4>
+					<!-- <h4 class="header-sp-title">Categories</h4>
 					<ul class="header-category-list">
 						<?php wp_list_categories(
 							array(
@@ -105,8 +105,8 @@
 							)
 						);
 						?>
-					</ul>
-					<h4 class="header-sp-title">Tags</h4>
+					</ul> -->
+					<!-- <h4 class="header-sp-title">Tags</h4>
 					<ul class="header-tag-list">
 						<?php
 						$tags = get_tags([
@@ -119,7 +119,7 @@
 							echo '<a href="' . get_tag_link($tag->term_id) . '">#' . $tag->name . '</a>';
 						}
 						?>
-					</ul>
+					</ul> -->
 				</nav>
 
 				<div>

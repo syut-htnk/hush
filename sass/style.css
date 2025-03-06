@@ -1127,6 +1127,9 @@ body {
   border-bottom: 1px solid #333333;
   margin-bottom: 1rem;
 }
+.main-navigation #header-menu-sp-wrapper ul li a {
+  display: block;
+}
 .main-navigation .menu-toggle {
   width: 22px;
   height: 16px;

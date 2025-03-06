@@ -152,6 +152,10 @@ body {
 			li {
 				border-bottom: 1px solid $color__text-main;
 				margin-bottom: 1rem;
+
+				a {
+					display: block;
+				}
 			}
 		}
 	}
