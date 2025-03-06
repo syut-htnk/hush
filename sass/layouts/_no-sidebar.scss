@@ -53,14 +53,28 @@
 				text-align: center;
 			}
 
+			h1.entry-title {
+				margin-top: 0;
+			}
+
 			.entry-categories {
 				text-align: left;
 				margin-bottom: 1rem;
 				a {
-					background-color: $color__text-sub;
-					padding: .1rem .5rem;
+					background-color: $color__background-category-label;
+					padding: .2rem .8rem;
+					// color: $color__text-main-inv;
 					color: $color__text-main-inv;
+					font-weight: lighter;
+					font-size: 0.875rem;
+					// border: 1px solid $color__link-hover; 
+
+					&:hover {
+						// filter: drop-shadow(0 0 0.5rem $color__link-hover);
+						background-color: $color__background-category-label-hover;
+					}
 				}
+
 			}
 
 			.entry-meta {

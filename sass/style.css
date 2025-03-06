@@ -755,14 +755,22 @@ textarea {
 #contents-wrapper #primary.is-single-page .entry-title {
   text-align: center;
 }
+#contents-wrapper #primary.is-single-page h1.entry-title {
+  margin-top: 0;
+}
 #contents-wrapper #primary.is-single-page .entry-categories {
   text-align: left;
   margin-bottom: 1rem;
 }
 #contents-wrapper #primary.is-single-page .entry-categories a {
-  background-color: #6d6d6d;
-  padding: 0.1rem 0.5rem;
+  background-color: #484848;
+  padding: 0.2rem 0.8rem;
   color: #f2f2f2;
+  font-weight: lighter;
+  font-size: 0.875rem;
+}
+#contents-wrapper #primary.is-single-page .entry-categories a:hover {
+  background-color: #969696;
 }
 #contents-wrapper #primary.is-single-page .entry-meta {
   text-align: center;
