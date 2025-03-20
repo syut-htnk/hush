@@ -737,6 +737,9 @@ textarea {
 #contents-wrapper #primary.is-archive-page {
   max-width: 1088px;
 }
+#contents-wrapper #primary.is-archive-page .page-header .page-title {
+  color: aquamarine;
+}
 #contents-wrapper #primary.is-front-page {
   max-width: 1088px;
 }

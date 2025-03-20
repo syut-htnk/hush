@@ -84,6 +84,16 @@
         &.is-archive-page {
             max-width: 1088px;
             // max-width: min(1088px, calc(100vw - 4rem));
+            .page-header {
+                .page-title {
+                    color: aquamarine;
+                }
+        
+                // .archive-description {
+                //     font-size: 1rem;
+                //     text-align: center;
+                // }
+            }
         }
 
         &.is-front-page {

@@ -73,6 +73,9 @@
 
 		&.in-front-page,
 		&.in-archive-page {
+			h1.page-title {
+				color: aqua;
+			}
 			@include responsive(tb) { 
 				display: grid;
 				grid-template-columns: repeat(2, minmax(0, $size__grid-article-width-tb-max));

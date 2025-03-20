@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<div id="contents-wrapper" class="contents-wrapper in-archive-page">
+<div id="contents-wrapper" class="contents-wrapper is-archive-page">
 
 	<header class="page-header">
 		<?php
