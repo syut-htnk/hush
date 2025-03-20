@@ -403,7 +403,7 @@ function lull_add_pr_label($content)	// $content には投稿の本文が入る
 {
 	if (is_single()) {
 		$pr_label = '<div class="pr-label" style="position: relative; border: 1px solid #ddd; padding: 24px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
-			<div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 14px; color: #666;">PR</div>
+			<div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 14px; color: #666;">注意</div>
 			<p style="margin: 0; font-size: 14px; line-height: 1.6;">この記事はアフィリエイト広告を含む場合があります。</p>
 		</div>';
 
@@ -412,9 +412,9 @@ function lull_add_pr_label($content)	// $content には投稿の本文が入る
 		if (strpos($content, $index_marker) !== false) {
 			$content = str_replace($index_marker, $pr_label . $index_marker, $content);
 		}
-
-		// Add at the end of content
-		$content .= $pr_label;
+		else {
+			$content = $pr_label . $content;
+		}
 	}
 	return $content;
 }
