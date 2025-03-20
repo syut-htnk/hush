@@ -295,18 +295,18 @@ function lull_get_sns_buttons()
 	$html = '<div class="sns-buttons-wrapper">';
 
 	// Twitter
-	//$html .= '<button id="twitter-button" class="sns-button" data-url="' . $url . '" data-text="' . $title . '" data-lang="ja">';
+	// $html .= '<button id="twitter-button" class="sns-button" data-url="' . $url . '" data-text="' . $title . '" data-lang="ja">';
 	$html .= '<a id="twitter-button" class="sns-button" href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $url . '" target="_blank" rel="noopener noreferrer">';
 	$html .= '<img src="' . $template_directory . '/assets/img/svg/twitter.svg" alt="Twitterでシェア">';
 	$html .= '</a>';
-	//$html .= '</button>';
+	// $html .= '</button>';
 
 	// LINE
-	//$html .= '<button id="line-button" class="sns-button" data-url="' . $url . '" data-text="' . $title . '" data-lang="ja">';
+	// $html .= '<button id="line-button" class="sns-button" data-url="' . $url . '" data-text="' . $title . '" data-lang="ja">';
 	$html .= '<a id="line-button" class="sns-button" href="https://social-plugins.line.me/lineit/share?url=' . $url . '" target="_blank" rel="noopener noreferrer">';
 	$html .= '<img src="' . $template_directory . '/assets/img/svg/line.svg" alt="LINEでシェア">';
 	$html .= '</a>';
-	//$html .= '</button>';
+	// $html .= '</button>';
 
 	// Pinterest
 	// 必要に応じて有効化
@@ -430,6 +430,7 @@ function lull_add_author_box($content)
 		$author_name = get_the_author_meta('display_name');
 		$author_description = get_the_author_meta('description');
 		$author_avatar = get_avatar($author_id, 80);
+		$twitter_url = 'https://x.com/_puro_zzz';
 
 		$author_box = <<<EOD
 		<div class="author-box" style="position: relative; border: 1px solid #ddd; padding: 25px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
@@ -441,6 +442,7 @@ function lull_add_author_box($content)
 				<div class="author-box__content">
 					<h3 class="author-box__name" style="margin: 0 0 8px; font-size: 18px; padding: 0;">$author_name</h3>
 					<p class="author-box__description" style="margin: 0; font-size: 14px; line-height: 1.6;">$author_description</p>
+					<a href="$twitter_url" style="display: inline-block; margin-right: 16px; font-size: 14px;"> X(Twitter) はこちら</a>
 				</div>
 			</div>
 		</div>

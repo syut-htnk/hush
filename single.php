@@ -39,6 +39,11 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
+		<!-- <section id="sns-share-wrapper">
+			<h2 class="section-title fade-effect-heading">Share this post</h2>
+			<?php lull_get_sns_buttons(); ?>
+		</section> -->
+
 		<!-- Related Posts -->
 		<section id="related-contents-wrapper" class="single-section">
 			<h2 class="section-title fade-effect-heading">Related Posts</h2>
