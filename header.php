@@ -93,6 +93,11 @@
 						)
 					);
 					?>
+
+					<h4 class="header-sp-title">Search</h4>
+					<div class="nav-sp-search">
+						<?php get_search_form(); ?>
+					</div>
 					<!-- <h4 class="header-sp-title">Categories</h4>
 					<ul class="header-category-list">
 						<?php wp_list_categories(
