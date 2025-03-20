@@ -396,6 +396,31 @@ function lull_add_index($content)
 add_filter('the_content', 'lull_add_index');
 
 /*
+ * Add PR Label
+ */
+
+function lull_add_pr_label($content)	// $content には投稿の本文が入る
+{
+	if (is_single()) {
+		$pr_label = '<div class="pr-label" style="position: relative; border: 1px solid #ddd; padding: 24px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
+			<div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 14px; color: #666;">PR</div>
+			<p style="margin: 0; font-size: 14px; line-height: 1.6;">この記事はアフィリエイト広告を含む場合があります。</p>
+		</div>';
+
+		// Add before TOC
+		$index_marker = '<div class="single__index index" id="toc">';
+		if (strpos($content, $index_marker) !== false) {
+			$content = str_replace($index_marker, $pr_label . $index_marker, $content);
+		}
+
+		// Add at the end of content
+		$content .= $pr_label;
+	}
+	return $content;
+}
+add_filter('the_content', 'lull_add_pr_label');
+
+/*
  * Add Author Box
  */
 function lull_add_author_box($content)
