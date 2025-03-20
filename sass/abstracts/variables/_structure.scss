@@ -1,0 +1,59 @@
+$size__site-main: 100%;
+$size__site-sidebar: 320px;
+
+$breakpoint__tb: 768px;
+$breakpoint__pc: 1088px;
+
+$breakpoints : (
+    'tb': $breakpoint__tb,
+    'pc': $breakpoint__pc
+);
+
+$column_num : (
+    sp: 1,
+    tb: 2,
+    pc: 2
+);
+
+$size__header-height-sp: 64px;
+$size__header-height-tb: 80px;
+$size__header-height-pc: 96px;
+
+$size__mobile-menu-width-max: $breakpoint__tb;
+
+$size__side-margin: 32px;
+$size__grid-gap: 32px;
+
+$size__grid-article-width-tb-max: 320px;
+$size__grid-article-width-pc-max: 380px;
+
+$size__content-width-tb-max: 
+    $size__grid-article-width-tb-max * map-get($map: $column_num, $key: tb)  
+    + $size__grid-gap * (map-get($map: $column_num, $key: tb) - 1);
+
+$size__content-width-pc-max: 
+    $size__grid-article-width-pc-max * map-get($map: $column_num, $key: pc) 
+    + $size__grid-gap * (map-get($map: $column_num, $key: tb) - 1);
+
+$size__global-width-max-tb: 
+    $size__side-margin 
+    + $size__content-width-tb-max
+    + $size__side-margin;
+
+$size__global-width-max-pc: 
+    $size__side-margin 
+    + $size__content-width-pc-max
+    + $size__grid-gap
+    + $size__site-sidebar
+    + $size__side-margin;
+
+/* ----- old ----- */
+
+$size__post-contents-width-max-sp: 680px; /* ポストコンテンツの最大幅 */
+$size__post-contents-width-max-tb: 680px; /* ポストコンテンツの最大幅 */
+$size__post-contents-width-max-pc: 680px; /* ポストコンテンツの最大幅 */
+
+$size__front-contents-width-max-sp: 680px; /* フロントページコンテンツの最大幅 */
+$size__front-contents-width-max-tb: 680px; /* フロントページコンテンツの最大幅 */
+$size__front-contents-width-max-pc: 1280px; /* フロントページコンテンツの最大幅 */
+

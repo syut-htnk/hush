@@ -1,0 +1,53 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	// Make sure select elements fit in widgets.
+	select {
+		max-width: 100%;
+	}
+}
+
+.sns-buttons-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+
+	.sns-button {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.breadcrumb {
+	margin: 2rem 0 1rem 0;
+	font-size: .75rem;
+}
+
+.nav-links {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+}
+
+.pagination {
+    grid-column: span 2; /* Span across both columns */
+    margin: 1.5em 0;
+    text-align: center; /* Center-align pagination */
+	//color: $color__text-main;
+
+	.page-numbers {
+		display: inline-block;
+		padding: 0.5em 0.75em;
+		border-radius: 4px;
+		color: $color__text-sub;
+		text-decoration: none;
+
+		&.current {
+			color: $color__text-main;
+		}
+	}
+}

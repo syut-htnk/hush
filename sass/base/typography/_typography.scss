@@ -1,0 +1,20 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	font-weight: $font__weight-reguler;
+	font-size: 1rem;
+	line-height: $font__line-height-body;
+
+	// 本文内でのみ適用
+	&.entry-content {
+		letter-spacing: $font__letter_spacing__body;
+	}
+}
+
+@import "headings";
+@import "copy";
