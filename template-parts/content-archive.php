@@ -26,7 +26,7 @@
 					foreach ($categories as $category) {
 						$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
 					}
-					echo implode('・', $links);
+					echo implode(' ', $links);
 				}
 				?>
 			</div>
