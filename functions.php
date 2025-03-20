@@ -386,7 +386,44 @@ function lull_add_index( $content ) {
 }
 add_filter( 'the_content', 'lull_add_index' );
 
-
+/*
+ * Add Author Box
+ */
+function lull_add_author_box($content) {
+	if (is_single()) {
+		$author_id = get_the_author_meta('ID');
+		$author_name = get_the_author_meta('display_name');
+		$author_description = get_the_author_meta('description');
+		$author_avatar = get_avatar($author_id, 80);
+		
+		$author_box = <<<EOD
+		<div class="author-box" style="position: relative; border: 1px solid #ddd; padding: 25px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
+			<div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 14px; color: #666;">この記事を書いた人</div>
+			<div style="display: flex; align-items: center;">
+				<div class="author-box__avatar" style="margin-right: 15px;">
+					$author_avatar
+				</div>
+				<div class="author-box__content">
+					<h3 class="author-box__name" style="margin: 0 0 8px; font-size: 18px; padding: 0;">$author_name</h3>
+					<p class="author-box__description" style="margin: 0; font-size: 14px; line-height: 1.6;">$author_description</p>
+				</div>
+			</div>
+		</div>
+		EOD;
+		
+		// Add before TOC
+		$index_marker = '<div class="single__index index" id="toc">';
+		if (strpos($content, $index_marker) !== false) {
+			$content = str_replace($index_marker, $author_box . $index_marker, $content);
+		}
+		
+		// Add at the end of content
+		$content .= $author_box;
+	}
+	return $content;
+}
+add_filter( 'the_content', 'lull_add_author_box' );
+remove_filter('pre_user_description', 'wp_filter_kses');
 
 /*
  * Add noindex meta box
