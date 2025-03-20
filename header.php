@@ -122,18 +122,90 @@
 					</ul> -->
 				</nav>
 
-				<div>
+				<div id="header-menu-pc-wrapper" class="header-menu-wrapper">
 					<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'header-menu',
 							'container' => 'nav',
-							'container_id' => 'header-menu-pc-wrapper',
-							'container_class' => 'header-menu-wrapper',
+							'container_id' => '',
+							'container_class' => '',
 							'fallback_cb' => '',
 						)
 					);
 					?>
+
+					<div class="header-search-icon">
+						<button id="search-toggle" aria-label="Search">
+							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<circle cx="11" cy="11" r="8"></circle>
+								<line x1="22" y1="22" x2="16.65" y2="16.65"></line>
+							</svg>
+						</button>
+						<div id="search-overlay" class="search-overlay">
+							<div class="search-overlay-content">
+								<div class="search-overlay-header">
+									<button id="search-close" class="search-close" aria-label="Close search">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="2 2 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<line x1="2" y1="2" x2="20" y2="20"></line>
+											<line x1="20" y1="2" x2="2" y2="20"></line>
+										</svg>
+									</button>
+									<h3><?php esc_html_e('Search', 'lull'); ?></h3>
+								</div>
+								<div class="search-overlay-tags">
+									<?php
+									// カスタムタグクラウド（ハッシュタグ付き）
+									$tags = get_tags(array(
+										'number' => 20,
+										'orderby' => 'count',
+										'order' => 'DESC',
+									));
+
+									if ($tags) {
+										foreach ($tags as $tag) {
+											echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">#' . esc_html($tag->name) . '</a>';
+										}
+									}
+									?>
+								</div>
+								<?php get_search_form(); ?>
+								<p>Esc to close.</p>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- <script>
+						document.addEventListener('DOMContentLoaded', function () {
+							const body = document.body;
+							const searchToggle = document.getElementById('search-toggle');
+							const searchOverlay = document.getElementById('search-overlay');
+							const searchClose = document.getElementById('search-close');
+
+							searchToggle.addEventListener('click', function () {
+								searchOverlay.classList.add('active');
+								document.querySelector('.search-field').focus();
+								document.body.style.overflow = 'hidden';
+								body.classList.add( 'no-scroll' );
+							});
+
+							searchClose.addEventListener('click', function () {
+								searchOverlay.classList.remove('active');
+								document.body.style.overflow = '';
+							});
+
+							document.addEventListener('keydown', function (e) {
+								if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+									searchOverlay.classList.remove('active');
+									document.body.style.overflow = '';
+								}
+							});
+						});
+					</script> -->
 				</div>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->
