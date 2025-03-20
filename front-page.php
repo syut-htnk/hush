@@ -15,76 +15,77 @@
 get_header();
 ?>
 
-<!-- Slider main container -->
-<div class="swiper swiper-primary">
-	<div class="swiper-wrapper">
-		<?php
-		$args = array(
-			'post_status' => 'publish',
-			'posts_per_page' => 5,
-		);
-		$query = new WP_Query($args);
-
-		if ($query->have_posts()):
-			while ($query->have_posts()):
-				$query->the_post();
-				?>
-				<div class="swiper-slide">
-					<?php if (has_post_thumbnail()): ?>
-						<!-- <a class="slide-image-wrapper" href="<?php the_permalink(); ?>"> -->
-						<div class="slide-image-wrapper">
-							<?php the_post_thumbnail('large', ['class' => 'slide-image']); ?>
-							<!-- </a> -->
-						</div>
-					<?php endif; ?>
-					<div class="slide-content">
-						<!-- category -->
-						<!-- <button class="slide-category"> -->
-						<div class="slide-category">
-							<!-- <?php
-							// $categories = get_the_category();
-							// if (!empty($categories)) {
-							// 	foreach ($categories as $category) {
-							// 		echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
-							// 	}
-							// }
-							?> -->
-							<?php
-							$categories = get_the_category();
-							if (!empty($categories)) {
-								$links = array();
-								foreach ($categories as $category) {
-									$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
-								}
-								echo implode(' ', $links);
-							}
-							?>
-						</div>
-						<!-- </button> -->
-						<h2 class="slide-title"><?php the_title(); ?></h2>
-						<a class="slide-read-more" href="<?php the_permalink(); ?>">もっと読む</a>
-					</div>
-				</div>
-				<?php
-			endwhile;
-			wp_reset_postdata();
-		else:
-			?>
-			<div class="swiper-slide">
-				<p>投稿が見つかりませんでした。</p>
-			</div>
-		<?php endif; ?>
-	</div>
-
-	<div class="swiper-pagination"></div>
-	<div class="swiper-button-prev"></div>
-	<div class="swiper-button-next"></div>
-</div>
 
 <!-- <hr class="section-divider"> -->
 
 <div id="contents-wrapper" class="layout-wrapper is-front-page">
 	<main id="primary" class="site-main is-front-page">
+		
+		<!-- Slider main container -->
+		<div class="swiper swiper-primary">
+			<div class="swiper-wrapper">
+				<?php
+				$args = array(
+					'post_status' => 'publish',
+					'posts_per_page' => 5,
+				);
+				$query = new WP_Query($args);
+		
+				if ($query->have_posts()):
+					while ($query->have_posts()):
+						$query->the_post();
+						?>
+						<div class="swiper-slide">
+							<?php if (has_post_thumbnail()): ?>
+								<!-- <a class="slide-image-wrapper" href="<?php the_permalink(); ?>"> -->
+								<div class="slide-image-wrapper">
+									<?php the_post_thumbnail('large', ['class' => 'slide-image']); ?>
+									<!-- </a> -->
+								</div>
+							<?php endif; ?>
+							<div class="slide-content">
+								<!-- category -->
+								<!-- <button class="slide-category"> -->
+								<div class="slide-category">
+									<!-- <?php
+									// $categories = get_the_category();
+									// if (!empty($categories)) {
+									// 	foreach ($categories as $category) {
+									// 		echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+									// 	}
+									// }
+									?> -->
+									<?php
+									$categories = get_the_category();
+									if (!empty($categories)) {
+										$links = array();
+										foreach ($categories as $category) {
+											$links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="category-link">' . esc_html($category->name) . '</a>';
+										}
+										echo implode(' ', $links);
+									}
+									?>
+								</div>
+								<!-- </button> -->
+								<h2 class="slide-title"><?php the_title(); ?></h2>
+								<a class="slide-read-more" href="<?php the_permalink(); ?>">もっと読む</a>
+							</div>
+						</div>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				else:
+					?>
+					<div class="swiper-slide">
+						<p>投稿が見つかりませんでした。</p>
+					</div>
+				<?php endif; ?>
+			</div>
+		
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
 
 		<!-- 新規投稿のセクション -->
 
