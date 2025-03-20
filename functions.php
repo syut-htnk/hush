@@ -425,6 +425,146 @@ function lull_add_author_box($content) {
 add_filter( 'the_content', 'lull_add_author_box' );
 remove_filter('pre_user_description', 'wp_filter_kses');
 
+/* ---------- プロフィール画像を変更する ---------- */
+// home_image_urlを取得する関数
+if (!function_exists('get_home_image_url')) {
+	function get_home_image_url($user_id)
+	{
+	  if (!$user_id) {
+		$user_id = get_the_posts_author_id();
+	  }
+	  return esc_html(get_the_author_meta('home_image_url', $user_id));
+	}
+  }
+  
+  // ユーザー情報追加
+  add_action('show_user_profile', 'add_avatar_to_user_profile_demo');
+  add_action('edit_user_profile', 'add_avatar_to_user_profile_demo');
+  if (!function_exists('add_avatar_to_user_profile_demo')) {
+	function add_avatar_to_user_profile_demo($user)
+	{
+	?>
+	  <h3>プロフィール画像</h3>
+	  <table class="form-table">
+		<tr>
+		  <th>
+			<label for="avatar">プロフィール画像URL</label>
+		  </th>
+		  <td>
+			<?php generate_upload_image_tag('home_image_url', get_home_image_url($user->ID)); ?>
+			<p class="description">Gravatarよりこちらのプロフィール画像が優先されます。240×240pxの正方形の画像がお勧めです。</p>
+		  </td>
+		</tr>
+	  </table>
+	<?php
+	}
+  }
+  
+  // 入力した値を保存する
+  add_action('personal_options_update', 'update_avatar_to_user_profile_demo');
+  if (!function_exists('update_avatar_to_user_profile_demo')) {
+	function update_avatar_to_user_profile_demo($user_id)
+	{
+	  if (current_user_can('edit_user', $user_id)) {
+		update_user_meta($user_id, 'home_image_url', $_POST['home_image_url']);
+	  }
+	}
+  }
+  
+  // プロフィール画像を変更する
+  add_filter('get_avatar', 'get_uploaded_user_profile_avatar_demo', 1, 5);
+  if (!function_exists('get_uploaded_user_profile_avatar_demo')) {
+	function get_uploaded_user_profile_avatar_demo($avatar, $id_or_email, $size, $default, $alt) {
+	  if (is_numeric($id_or_email))
+		$user_id = (int)$id_or_email;
+	  elseif (is_string($id_or_email) && ($user = get_user_by('email', $id_or_email)))
+		$user_id = $user->ID;
+	  elseif (is_object($id_or_email) && !empty($id_or_email->user_id))
+		$user_id = (int)$id_or_email->user_id;
+  
+	  if (empty($user_id))
+		return $avatar;
+  
+	  if (get_home_image_url($user_id)) {
+		$alt = !empty($alt) ? $alt : get_the_author_meta('display_name', $user_id);;
+		$author_class = is_author($user_id) ? ' current-author' : '';
+		$avatar = "<img alt='" . esc_attr($alt) . "' src='" . esc_url(get_home_image_url($user_id)) . "' class='avatar avatar-{$size}{$author_class} photo' height='{$size}' width='{$size}' />";
+	  }
+	  return $avatar;
+	}
+  }
+  
+  /* ---------- 画像アップローダーの追加 ---------- */
+  // 画像アップロード用のタグを出力する
+  function generate_upload_image_tag($name, $value)
+  { ?>
+	<input name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+	<input type="button" name="<?php echo $name; ?>_slect" value="選択" class="button" />
+	<input type="button" name="<?php echo $name; ?>_clear" value="クリア" class="button" />
+	<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+	  <?php if ($value) : ?>
+		<img src="<?php echo $value; ?>" alt="選択中の画像">
+	  <?php endif ?>
+	</div>
+  
+  <script type="text/javascript">
+	  (function($) {
+		var custom_uploader;
+  
+		$("input:button[name=<?php echo $name; ?>_slect]").click(function(e) {
+		  e.preventDefault();
+  
+		  if (custom_uploader) {
+			custom_uploader.open();
+			return;
+		  }
+  
+		  custom_uploader = wp.media({
+			title: "画像を選択してください",
+			/* ライブラリの一覧は画像のみにする */
+			library: {
+			  type: "image"
+			},
+			button: {
+			  text: "画像の選択"
+			},
+			/* 選択できる画像は 1 つだけにする */
+			multiple: false
+		  });
+  
+		  custom_uploader.on("select", function() {
+			var images = custom_uploader.state().get("selection");
+  
+			/* file の中に選択された画像の各種情報が入っている */
+			images.each(function(file) {
+			  /* テキストフォームと表示されたサムネイル画像があればクリア */
+			  $("input:text[name=<?php echo $name; ?>]").val("");
+			  $("#<?php echo $name; ?>_thumbnail").empty();
+			  /* テキストフォームに画像の URL を表示 */
+			  $("input:text[name=<?php echo $name; ?>]").val(file.attributes.sizes.full.url);
+			  /* プレビュー用に選択されたサムネイル画像を表示 */
+			  $("#<?php echo $name; ?>_thumbnail").append('<img src="' + file.attributes.sizes.full.url + '" />');
+			});
+		  });
+		  custom_uploader.open();
+		});
+  
+		/* クリアボタンを押した時の処理 */
+		$("input:button[name=<?php echo $name; ?>_clear]").click(function() {
+		  $("input:text[name=<?php echo $name; ?>]").val("");
+		  $("#<?php echo $name; ?>_thumbnail").empty();
+		});
+	  })(jQuery);
+	</script>
+  <?php
+  }
+  
+  //メディアアップローダの javascript API
+  function my_admin_scripts() {
+	wp_enqueue_media();
+  }
+  add_action('admin_print_scripts', 'my_admin_scripts');
+
 /*
  * Add noindex meta box
  */
