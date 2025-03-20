@@ -395,6 +395,41 @@ function lull_add_index($content)
 }
 add_filter('the_content', 'lull_add_index');
 
+
+/*
+ * Add PR label
+ */
+
+function lull_add_pr_label($content)
+{
+	if (is_single()) {
+		$pr_label = '<div class="pr-label" style="background-color: #eee; display: inline-block; padding: 4px 12px; border-radius: 0px; font-size: calc(1rem - 2px); margin-bottom: 32px;">
+		この記事はアフィリエイトリンクを含む可能性があります。</div>';
+
+		// 記事の先頭に追加するために h1 タグを探す
+		$h1_pattern = '/<h1.*?>(.*?)<\/h1>/is';
+		if (preg_match($h1_pattern, $content, $h1_matches)) {
+			// h1 タグの後に PR ラベルを挿入
+			$content = preg_replace($h1_pattern, $h1_matches[0] . $pr_label, $content, 1);
+		} else {
+			// h1 タグがない場合は記事の先頭に追加
+			// h1 タグがない場合、またはエントリータイトルのクラスを持つ h1 タグを探す
+			$entry_title_pattern = '/<h1\s+class="entry-title".*?>(.*?)<\/h1>/is';
+			if (preg_match($entry_title_pattern, $content, $title_matches)) {
+				// エントリータイトルの h1 タグの後に PR ラベルを挿入
+				$content = preg_replace($entry_title_pattern, $title_matches[0] . $pr_label, $content, 1);
+			} else {
+				// どちらも見つからない場合は記事の先頭に追加
+				$content = $pr_label . $content;
+			}
+		}
+
+		return $content;
+	}
+}
+add_filter('the_content', 'lull_add_pr_label'); // 他のフィルターより先に実行するために優先度を9に設定
+
+
 /*
  * Add Author Box
  */
