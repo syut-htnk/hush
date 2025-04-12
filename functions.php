@@ -237,7 +237,7 @@ function lull_get_breadcrumb()
 				echo '<meta itemprop="position" content="2" />';
 				echo '</span> » ';
 				echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-				echo '<span itemprop="name">' . get_the_title() . '</span>';
+				echo '<span itemprop="name" style="display:none;">' . get_the_title() . '</span>';
 				echo '<meta itemprop="position" content="3" />';
 				echo '</span>';
 			}
@@ -404,7 +404,7 @@ function lull_add_pr_label($content)	// $content には投稿の本文が入る
 	if (is_single()) {
 		$pr_label = '<div class="pr-label" style="position: relative; border: 1px solid #ddd; padding: 24px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
 			<div style="position: absolute; top: -12px; left: 20px; background: #FDFDFD; padding: 0 10px; font-size: 14px; color: #666;">注意</div>
-			<p style="margin: 0; font-size: 14px; line-height: 1.6;">この記事はアフィリエイト広告を含む場合があります。</p>
+			<p style="margin: 0; font-size: 14px; line-height: 1.6;">この記事は広告を含む場合があります。</p>
 		</div>';
 
 		// Add before TOC

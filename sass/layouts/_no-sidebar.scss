@@ -78,6 +78,27 @@
 
             .entry-meta {
                 text-align: center;
+                margin-bottom: 0rem;
+
+                .posted-on {
+                    margin: 0;
+                    padding: 0;
+                    color: $color__text-sub;
+                    font-size: 0.875rem;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            .breadcrumb {
+                margin-bottom: 0;
+                margin-top: 0.25rem;
+                // overflow-x: auto;
+                // width: 100%;
+                // white-space: nowrap;
+                // -webkit-overflow-scrolling: touch;
+                // scrollbar-width: thin;
+                
             }
         }
 

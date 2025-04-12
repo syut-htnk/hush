@@ -13,8 +13,8 @@
 	<header class="entry-header">
 		<div class="entry-categories"><?php the_category( ' ' );?></div>
 		<div class="entry-meta"><?php lull_posted_on(); ?></div>
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="breadcrumb"><?php lull_get_breadcrumb(); ?></div>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php lull_post_thumbnail(); ?>

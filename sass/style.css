@@ -742,6 +742,19 @@ textarea {
 }
 #contents-wrapper #primary.is-single-page .entry-meta {
   text-align: center;
+  margin-bottom: 0rem;
+}
+#contents-wrapper #primary.is-single-page .entry-meta .posted-on {
+  margin: 0;
+  padding: 0;
+  color: #6d6d6d;
+  font-size: 0.875rem;
+  text-align: center;
+  width: 100%;
+}
+#contents-wrapper #primary.is-single-page .breadcrumb {
+  margin-bottom: 0;
+  margin-top: 0.25rem;
 }
 #contents-wrapper #primary.is-archive-page {
   max-width: 1088px;
