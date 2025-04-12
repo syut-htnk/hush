@@ -403,7 +403,7 @@ function lull_add_pr_label($content)	// $content には投稿の本文が入る
 {
 	if (is_single()) {
 		$pr_label = '<div class="pr-label" style="position: relative; border: 1px solid #ddd; padding: 24px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
-			<div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 14px; color: #666;">注意</div>
+			<div style="position: absolute; top: -12px; left: 20px; background: #FDFDFD; padding: 0 10px; font-size: 14px; color: #666;">注意</div>
 			<p style="margin: 0; font-size: 14px; line-height: 1.6;">この記事はアフィリエイト広告を含む場合があります。</p>
 		</div>';
 
@@ -434,7 +434,7 @@ function lull_add_author_box($content)
 
 		$author_box = <<<EOD
 		<div class="author-box" style="position: relative; border: 1px solid #ddd; padding: 25px 20px 20px; margin-bottom: 40px; margin-top: 40px;">
-			<div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 14px; color: #666;">この記事を書いた人</div>
+			<div style="position: absolute; top: -12px; left: 20px; background: #FDFDFD; padding: 0 10px; font-size: 14px; color: #666;">この記事を書いた人</div>
 			<div style="display: flex; align-items: center;">
 				<div class="author-box__avatar" style="margin-right: 32px; border-radius: 50%; overflow: hidden;">
 					$author_avatar
