@@ -610,6 +610,15 @@ a:hover, a:focus, a:active {
   color: #c5c5c5;
 }
 
+.entry-content a {
+  color: #21759b;
+  text-decoration: underline;
+}
+.entry-content a:hover, .entry-content a:focus, .entry-content a:active {
+  color: #c5c5c5;
+  text-decoration: none;
+}
+
 /* Forms
 --------------------------------------------- */
 input[type=button],

@@ -20,5 +20,18 @@ a {
 	// &:active {
 	// 	outline: 0;
 	// }
+}
 
+.entry-content {
+	a {
+		color: $color__link_conntent;
+		text-decoration: underline;
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color__link-hover;
+			text-decoration: none;
+		}
+	}
 }
